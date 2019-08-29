@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="请输入用户名" id="search">
+<button onclick="searchUser()">查询</button>
+<table id="userTalbe" cellpadding="0" border="1" width="300">
+    <tr>
+        <th>用户名</th>
+        <th>密码</th>
+        <th>操作</th>
+    </tr>
+    <!--<tr>-->
+        <!--<td>admin</td>-->
+        <!--<td>123</td>-->
+        <!--<td><button>删除</button></td>-->
+    <!--</tr>-->
+</table>
+
+<script>
+    window.onload=function () {
+        getAllUser();
+    };
+    function getAllUser() {
+        //1.创建xhr对象
+        var xhr;
+        if(window.XMLHttpRequest){
+            xhr=new XMLHttpRequest();
+        }else{
+            xhr=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        //2.注册回调函数
+        xhr.onreadystatechange=function () {
+            if(xhr.readyState==4&&xhr.status==200){
+                console.log(xhr.responseText);
+                console.log(typeof xhr.responseText);
+                //收到的是JSON字符串格式
+                var data=JSON.parse(xhr.responseText);//将JSON字符串转换成了JSON对象
+                console.log(data);
+                console.log(typeof  data);
+                console.log(data[0].username);
+
+                document.getElementById("userTalbe").innerHTML="<tr>"+
+                    "<th>用户名</th>"+
+                    "<th>密码</th>"+
+                    "<th>操作</th>"+
+                    "</tr>";
+
+                for(var i=0;i<data.length;i++){
+                    document.getElementById("userTalbe").innerHTML+="<tr>"+
+                        "<td>"+data[i].username+"</td>"+
+                        "<td>"+data[i].pwd+"</td>"+
+                        "<td><button>删除</button></td>"+
+                        "</tr>"
+                }
+            }
+        }
+        //3.发送请求 -连接服务器
+        xhr.open("get","/getAllUser.do");
+        //4.发送参数
+        xhr.send(null);
+    }
+    function searchUser() {
+        var username=document.getElementById("search").value;
+
+        var xhr;
+        if(window.XMLHttpRequest){
+            xhr=new XMLHttpRequest();
+        }else{
+            xhr=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xhr.onreadystatechange=function () {
+            if(xhr.readyState==4&&xhr.status==200){
+                console.log(xhr.responseText);
+                var data=JSON.parse(xhr.responseText);
+
+                document.getElementById("userTalbe").innerHTML="<tr>"+
+                    "<th>用户名</th>"+
+                    "<th>密码</th>"+
+                    "<th>操作</th>"+
+                    "</tr>";
+
+                for(var i=0;i<data.length;i++){
+                    document.getElementById("userTalbe").innerHTML+="<tr>"+
+                        "<td>"+data[i].username+"</td>"+
+                        "<td>"+data[i].pwd+"</td>"+
+                        "<td><button>删除</button></td>"+
+                        "</tr>"
+                }
+            }
+        }
+
+        xhr.open("get","searchUser.do?username="+username);
+        xhr.send(null);
+
+    }
+</script>
+</body>
+</html>

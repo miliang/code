@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>提交成功页面</h1>
+<div id="loginMsg"></div>
+<div id="myLoca"></div>
+<script>
+    var loginMsg=document.getElementById("loginMsg");
+    var getUser1=sessionStorage.getItem("myUser");//方法1
+
+    getUser1=sessionStorage.myUser;//方法2
+    //===============localStorage================
+    getUser1=localStorage.myUser;
+    loginMsg.innerHTML=getUser1;
+
+    var myLoca=document.getElementById("myLoca");
+
+
+    var getObj=localStorage.getItem("myObj");
+
+    var JsonGetObj=JSON.parse(getObj);
+
+//    console.log(typeof getObj);
+    myLoca.innerHTML=JsonGetObj.sex;
+</script>
+</body>
+</html>

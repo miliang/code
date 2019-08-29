@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/index.css">
+  <title></title>
+</head>
+<body>
+<%-include("common/header.ejs")%>
+
+
+<h1>人物子页面</h1>
+<br>
+<a href="/ejs.html">ejs.html 主页</a>
+
+<%=mydata%>
+<%=mydata[0].p_name%>
+<%=mydata[0].p_url%>
+<%=mydata[0].p_des%>
+
+<div>
+  <h5><%=mydata[0].p_name%></h5>
+  <img src="<%=mydata[0].p_url%>" alt="">
+  <div>
+    <p>文字描述</p>
+    <span><%=mydata[0].p_des%></span>
+  </div>
+</div>
+
+<div>
+  <h5><%=mydata[1].p_name%></h5>
+  <img src="<%=mydata[1].p_url%>" alt="">
+  <div>
+    <p>文字描述</p>
+    <span><%=mydata[1].p_des%></span>
+  </div>
+</div>
+
+<!--==============循环================-->
+
+<%for(var i=0;i<mydata.length;i++){%>
+<div>
+  <h5><%=mydata[i].p_name%></h5>
+  <img src="<%=mydata[i].p_url%>" alt="">
+  <div>
+    <p>文字描述</p>
+    <span><%=mydata[i].p_des%></span>
+  </div>
+</div>
+<%}%>
+
+
+<%-include("common/footer.ejs")%>
+
+<script>
+  var mya="<%=mydata[0].p_des%>";
+  console.log(mya);
+</script>
+
+</body>
+</html>

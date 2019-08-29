@@ -1,0 +1,110 @@
+// =========变量=========
+//定义变量的方式: @变量名：值
+
+@color: #c1353f;
+//===========混合设置============
+
+.myBorder(@bdwidth,@bdcolor){
+  border: @bdwidth solid @bdcolor;
+}
+//===========复杂模板=============
+.mySBorder(@bdtop:5px,@bdleft:5px,@bdright:5px,@bdbt:5px,@bdradius:10px){
+  border-top:@bdtop solid #3dc1ad;
+  border-left:@bdleft solid gold;
+  border-right:@bdright solid #c158a7;
+  border-bottom:@bdbt solid #5d49c1;
+  border-radius:@bdradius;
+}
+//条件调用
+.mySBorder(@bdtop:5px,@bdleft:5px,@bdright:5px,@bdbt:5px,@bdradius:10px) when(@bdradius>15px) {
+  border-top:@bdtop solid #3dc1ad;
+  border-left:@bdleft solid #3dc1ad;
+  border-right:@bdright solid #3dc1ad;
+  border-bottom:@bdbt solid #3dc1ad;
+  border-radius:@bdradius;
+}
+
+//兼容
+
+.myBg(@color1,@color2){
+  background-image: -webkit-linear-gradient(top,@color1,@color2);
+  background-image: -moz-linear-gradient(top,@color1,@color2);
+  background-image: -ms-linear-gradient(top,@color1,@color2);
+  background-image: -o-linear-gradient(top,@color1,@color2);
+}
+
+.myBg(before,@color1,@color2){
+  background-image: -webkit-linear-gradient(top,@color1,@color2);
+  background-image: -moz-linear-gradient(top,@color1,@color2);
+  background-image: -ms-linear-gradient(top,@color1,@color2);
+  background-image: -o-linear-gradient(top,@color1,@color2);
+  opacity: 1;
+
+}
+.myBg(after,@color1,@color2){
+  background-image: -webkit-linear-gradient(left,@color1,@color2);
+  background-image: -moz-linear-gradient(left,@color1,@color2);
+  background-image: -ms-linear-gradient(left,@color1,@color2);
+  background-image: -o-linear-gradient(left,@color1,@color2);
+  opacity: .5;
+
+}
+//====公用模板=========
+.myBg(@_,@color1 ,@color12){//@_:less设置的通用符
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear ;
+  -ms-transition: all 1s linear ;
+  -o-transition: all 1s linear;
+  transition: all 1s linear ;
+}
+//===========计算==============
+.myDivHW(@width){
+  width: @width;
+  //height: @width*pi();/*函数*/
+  height: @width*2;
+}
+
+
+#div1{
+  color:@color;
+  //width: 100px;
+  //height: 200px;
+  .myDivHW(100px);
+  //border: 1px solid red;
+  .myBorder(5px,yellow);
+  float: left;
+  .myBg(before,green,yellow);
+}
+#div1:hover{
+  .myBg(after,green,yellow);
+}
+#div2{
+  color:@color;
+  //width: 200px;
+  //height: 400px;
+  .myDivHW(200px);
+  //border: 3px solid pink;
+  //.myBorder(10px,pink);
+  .mySBorder(5px,5px,5px,5px,20px);
+  //.mySBorder();
+  float: left;
+  //background-image: -webkit-linear-gradient(top,yellow,green);
+  //background-image: -moz-linear-gradient(top,yellow,green);
+  //background-image: -ms-linear-gradient(top,yellow,green);
+  //background-image: -o-linear-gradient(top,yellow,green);
+  .myBg(before,white,pink);
+}
+#div3{
+  color:@color;
+  //width: 300px;
+  //height: 600px;
+  .myDivHW(300px);
+  //border: 5px solid black;
+  .myBorder(15px,black);
+  float: left;
+  //background-image: -webkit-linear-gradient(top,yellow,green);
+  //background-image: -moz-linear-gradient(top,yellow,green);
+  //background-image: -ms-linear-gradient(top,yellow,green);
+  //background-image: -o-linear-gradient(top,yellow,green);
+  .myBg(before,white,@color);
+}

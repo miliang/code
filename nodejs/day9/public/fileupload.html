@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/uploadFile.do" method="post" enctype="multipart/form-data">
+    <input type="file" name="myfile">
+    <button>上传</button>
+</form>
+<!--npm install multer --save-->
+<h1>多文件上传</h1>
+<form action="/uploadFiles.do" method="post" enctype="multipart/form-data">
+    <input type="file" name="myfiles" multiple="multiple">
+    <button>上传</button>
+</form>
+
+<h1>文件下载</h1>
+<a href="uploads/148座位表.xlsx">点击下载文件</a>
+
+<a href="/fileDownload.do">
+    <button>点击下载文件</button>
+</a>
+</body>
+</html>

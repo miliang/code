@@ -1,0 +1,39 @@
+nav ul{
+  .myLinear(@dir:top,@color1:orange,@color2:yellow,@color3:orange){
+    background-image: -webkit-linear-gradient(@dir,@color1,@color2,@color3);
+    background-image: -moz-linear-gradient(@dir,@color1,@color2,@color3);
+    background-image: -ms-linear-gradient(@dir,@color1,@color2,@color3);
+    background-image: -o-linear-gradient(@dir,@color1,@color2,@color3);
+  }
+  .myBoxShadow(@x:0px,@y:5px,@blur:5px,@outer:0px,@shadow:gray){
+    box-shadow: @arguments;//所有参数都要用 按顺序以空格分开
+  };
+  padding: 0;
+  margin: 0;
+  >li{
+    width: 200px;
+    height: 50px;
+    list-style: none;
+    float: left;
+    font-size: 15px;
+    text-align: center;
+    line-height: 50px;
+    //background-image: -webkit-linear-gradient(top,orange,yellow,orange);
+    .myLinear();
+    .myBoxShadow();
+    overflow: hidden;
+    color: #222222;
+    >ul{
+      background: yellow;
+      >li:hover{
+        background: orange;
+      }
+    }
+    &:hover{
+      overflow: visible;
+      background-image: none;
+      background-color: yellow;
+    }
+  }
+}
+

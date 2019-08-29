@@ -1,0 +1,31 @@
+nav ul {
+  padding: 0;
+  margin: 0;
+}
+nav ul > li {
+  width: 200px;
+  height: 50px;
+  list-style: none;
+  float: left;
+  font-size: 15px;
+  text-align: center;
+  line-height: 50px;
+  background-image: -webkit-linear-gradient(top, #ffa500, #ffff00, #ffa500);
+  background-image: -moz-linear-gradient(top, #ffa500, #ffff00, #ffa500);
+  background-image: -ms-linear-gradient(top, #ffa500, #ffff00, #ffa500);
+  background-image: -o-linear-gradient(top, #ffa500, #ffff00, #ffa500);
+  box-shadow: 0px 5px 5px 0px #808080;
+  overflow: hidden;
+  color: #222222;
+}
+nav ul > li > ul {
+  background: yellow;
+}
+nav ul > li > ul > li:hover {
+  background: orange;
+}
+nav ul > li:hover {
+  overflow: visible;
+  background-image: none;
+  background-color: yellow;
+}

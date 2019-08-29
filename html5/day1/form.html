@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="succes.html">
+    用户名：<input type="text" id="username">
+    <button type="button" onclick="getName()">提交</button>
+    <button type="button" onclick="delSt()">删除</button>
+</form>
+
+<script>
+    function getName() {
+        var username=document.getElementById("username").value;
+        /*写入sessionStorage方法一：
+        * sessionStorage.自定义键名=值*/
+//        sessionStorage.myUser=username;
+        //方法二：setItem("自定义键名"，“值”)
+        sessionStorage.setItem("myUser",username);
+
+
+        //==========localStorage=================
+
+        localStorage.setItem("myUser",username);
+        localStorage.setItem("myUser1","hello");
+        localStorage.setItem("myUser2","world");
+
+        var obj={
+            "myname":username,
+            "sex":"妖"
+        };
+        var objStr=JSON.stringify(obj);
+        localStorage.setItem("myObj",objStr);
+        document.forms[0].submit();
+    }
+    //localStorage删除
+    function delSt() {
+//        localStorage.removeItem("myObj");
+        localStorage.clear();
+    }
+</script>
+</body>
+</html>

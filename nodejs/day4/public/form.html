@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #msg{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <h1>注册</h1>
+    用户名：<input type="text" id="username" name="username" onblur="checkUser()">
+    <span id="msg"></span><!--提示错误信息-->
+    <br>
+    密码：<input type="text" name="pwd">
+    <br>
+    <input type="submit" value="注册">
+</form>
+
+
+<script>
+    //================get请求===============
+//    function checkUser() {
+//       var usernameV=document.getElementById("username").value;
+//
+//       /*1.创建XMLHttpRequest  简称XHR:用于与服务器交换数据
+//       * */
+//       var xhr;
+//       //兼容的处理
+//        if(window.XMLHttpRequest){
+//            xhr=new XMLHttpRequest();
+//        }else{//低版本ie 5-6
+//            xhr=new ActiveXObject("Microsoft.XMLHTTP");
+//        }
+//        //2.注册回调函数-事件处理程序
+//        xhr.onreadystatechange=function () {
+//            /*readyState:
+//            * 0-未初始化
+//            * 1. 读取中
+//            * 2- 已读取
+//            * 3- 交互中
+//            * 4-完成*/
+//            console.log(xhr);
+//            if(xhr.readyState==4){
+//                console.log(xhr.responseText);
+//                document.getElementById("msg").innerHTML=xhr.responseText;
+//            }
+//        }
+//        //3.XHR向服务器发起连接 1.请求方法 2.请求地址  url?name=值
+//        xhr.open("get","/checkuser.do?username="+usernameV);
+//        //4. 发送参数  get请求：参数send（null）
+//        xhr.send(null);
+//    }
+    //======================post请求===============
+    function checkUser() {
+        var usernameV=document.getElementById("username").value;
+
+        /*1.创建XMLHttpRequest  简称XHR:用于与服务器交换数据
+         * */
+        var xhr;
+        //兼容的处理
+        if(window.XMLHttpRequest){
+            xhr=new XMLHttpRequest();
+        }else{//低版本ie 5-6
+            xhr=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        //2.注册回调函数-事件处理程序
+        xhr.onreadystatechange=function () {
+            /*readyState:
+             * 0-未初始化
+             * 1. 读取中
+             * 2- 已读取
+             * 3- 交互中
+             * 4-完成*/
+            console.log(xhr);
+            if(xhr.readyState==4){
+                console.log(xhr.responseText);
+                document.getElementById("msg").innerHTML=xhr.responseText;
+            }
+        }
+        //3.XHR向服务器发起连接 1.请求方法 2.请求地址  url?name=值
+        xhr.open("post","/checkuser.do");
+        //4.post请求必须设置请求头，
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        //5. 发送参数  post请求：参数send（参数）
+        xhr.send("username="+usernameV);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+CACHE MANIFEST
+
+#表示缓存文件中的备注,第一行必须写CACHE MANIFEST
+
+#V1.2
+
+#三部分:CACHE,NETWORK,FALLBACK
+
+CACHE:
+#缓存的内容：
+demo1.html
+index.css
+images/1.jpg
+images/2.jpg
+images/3.jpg
+
+
+NETWORK:
+#不缓存的内容写在这里，可以使用通配符 “*”
+*
+
+
+FALLBACK:
+# 设置要访问的页面+空格+要替代的页面
+
+html/index.html fallback.html
+
+#注意，如果缓存了js文件要先注销，否则无效
+demo1.js js/index.js
+
+/html/ fallback.html

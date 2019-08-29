@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="myform">
+    用户名: <input type="text" name="username">
+    <br>
+    密码: <input type="text" name="password">
+    <br>
+    <button type="button" onclick="jqAjax()">提交</button>
+    <button type="button" onclick="getSerial()">获取表单所有数据</button>
+
+</form>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    function jqAjax() {
+        /*  $("#id").css()
+         *  $.each */
+        $.ajax({
+           type:"post",//提交方式
+            url:"regUserT.do",//提交地址
+//            data:{//参数
+//               username:$("[name='username']").val(),
+//                password:$("[name='password']").val()
+//            },
+            data:$("#myform").serialize(),
+            success:function (data) {//执行成功回调函数
+                console.log(data);
+            },
+//            async:true
+        })
+    }
+
+    function getSerial() {
+        var data=$("#myform").serialize();//表单序列化
+        console.log(data);
+    }
+</script>
+</body>
+</html>

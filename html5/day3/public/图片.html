@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        #mycanvas{
+            border: 1px solid red;
+        }
+        img{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<img src="images/web7.png" alt="" id="myimg">
+<img src="images/coinAni1.png" alt="" id="mymoney">
+<canvas id="mycanvas" width="600" height="400"></canvas>
+<script>
+    //获取画布节点，并用getContext方法获取上下文（获得画笔）
+    var mycanvas=document.getElementById("mycanvas").getContext("2d");
+    var myimg=document.getElementById("myimg");
+    var mymoney=document.getElementById("mymoney");
+    myimg.onload=function () {
+        //1.3个参数：drawImage(1.img元素节点 2.x坐标 3.Y坐标)
+        mycanvas.drawImage(myimg,0,0);
+        mycanvas.drawImage(myimg,100,0);
+        mycanvas.drawImage(myimg,200,0);
+        mycanvas.drawImage(myimg,550,0);
+        //2.5个参数的绘制：
+        // drawImage(1.img元素节点 2.x坐标 3.Y坐标 4.画的宽度 5.画的高度)
+        mycanvas.drawImage(myimg,0,200,100,100);
+
+        //9个参数的绘制
+        /*drawImage(1.img元素节点 2.对图片切割的x坐标，3.切割的Y坐标
+        4.切割的宽度 5.切割的高度 6.画的x坐标 7.画的Y坐标 8.画的宽度
+        9.画的高度
+        )*/
+        mycanvas.drawImage(mymoney,0,180,60,60,0,200,60,60);
+    };
+    var y=0;
+//    setInterval(drowMoney,100);
+    function drowMoney() {
+        mycanvas.clearRect(0,0,600,400);
+
+        mycanvas.drawImage(mymoney,0,y,60,60,0,200,60,60);
+        y+=60;
+        if(y>600){
+            y=0;
+        }
+    }
+</script>
+</body>
+</html>
