@@ -1,0 +1,43 @@
+/* pages/day1-flex/day1-flex.wxss */
+.item{
+  width: 100rpx;
+   height: 100rpx; 
+  border:1px solid red;
+  background-color: green;
+  /* float: left; */
+  /* 定义 itme放大 */
+    /* flex-grow: 3 */
+    /* 定义item缩小 */
+    /* flex-shrink:0.5 */
+}
+.container1{
+  width: 100%;
+  height: 1000rpx;
+  background-color: pink;
+  display: flex ;
+  /* 定义flex   就纯在交叉轴和主轴 */
+  /* 默认主轴方向是X轴 */
+  /* 定义主轴方向 */
+   flex-direction: row; 
+   /* 按照主轴方向是否换行 */
+    flex-wrap: wrap; 
+  /* item的排列 */
+  /* 容器内的item按照主轴的对齐方式 */
+
+  justify-content: center;
+  /* 定义单行交叉轴对齐方式 */
+      align-items: center    
+     /* 定义多行item布局方式 */
+     /* align-content: space-around  */
+}
+ #myview1{
+  /* font-size: 26px */
+  /* flex-basis: 100px */
+  align-self: flex-end
+} 
+/* .container1>view{
+  width: 500rpx;
+   height: 200rpx; 
+  margin: auto;
+  background-color: red
+} */

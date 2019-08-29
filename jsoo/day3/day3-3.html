@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+<script>
+
+   var fun = CreatePlane()
+    setInterval(fun.addfeiji,100)
+    setInterval(movePlane,100)
+    function Plane() {
+      this.name = '小飞机'
+      this.move = function () {
+        console.log('小飞机移动')
+      }
+    }
+
+    function CreatePlane() {
+      var xiaofieji = []
+      function addPlane() {
+        var feiji = new Phone()
+        xiaofeiji.push(feiji)
+      }
+
+      function getPlaneList (){
+        var mylist = []
+        for(var i = 0;i<xiaofeiji.length,i++){
+          mylist[i] = xiaofeiji[i]
+        }
+        return mylist
+      }
+      return {addfeiji:addPlane,getfeiji:getPlaneList}
+    }
+    function movePlane() {
+     var planeList = fun.getfeiji()
+      for(var i = 0;i<xiaofeiji.length;i++){
+        planeList[i].move()
+      }
+    }
+</script>
+</html>

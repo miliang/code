@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="myinput" data-type="id" type="text">
+<button onclick="checkInputId('myinput')">按钮</button>
+<input id="myinput1" data-type="qq" type="text">
+<button onclick="checkInputPhone('myinput1')">按钮</button>
+</body>
+<script>
+//    function checkInput(id) {
+//      let inputValue = document.getElementById(id).value
+//      let inputType = document.getElementById(id).getAttribute('data-type')
+//      console.log(inputValue,inputType)
+//      if(inputType=='phone'){
+//        phone(inputValue)
+//      }else if(inputType=='id'){
+//        checkId(inputValue)
+//      }else if(inputType=='email'){
+//        email(inputValue)
+//      }else if(inputType=='qq'){
+//
+//      }
+//    }
+//    function phone(){
+//
+//    }
+//    function email() {
+//
+//    }
+//    function checkId(){
+//
+//    }
+//    function qq(){
+//
+//    }
+//    要考虑一个易于拓展的方法
+//    需要把  id phone email这些方法写成一个对象的方法
+//    那么我拓展这个对象的构造函数的原型对象
+    function checkInputId() {
+      let inputValue = document.getElementById("myinput").value
+      let inputType = document.getElementById("myinput").getAttribute('data-type')
+      var msg =new msgFactory(inputValue,inputType)
+
+    }
+    function checkInputPhone() {
+      let inputValue = document.getElementById("myinput1").value
+      let inputType = document.getElementById("myinput1").getAttribute('data-type')
+      var msg =new msgFactory(inputValue,inputType)
+
+      if(msg.err){
+        console.log('格式错误')
+      }else{
+        console.log(msg)
+      }
+    }
+    var msgFactory = function (value,type) {
+//      想在这里做个判断  new msgFactory()  和magFactory() 一样
+      if(this instanceof msgFactory){
+        return new this[type]
+      }else {
+        return new msgFactory(value,type)
+      }
+    }
+    msgFactory.prototype={
+      email:function (value) {
+        console.log(`这是邮箱验证${value}`)
+        this.err = '邮箱格式不正确'
+      },
+      phone:function (value) {
+        console.log(`这是手机号验证${value}`)
+      },
+      id:function (value) {
+        console.log(`这是身份证号验证${value}`)
+      }
+    }
+    msgFactory.prototype.qq = function(value){
+      console.log(`这是qq号验证${value}`)
+      if(true){
+        this.data = '格式正确可以使用'
+      }else{
+        this.err = 'qq格式不正确'
+      }
+
+    }
+</script>
+</html>

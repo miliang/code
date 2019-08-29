@@ -1,0 +1,12 @@
+/* pages/day3-2/day3-2.wxss */
+.myicon{
+  width: 100rpx;
+  height: 100rpx;
+  background-color: red;
+  margin-bottom: 50rpx;
+}
+.mycontent{
+  width: 50%;
+  height: 500rpx;
+  background-color: pink;
+}

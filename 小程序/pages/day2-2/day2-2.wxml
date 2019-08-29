@@ -1,0 +1,12 @@
+<!--pages/day2-2/day2-2.wxml-->
+
+<view wx:for="{{objectArray}}" wx:key="id">
+  <switch >{{item.id}}</switch>
+</view>
+<button bindtap='addArray'>add</button>
+<view wx:if="{{isShow}}">1</view>
+<view wx:if="{{!isShow}}">2</view>
+<button bindtap='showView'>改变</button>
+<!-- <navigator url='/pages/day2/day2?id={{isShow}}'>跳转页面</navigator> -->
+<button bindtap='goDay2'>跳转页面</button>
+<button bindtap='callphone'>打电话</button>

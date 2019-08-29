@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    var zhanghao = "zhangsan"
+//    var pwd1 = 16
+//    var pwd2 = 2
+//    var arrStu= [zhanghao,zhanghao]
+//    var arrAge = [pwd1,pwd2]
+    var user1 = {
+      zhanghao:"zhangshan",
+      pwd:12
+    }
+    var user2 = {
+      zhanghao:"zhangshan",
+      pwd:12
+    }
+    var userArr = [user1,user2]
+//    创建对象的方法
+//    var obj = {name:"zhangsan"}  //用字面量创建对象
+//    var obj1 = new Object()
+//    var obj2 = {name:"zhangsan"}
+//    console.log(obj == obj2)  //false  返回  原因地址不同
+//    var obj = {name:"zhangsan"}
+//    var obj1 = obj;
+//    obj1.name = "lisi"
+//    console.log(obj1.name)//lisi
+//    console.log(obj.name)//
+//    var num = 1;
+//    var num1 = num
+//    num1 = 2
+//    console.log(num)
+//    console.log(num1)
+
+
+    function Student(name, age, className) {
+      this.name = name
+      this.age = age
+      this.className = className
+    }
+
+    var stu1 = new Student("张三",17,"1班");
+//    console.log(stu1.__proto__)
+//    原型对象
+//    1.通过实例化对象的__proto__得到
+//    2.通过构造函数的prototype得到
+    Object.prototype.sex = "女"
+    Object.prototype.name = "李四"
+    Object.prototype.lol = "卢本伟凉了"
+    var obj = new Object()
+//    console.log(obj.sex)
+//    console.log(obj)
+//    console.log(stu1.sex)
+//    console.log(stu1)
+    Student.prototype.lol = "帝师也凉了"
+    function Plane() {
+      this.name = "飞机"
+      this.speed = 10000
+    }
+    var pl1 = new Plane()
+//    console.log(pl1.sex)
+//    console.log(pl1.name)
+//    console.log(stu1.lol)
+    Student.prototype = pl1
+    var stu2 = new Student("李四",18,"3班")
+    console.log(stu1)
+    console.log(stu2.speed)
+</script>
+</body>
+</html>

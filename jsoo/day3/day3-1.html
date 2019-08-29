@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="myid"></div>
+</body>
+<!--<script src="jquery-3.1.1.js"></script>-->
+<script>
+//    var i = 1;
+    function a() {
+      return i++
+
+    }
+//    var b = a()
+//    console.log(b)
+//    console.log($)
+//    console.log($())
+(function () {
+  var jQuery = function (id) {
+
+    return new init(id)
+  }
+  function init(id) {
+//    根据拿到的id  去搞事情
+//    把字符串拆分  做正则判断第一个字符
+    this.elements = []
+    if(/^#/.test(id)){
+      id = id.substring(1)
+      this.elements.push(document.getElementById(id))
+    }
+    for(var key in this.elements){
+      this[key] = this.elements[key]
+    }
+    this.css = function () {
+      console.log(111)
+    }
+  }
+//    在jq里面给函数$拓展方法   $.extend()
+//  在jq里面给JQ对象$()拓展方法    $.fn.extend()
+  jQuery.fn = jQuery.prototype = init.prototype
+  jQuery.fn.extend = function (obj) {
+//    需要进行一系列的操作  将传递进来的方法   拓展到new init() 对象上去
+    for(var key in obj){
+      jQuery.prototype[key] = obj[key]
+    }
+  }
+  jQuery.extend = function (obj) {
+    for(var key in obj){
+      jQuery[key] = obj[key]
+    }
+  }
+  window.$ = jQuery
+})()
+//    $(#idmingzi)
+//    console.log($("#id"))
+//    console.log($)
+   console.log($("#myid"))
+    $.fn.extend({
+      html:function () {
+        console.log('我是html的方法')
+      }
+    })
+$.extend({
+  ajax : function () {
+    console.log("给我们的$拓展ajax")
+  }
+})
+    $('#myid').html()
+    $.ajax()
+</script>
+</html>

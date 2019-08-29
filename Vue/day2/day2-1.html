@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #mydiv{
+        border: 1px solid red;
+    }
+    .uiBtn{
+        border: 1px solid red;
+        width: 100px;
+        height: 100px;
+    }
+    #mydiv2{
+        border: 1px solid red;
+    }
+    .myclass1{
+        border: 5px solid pink;
+        float: left;
+    }
+</style>
+<body>
+<!--<div id="mydiv">-->
+    <!--<h1>计数:{{count}}</h1>-->
+    <!--<button @click="countFun">点赞</button>-->
+    <!--<h1>计数:{{count}}</h1>-->
+    <!--<button @click="countFun">点赞</button>-->
+    <!--<h1>计数:{{count}}</h1>-->
+    <!--<button @click="countFun">点赞</button>-->
+    <!--<ui-btn></ui-btn>-->
+    <!--<ui-btn></ui-btn>-->
+    <!--<ui-btn></ui-btn>-->
+    <!--<ui-btn></ui-btn>-->
+    <!--<ui-btn></ui-btn>-->
+    <!--<ui-btn></ui-btn>-->
+    <!--<my-btn :h-name="hName" :my-btn-name="btnName" :myclass="uiBtn"></my-btn>-->
+<!--</div>-->
+<div id="mydiv2">
+    <!--<div :mycalss="uiBtn"></div>-->
+    <!--父组件-->
+    <my-btn @sumnum="demoSum" :h-name="hName" :my-btn-name="btnName" :myclass="uiBtn"></my-btn><!--子组件-->
+    <my-btn @sumnum="demoSum" :h-name="hName" :my-btn-name="btnName" :myclass="uiBtn"></my-btn><!--子组件-->
+    <my-btn @sumnum="demoSum" :h-name="hName" :my-btn-name="btnName" :myclass="uiBtn"></my-btn><!--子组件-->
+    <div>
+        <h1>总计数:{{countSum}}</h1>
+        <!--<button @click="demoSum">demoSum</button>-->
+    </div>
+</div>
+<script src="../vue.js"></script>
+<script>
+  //创建全局组件
+  Vue.component("my-btn",{
+    template:"\
+          <div :class = 'myclass' class=''>\
+            <h1>{{hName}}:{{count}}</h1>\
+            <button @click='countFun'>{{myBtnName}}</button>\
+          </div>",
+    data(){
+      return{
+        count:0
+      }
+    },
+    methods: {
+      countFun() {
+        this.count++
+//        去触发父组件的sumnum的事件
+        this.$emit('sumnum')
+      }
+    },
+    props: ['myclass', 'myBtnName','hName']
+  })
+
+//    这个方法并没有重用,不是我们组件的思想
+//    var myapp = new Vue({
+//      el:"#mydiv",
+//      data:{
+////        count1:0,
+////        count2:0,
+////        count3:0
+//        uiBtn:"uiBtn",
+//        btnName:"计数按钮",
+//        hName :"计数"
+//      },
+//      methods:{
+////        countFun(){
+////          this.count++
+////        }
+//      },
+////      该方法是定义myapp私有的组件 ui-btn
+//      components:{
+//        "ui-btn":{
+//          template:"\
+//          <div>\
+//            <h1>计数:{{count}}</h1>\
+//            <button @click='countFun'>点赞</button>\
+//          </div>",
+//          data(){
+//            return {
+//              count:0
+//            }
+//          },
+//          methods:{
+//            countFun(){
+//              this.count++
+//            }
+//          }
+//        }
+//      }
+//    })
+
+    new Vue({
+      el:"#mydiv2",
+      data:{
+        uiBtn:"uiBtn",
+        btnName:"点赞按钮",
+        hName :"点赞",
+        countSum:0
+      },
+      methods:{
+        demoSum(){
+          this.countSum++
+        }
+      }
+    })
+</script>
+</body>
+</html>

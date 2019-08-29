@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="nihao">
+
+</div>
+<script>
+//    原型对象继承
+    function Phone (name) {
+      this.name = name
+      this.callPhone = function () {
+        console.log('打电话的方法')
+      }
+      this.msg = function () {
+        console.log('发送短信的方法')
+      }
+    }
+    var phone = new Phone('苹果')
+    console.log(phone)
+    function Iphone() {
+      this.music = function () {
+        console.log('听音乐')
+      }
+      this.news = function () {
+        console.log('看新闻')
+      }
+    }
+    Iphone.prototype = phone
+    Iphone.prototype.movie = function () {
+      console.log('看小电影')
+    }
+    function xiaomi() {
+      this.jiaqian = 500
+    }
+    var ip = new Iphone()
+    console.log(ip)
+    xiaomi.prototype = phone
+    var xiaomi = new xiaomi()
+    console.log(xiaomi)
+
+    class Iphone extends phone {
+      constructor(){
+
+      }
+    }
+    function $(id) {
+      return document.getElementById(id)
+    }
+
+</script>
+</body>
+</html>

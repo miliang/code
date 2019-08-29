@@ -1,0 +1,30 @@
+<!--pages/day1/day1.wxml-->
+
+<view class='container'>
+  <view class='selection'>
+    <swiper indicator-dots="true" autoplay="true">
+      <block wx:for='{{imgUrls}}'>
+        <swiper-item>
+          <image src='{{item}}'></image>
+        </swiper-item>
+      </block> 
+    </swiper>
+  </view>
+  <view class='selection'>
+    <view class='header'>
+      <text>精品推荐</text>
+      <text class='text-all'>全部精品</text>
+    </view>
+    <view class='content'>
+      <view wx:for='{{itemSrc}}' class='content-item'>
+        <image src='{{item.src}}'></image>
+        <view class='content-item-text'>
+          <text>{{item.content}}</text>
+        </view>
+      </view>
+      
+    </view> 
+    <!-- <view class='header'></view>
+    <view class='list-item'></view>  -->
+  </view>
+</view>

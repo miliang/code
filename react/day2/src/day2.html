@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  Object.prototype.myname = "张三"
+  function myclass(x,y) {
+    this.x = x
+    this.y = y
+  }
+  var mycl = new myclass(12,13)
+  console.log(mycl.myname)
+  myclass()
+
+  class myclass2 {
+    constructor(x,y){
+      this.x = x
+      this.y = y
+      this.sum = function () {
+        return this.x+this.y
+      }
+    }
+  }
+  var mycl2 = new myclass2(15,16)
+  console.log(mycl2.myname)
+ console.log(mycl2.sum())
+  var num = [1,2,3,4,5,56]
+  var newnum =[]
+  for(var i =0 ;i<num.length;i++){
+     newnum.push(num[i]*2)
+  }
+  console.log(newnum)
+  var newnewnum = num.map(item => item*2)
+  console.log(newnewnum)
+</script>
+</body>
+</html>

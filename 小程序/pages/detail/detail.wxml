@@ -1,0 +1,2 @@
+<!--pages/detail/detail.wxml-->
+<text>我是{{num}}号商品的详情页</text>

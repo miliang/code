@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .myclass{
+            color:red
+        }
+        #mydiv{
+            width:200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="myapp">
+    <h1>{{message}}</h1>
+    <h1 :class="{myclass:istrue}" v-text="message"></h1>
+    <!--简写  :  代表绑定属性-->
+    <!--条件渲染-->
+    <h1 v-if="istrue">我是h1</h1>
+
+    <h1 v-else-if="true">我是elseif的h1</h1>
+    <!--在v-if里如果是false  不会渲染该组件-->
+    <h1 v-else>我是else的h1</h1>
+    <!--分支结构必须是兄弟关系-->
+    <h1 v-show="istrue">我是show指令</h1>
+    <!--列表渲染-->
+    <ul>
+        <li v-if="true" v-for="key in fruit">
+            {{key.name}}======{{key.price}}
+        </li>
+    </ul>
+
+    <!--事件的绑定-->
+    <h1>{{count}}</h1>
+    <button v-on:click="myclick()">点赞</button>
+    <button @click="changeColor()">点赞</button>
+
+
+    <button @click ="sayNihao($event)">say nihao</button>
+
+    <div id="mydiv" @click = "mydiv">
+        <button @click.stop="mybtn($event)">div里面的按钮</button>
+    </div>
+    <a @click.prevent="mybtn" href="http://www.baidu.com">跳转到百度</a>
+
+    <input type="text" @keydown.enter="mykeydown">
+
+
+
+
+</div>
+
+<script src='../vue.js'></script>
+<script>
+    //   在以后我们页面上或组件上都会把数据放在我们的data里,
+    // 然后通过{{}}的方法将数据绑定在html
+    var myapp = new Vue({
+      el:'#myapp',
+      data:{
+        count:0,
+        message:"哈哈,我们是148部",
+        istrue:true,
+        fruit:[
+          {name:"苹果",price:"10"},
+          {name:"香蕉",price:"23"},
+          {name:"火龙果",price:"34"},
+          {name:"榴莲",price:"45"},
+        ],
+      },
+      methods:{
+        myclick:function () {
+//          console.log(this.count)
+          this.count++
+        },
+        changeColor(){
+          this.istrue = !this.istrue
+        },
+        sayNihao(myevent){
+//          console.log(msg)
+          console.log("没有参数的函数调用")
+//          var e = window.event || arguments[0]
+//          console.log(event)
+          console.log(myevent)
+        },
+        mydiv(){
+          console.log('div被点击了')
+        },
+        mybtn(e){
+          e.preventDefault()
+          console.log('按钮被点击了')
+        },
+        mykeydown(){
+          console.log("键盘按下了")
+        }
+      }
+    })
+</script>
+</body>
+</html>

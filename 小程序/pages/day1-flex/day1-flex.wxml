@@ -1,0 +1,29 @@
+<!--pages/day1-flex/day1-flex.wxml-->
+<text>pages/day1-flex/day1-flex.wxml</text>
+<!-- flex布局 -->
+<view class='container1'>
+  <!-- <view> -->
+    <view  id='myview1' class='item'>1</view>
+    <view class='item'>2</view>
+    <view class='item'>3</view>
+    <view class='item'>4</view>
+      <!-- <view class='item'>1</view>
+    <view class='item'>2</view>
+    <view class='item'>3</view>
+    <view class='item'>4</view>
+      <view class='item'>1</view>
+    <view class='item'>2</view>
+    <view class='item'>3</view>
+    <view class='item'>4</view>
+     <view class='item'>1</view>
+    <view class='item'>2</view>
+    <view class='item'>3</view>
+    <view class='item'>4</view>
+     <view class='item'>1</view>
+    <view class='item'>2</view>
+    <view class='item'>3</view>
+    <view class='item'>4</view> -->
+     
+  
+  <!-- </view> -->
+</view>

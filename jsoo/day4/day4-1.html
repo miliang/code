@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .mydiv{
+        background-color: pink;
+        width: 400px;
+        height: 200px;
+        /*display: none;*/
+    }
+</style>
+<body>
+<button onclick= 'myopen()'>按钮</button>
+<button onclick= 'myopen()'>按钮</button>
+
+</body>
+<script>
+//function myopen() {
+//  var div = document.createElement("div")
+//  div.className = 'mydiv'
+//  document.body.appendChild(div)
+//}
+   var createDiv = (function(){
+     var div ;
+     return function () {
+       if(div==undefined){
+         div = document.createElement('div')
+         div.className = 'mydiv'
+         document.body.appendChild(div)
+         div.onclick = function () {
+           this.style.display = "none"
+         }
+       }
+       show(div)
+//       return div
+     }
+   })()
+    function show(obj){
+     obj.style.display = 'block'
+    }
+    function myopen() {
+      createDiv()
+    }
+</script>
+</html>

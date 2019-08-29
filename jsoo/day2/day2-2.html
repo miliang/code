@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+//    继承
+
+function Plane(x,y,speed) {
+  this.imgNode = document.createElement('img')
+  this.x = x;
+  this.y = y;
+  this.speed = speed
+  this.move = function () {
+    console.log('飞机移动')
+  }
+  this.init = function () {
+
+  }
+  this.init()
+ }
+// 继承的方法:1.call 2. apply 3.prototype 4 for in
+//call方法
+ function PlayerPlane(x,y,speed) {
+//   在玩家飞机里面 需要继承飞机的模板
+   Plane.call(this,x,y,speed)
+   this.move = function () {
+     console.log('玩家飞机移动')
+   }
+ }
+ var pp = new PlayerPlane(10,20,30)
+pp.move()
+ console.log(pp)
+    function BossPlane(x, y, speed) {
+      Plane.apply(this,arguments)
+      this.move = function () {
+        console.log('boss飞机移动')
+      }
+    }
+    var boss  = new BossPlane(5,4,10)
+    console.log(boss)
+//    for in继承
+//    地方小飞机
+    function EPlane(x,y) {
+      this.name = '我是小飞机'
+      this.x = x;
+      this.y = y
+    }
+    for(var key in boss){
+        console.log(key)
+      console.log(boss[key])
+    }
+    var xiaofeiji = new EPlane(20,25)
+    var feiji = new Plane(10,15,5)
+    for(var key in feiji){
+      if(xiaofeiji[key]==undefined){
+        xiaofeiji[key] = feiji[key]
+      }
+    }
+    console.log(xiaofeiji)
+
+</script>
+</html>

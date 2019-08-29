@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//作用域
+//    var  a = 0
+//    function test() {
+//      console.log(b)
+//      var b = 1;// 打印空   不会报错   因为申明提前
+//    }
+//    if(true){
+//      let c = 2;  //  如果使用关键字let  那么在if这个花括号也代表域的概念
+//    }
+//    console.log(b)
+//    console.log(c)
+//    test()
+    function test1() {
+      a = 1;
+      console.log(a)
+    }
+    test1()
+    console.log(a)
+//    console.log(window.a===a)
+//    var 变量   ===  window.变量
+//    var x = function () {
+//      console.log(2222)
+//    }
+//    x()
+
+//    操作对象
+    function Person() {
+      this.age = 18
+    }
+    var p1 = new Person()
+//    修改对象
+//    p1.age = 19
+// 删除对象属性
+//    delete p1.age
+//    p1.name = "zhangsan"
+//    console.log(p1.age)
+//    销毁对象
+//    p1 = null
+    console.log(p1)
+    Person.prototype.name = "张三"
+//    判断属性是否属于这个实例
+//    p1有一个属性   age
+    console.log(p1.name)
+    if(p1.hasOwnProperty("name")){  //hasOwnProperty是判断这个属性名是否在这个实例化对象上,不向原型对象去寻找
+      test()
+    }else {
+      console.log("我属于自由")
+    }
+    if("name" in p1){  // in方法  是属性名能否在实例化对象中找到,会向原型对象去寻找
+      test()
+    }else {
+      console.log("我属于自由")
+    }
+  function test() {
+    console.log("哈哈,我属于")
+  }
+//  instanceof 判断实例化对象是否是这个构造函数创建出来的
+
+    console.log(p1 instanceof Array)
+
+
+    console.log(p1.__proto__===Person.prototype)
+</script>
+</body>
+</html>
