@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--colspan：合并列，影响自己的td,从左到右合并
+rowspan:合并行，影响的是下面的tr,里面的td从上到下合并-->
+<table cellspacing="0" cellpadding="0" border="1" width="800" align="center">
+    <caption>学生信息表</caption><!--表格的标题：必须在table的第一个子元素-->
+    <!--thead/tbody/tfoot-->
+    <thead>
+    <tr><!--1行-->
+        <th>姓名</th><!--1列-->
+        <th>年龄</th>
+        <th>学号</th>
+        <th>分数</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><!--2行-->
+        <td>冯小龙</td>
+        <td>18</td>
+        <td >222</td>
+        <td>250</td>
+    </tr>
+    <tr>
+        <td>龙超</td>
+        <td>17</td>
+        <td>250</td>
+        <td rowspan="2">222</td>
+    </tr>
+    <tr>
+        <td>刘杰</td>
+        <td>888</td>
+        <td>8</td><!---->
+        <!--<td>222</td>-->
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;报表人：小米良</td>
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+    </tr>
+    </tfoot>
+
+</table>
+<hr/><!--横线-->
+<br/><!--换行-->
+<section><!--banner-->
+    <div><!--精品板块-->
+        <p></p>
+        <div>
+            <p>
+                <span>
+                    123333
+                </span>
+            </p>
+
+        </div>
+    </div>
+    <div></div>
+</section>
+</body>
+</html>
