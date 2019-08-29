@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        @font-face {
+            font-family: "myFont";
+            src:url(iconfont/iconfont.ttf);
+        }
+        .myFt{
+            font-family: "myFont";
+            font-size: 18px;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: "微软雅黑";
+            font-size:14px;
+            font-weight: bold;
+        }
+        body{
+            background-color: #464646;
+        }
+        #divMain{
+            margin: 0 auto;
+            width: 302px;
+        }
+        #divMain ul{
+            list-style: none;
+        }
+        #divMain ul li{
+             background-color: white;
+            color: #333333;
+            width: 337px;
+            height: 45px;
+            line-height: 45px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all .3s;
+        }
+        #divMain ul li:not(:first-child){
+            border-top: 2px solid #CCCCCC;
+        }
+        li:nth-child(1){
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        li:nth-child(4){
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        #divMain ul>li>span:nth-child(1){
+            padding-left: 13px;
+            /*background-color:red ;*/
+        }
+        #divMain ul>li>span:nth-child(2){
+            padding-left: 20px;
+        }
+        #divMain>ul>li>a{
+            float: right;
+            margin-right: 40px;
+        }
+        #divMain ul div{
+            color: #d9d9d9;
+            background-color: #474747;
+            padding-left: 53px;
+            transition: all .3s;
+        }
+        #divMain ul div:hover{
+            background-color: #a85845;
+        }
+
+    </style>
+</head>
+<body>
+<div id="divMain">
+    <ul>
+        <li onclick="clickLi(this)">
+            <span class="myFt">&#xf0022;</span>
+            <span>Diseno web</span>
+            <a class="myFt">&#xf0170;</a>
+            <div>HTML</div>
+            <div>CSS</div>
+            <div>Javascript</div>
+            <div>PHP</div>
+        </li>
+        <li onclick="clickLi(this)">
+            <span class="myFt">&#xf01bd;</span>
+            <span>Desarrolllo front-end</span>
+            <a class="myFt">&#xf0170;</a>
+            <div>HTML</div>
+            <div>CSS</div>
+            <div>Javascript</div>
+        </li>
+        <li onclick="clickLi(this)">
+            <span class="myFt">&#xf00a2;</span>
+            <span>Diseno responsive</span>
+            <a class="myFt">&#xf0170;</a>
+            <div>HTML</div>
+            <div>CSS</div>
+            <div>Javascript</div>
+            <div>PHP</div>
+        </li>
+        <li onclick="clickLi(this)">
+            <span class="myFt">&#xf00b9;</span>
+            <span>Posicionamiento web</span>
+            <a class="myFt">&#xf0170;</a>
+            <div>HTML</div>
+            <div>CSS</div>
+            <div>Javascript</div>
+            <div>PHP</div>
+        </li>
+    </ul>
+</div>
+</body>
+<script>
+    function clickLi(obj){
+        var aList=obj.getElementsByTagName("a");
+
+        var divList=obj.getElementsByTagName("div");
+        console.log(divList.length)
+        if(obj.style.height==""||obj.style.height=="45px"){
+            obj.style.height=(divList.length+1)*45+"px";
+            obj.style.color="#B63B4D";
+            aList[0].style.webkitTransform="rotate(180deg)";
+        }
+        else{
+            obj.style.height="45px";
+            obj.style.color="#444359";
+            aList[0].style.webkitTransform="rotate(0deg)";
+        }
+
+        var liList=document.getElementsByTagName("li");
+        for(var i=0;i<liList.length;i++){
+            if(liList[i]!=obj){
+                liList[i].style.height="45px";
+                liList[i].style.color="#444359";
+                liList[i].getElementsByTagName("a")[0].style.webkitTransform="rotate(0deg)";
+            }
+        }
+
+    }
+</script>
+</html>

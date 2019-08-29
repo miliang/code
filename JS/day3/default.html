@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<a href="event.html" onclick="return false">A标签跳转</a>
+<a href="event.html" onclick="return confirmRedirect()">A标签跳转</a>
+
+<form action="event.html" method="get" onsubmit="myPrevent()">
+    <input type="text" name="username" id="username"/>
+    <button>submit</button>
+</form>
+<script>
+    function confirmRedirect(){
+        var ans=confirm("确定要跳转吗？");
+        console.log(ans);
+        return ans;
+    }
+
+    function myPrevent(){
+        var e=window.event||arguments[0];//event
+        console.log(e);
+        e.preventDefault();//DOM 阻止提交
+//        e.returnValue=false;//IE 阻止提交
+        var username=document.getElementById("username").value;
+        console.log(username);
+        if(username=="sujia"){
+            var form=document.forms[0];
+            form.submit();
+        }
+    }
+</script>
+</body>
+</html>

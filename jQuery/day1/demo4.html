@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            color: red;
+        }
+        .box{
+            font-size: 30px;
+        }
+        .border{
+            border: 3px dashed white;
+        }
+
+
+        .pink{
+            outline: 5px solid pink;
+        }
+
+        .orange{
+                outline: 5px solid orange;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box" style="color:blueviolet">
+    测试
+</div>
+<button onclick="myToggle()">切换类</button>
+<script src="../jquery-1.11.3.js"></script>
+<script>
+//$(function(){
+    /*获取css样式：获取的是最终样式，不需要写在内联*/
+//    console.log($("#box").css("color"));
+//    console.log($("#box").css(["color","height","width"]));
+    //设置css 样式
+//    $("#box").css("background-color","yellow");
+
+
+    //添加类
+//    $("#box").addClass("box pink");
+//    //移除类
+//    $("#box").removeClass("box");
+
+//    function myToggle(){
+//        console.log("11111");
+//    }
+
+//})(jQuery);
+
+    $(document).ready(function(){
+        $("#box").css({
+            "background-color":"black",
+            "width":"500px",
+            "height":"200px",
+            "border-radius":"8px",
+            "color":"white"
+        });
+
+    }(jQuery));
+
+function myToggle(){
+//    console.log("11111");
+//    $("#box").toggleClass("border");
+    $("#box").toggleClass(function(){
+
+        return $("#box").hasClass("pink")?"orange":"pink";
+
+//        if($("#box").hasClass("pink")){
+//            return "orange"
+//        }else{
+//            return "pink"
+//        }
+//
+    });
+
+
+
+}
+
+
+
+</script>
+</body>
+</html>

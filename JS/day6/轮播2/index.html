@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .carousel{
+            width: 400px;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        .box{
+            width: 1200px;
+            height: 220px;
+        }
+        .box>div{
+            float: left;
+            width: 400px;
+            height: 220px;
+
+        }
+
+        img{
+            height: 220px;
+        }
+
+        .animate1{
+            animation: donghua1 2s forwards;
+        }
+        @keyframes donghua1 {
+            from{
+                margin-left: 0;
+            }
+            to{
+                margin-left: -300px;
+            }
+        }
+        .replaylist{
+            position: absolute;
+            bottom: 5px;
+            left: 100px;
+            list-style: none;
+        }
+        li{
+            width: 20px;
+            height: 20px;
+            margin: 5px;
+            border-radius: 10px;
+            background-color: white;
+            float: left;
+            text-align: center;
+            cursor: pointer;
+        }
+        .activeli{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="carousel">
+    <div class="box">
+        <div id="div1"><img src="images/1.jpg" alt=""/></div>
+        <div id="div2"><img src="images/2.jpg" alt=""/></div>
+        <div id="div3"><img src="images/3.jpg" alt=""/></div>
+    </div>
+    <ul class="replaylist">
+        <li onclick="replay(1)">1</li>
+        <li onclick="replay(2)">2</li>
+        <li onclick="replay(3)">3</li>
+    </ul>
+</div>
+<script>
+//    var oDiv=[];
+//    for(var i=1;i<=3;i++){
+//        oDiv[i]=document.getElementById("div"+[i]);
+//    }
+    var oDiv1=document.getElementById("div1");
+    var oDiv2=document.getElementById("div2");
+    var oDiv3=document.getElementById("div3");
+    var ParentDiv=document.getElementsByClassName("box")[0];
+
+    var oUl=document.getElementsByClassName("replaylist")[0];
+    var oliList=oUl.getElementsByTagName("li");
+
+    var number=1;//控制轮播的idv
+
+    var temp;//控制圆点
+
+    var myInterval;
+
+    window.onload=function(){
+        myInterval=setInterval(replay,3000);
+    };
+    //初始化
+    function init(){
+      for(var i=1;i<=3;i++){
+          document.getElementById("div"+i).className="";
+          oliList[i-1].className="";
+      }
+    }
+
+    function replay(index){
+        init();
+
+        console.log(index);
+        if(index!=undefined){
+            console.log(1515);
+            if(index==1){
+                moveRight(oDiv3);
+            }else if(index==2){
+                moveRight(oDiv1);
+            }else if(index==3){
+                moveRight(oDiv2);
+            }
+            document.getElementById("div"+index).className="animate1";
+            oliList[index-1].className="activeli";
+        }else{
+            document.getElementById("div"+number).className="animate1";
+
+            temp=number;
+
+            if(number==3){temp=0}
+            oliList[temp].className="activeli";
+
+            if(number==1){
+                moveRight(oDiv3);
+            }else if(number==2){
+                moveRight(oDiv1);
+            }else if(number==3){
+                moveRight(oDiv2);
+            }
+
+            number++;
+            if(number>3){
+                number=1;
+            }
+        }
+        /*给指定div加动画，div滑动*/
+
+    }
+    function moveRight(obj){
+        ParentDiv.appendChild(obj)
+    }
+
+/*onmouseenter只在指定对象上触发
+* onmouseover在子元素上也会触发*/
+    var carousel=document.getElementsByClassName("carousel")[0];
+    carousel.onmouseenter= function () {
+//        console.log(11111);
+        clearInterval(myInterval);
+    };
+    carousel.onmouseleave= function () {
+//        console.log(22222);
+        myInterval=setInterval(replay,3000);
+    }
+</script>
+</body>
+</html>

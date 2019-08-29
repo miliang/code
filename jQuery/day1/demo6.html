@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="checkbox" name="mycheckbox" value="a" >aa
+<input type="checkbox" name="mycheckbox" value="b" >bb
+<input type="checkbox" name="mycheckbox" value="c" >cc
+<input type="checkbox" name="mycheckbox" value="d" >dd
+<input type="checkbox" name="mycheckbox" value="e" >ee
+<input type="checkbox" name="mycheckbox" value="f" >ff
+<input type="checkbox" name="mycheckbox" value="g" >gg
+<input type="checkbox" name="mycheckbox" value="h" >hh
+
+<script src="../jquery-3.1.1.js"></script>
+<script>
+//    var ckboxList=document.getElementsByTagName("input");
+//    console.log(ckboxList);
+//    for(var i=0;i<ckboxList.length;i++){
+//        console.log(ckboxList[i]);
+//    }
+
+    var ckboxList=$("input[name='mycheckbox']");
+//    console.log(ckboxList);
+//    $("input");
+$.each(ckboxList,function(i,n){
+//    console.log(i);
+//    console.log(n);
+//    console.log(n.value);
+//    console.log(ckboxList[i]);
+//    if(i==0){
+//        return false;
+//    }
+
+    $(n).css({
+        width:"50px",
+        height:"50px"
+    });
+     if(i==3){
+        return false;
+    }
+
+})
+</script>
+</body>
+</html>

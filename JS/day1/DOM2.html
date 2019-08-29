@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            border: 5px solid red;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            border: 5px solid orange;
+        }
+        .red{
+            color: red;
+        }
+        .blue{
+            color: white;
+            background-color: #00a9e3;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" class="red">
+    <h1>div1里面的H1</h1>
+    <img src="duorou.jpg" alt=""/>
+    <p>这是div1里面的P元素</p>
+    <p>这是div1里面的P元素</p>
+    <p>这是div1里面的P元素</p>
+    <p>这是div1里面的P元素</p>
+    <p>这是div1里面的P元素</p>
+</div>
+
+<div id="div2">
+    <h1>div2里面的H1</h1>
+</div>
+
+<button onclick="addNode()">添加节点</button>
+<button onclick="moveNode()">移动节点</button>
+<button onclick="removeNode()">删除节点</button>
+<button onclick="getAttr()">获取属性</button>
+<button onclick="setAttr()">设置属性</button>
+
+
+<script>
+    function addNode(){
+        var div1=document.getElementById("div1");
+        console.log(div1);
+        /*添加DOM节点*/
+        var  myPElement=document.createElement("p");
+        var myTextNode=document.createTextNode("熊燕池拿点好吃的！");
+        myPElement.appendChild(myTextNode);
+        div1.appendChild(myPElement)
+    }
+
+    function moveNode(){
+        var div1=document.getElementById("div1");
+        var div2=document.getElementById("div2");
+        div1.appendChild(div2);
+    }
+
+    function removeNode(){
+        var div1=document.getElementById("div1");
+        var pList=document.getElementsByTagName("p");
+        console.log(pList);
+        console.log(pList[0]);
+//        div1.removeChild(pList[0]);
+        /*
+        * [p1,p2,p3,p4,p5]
+        * [p2,p3,p4,p5]
+        * [p2,p4,p5]*/
+        for(var i=0;i<pList.length;i++){//1
+            div1.removeChild(pList[i]);
+            i--;
+        }
+    }
+
+
+    function getAttr(){
+        var div1=document.getElementById("div1");
+        var attr=div1.getAttribute("id");
+        console.log(attr);
+        var img=document.getElementsByTagName("img")[0];
+        var imgAttr=img.getAttribute("src");//返回属性值
+        console.log(imgAttr);
+    }
+
+    function setAttr(){
+        var div1=document.getElementById("div1");
+        console.log(div1.getAttribute("class"));
+        div1.setAttribute("class","blue");//设置属性
+    }
+</script>
+</body>
+</html>

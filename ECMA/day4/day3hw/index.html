@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*1.找出100--999里面有多少个水仙花数，分别输出这些水仙花数？*/
+//    for(var i=100;i<=999;i++){
+//        var a=parseInt(i/100);//百位
+//        var b=parseInt(i%100/10);//十位
+//        var c=parseInt(i%10);//个位
+//        if(a*a*a+b*b*b+c*c*c==i){
+//            document.write(i);
+//        }
+//    }
+    /*2.猴子吃桃问题：猴子第一天摘下若干个桃子，当即吃了一半，还不过瘾，
+     又多吃了一个第二天早上又将剩下的桃子吃掉一半，又多吃了一个。
+     以后每天早上都吃了前一天剩下的一半零一个。
+     到第10天早上想再吃时，见只剩下一个桃子了。求第一天共摘了多少。
+     思路：
+     第10天：tao10=tao9/2-1
+                tao9=(tao10+1)*2
+     */
+//    var tao=1;//第十天的桃子
+//
+//    for(var days=9;days>=1;days--){
+//        tao=(tao+1)*2;
+//    }
+//    document.write(tao);
+
+
+    /*3.题目：有一分数序列：2/1，3/2，5/3，8/5，13/8，21/13...
+     求出这个数列的前20项之和。*/
+
+//    var fenzi=2;
+//    var fenmu=1;
+//    var sum=0;
+//    var temp;//转换用
+//
+//    for(var i=1;i<=20;i++){//2
+//        sum=sum+(fenzi/fenmu);//sum=2+3/2
+////        fenzi=fenmu;
+////        fenzi=fenzi+fenmu;
+//        temp=fenzi;//temp保存原分子   temp=3
+//        fenzi=fenzi+fenmu;//新分子=原分子+原分母//fenzi=5
+//        fenmu=temp;//新分母=原分子   fenmu=3
+//        //i++
+//    }
+
+
+    /*4.小球从100米掉落，弹起到50米，然后再掉落，弹到25米，弹10次以后，
+     小球经过的路径是多少米(截止第10次弹地）
+
+     思路：
+     除了一次掉落外，以后每一次掉落+弹起的距离都是前一次的高度X2
+     总距离=前面的所有距离+弹起+落下 */
+//    var m=100;//m:路径综合，初始化100
+//    var m1=m/2;//每次弹起后的距离   50
+//
+//    for(var i=1;i<=10;i++){//3
+//        m=m+m1*2;//距离总和；m=200+50+25
+//        m1=m1/2;  //12.5
+//        //i++
+//    }
+//    document.write(m);
+
+    /*5.有一队兵，他想知道有多少人，便让士兵排队报数：按从1至5报数，最末一个士兵报的数为1；
+     按从1至6报数，最末一个士兵报的数为5；按从1至7报数，最末一个士兵报的数为4；
+     最后再按从1至11报数，最末一个士兵报的数为10。 编程求韩信至少有多少兵？*/
+//
+//    for(var number=1;true;number++){
+//        if(number%5==1&&number%6==5&&number%7==4&&number%11==10){
+//            document.write(number);
+//            break;
+//        }
+//    }
+
+   /* 2：用*画等腰三角形
+    提示：画空格用&nbsp;或者&ensp;
+    */
+//    //第一行
+//    document.write("n");
+//    document.write("n");
+//    document.write("n");
+//    document.write("n");
+//    document.write("n");
+//    document.write("*");
+//    document.write("<br/>");
+//    //第二行
+//    document.write("n");
+//    document.write("n");
+//    document.write("n");
+//    document.write("n");
+//    document.write("*");
+//    document.write("*");
+//    document.write("*");
+//    document.write("<br/>");
+//    //第三行
+//    document.write("n");
+//    document.write("n");
+//    document.write("n");
+//    document.write("*");
+//    document.write("*");
+//    document.write("*");
+//    document.write("*");
+//    document.write("*");
+//    document.write("<br/>");
+//    //第四行
+//    document.write("n");
+//    document.write("n");
+//    document.write("*");
+//    document.write("*");
+//    document.write("*");
+//    document.write("*");
+//    document.write("*");
+//    document.write("*");
+//    document.write("*");
+//    document.write("<br/>");
+//
+//    for(var i=1;i<6;i++){//3
+//        for(var a=6;a>i;a--){//a>3
+//            document.write("&ensp;");
+//        }
+//        for(var b=1;b<=i*2-1;b++){//b<=5
+//            document.write("*")
+//        }
+//        document.write("<br/>");
+//    }
+
+    /*3：计算饭钱
+     有30个人，其中有男人、女人和小孩，在一家饭馆里吃饭 共花了500元，
+     每个男人各花30元，     每个女人各花20元，每个小孩各花10元，
+     问男人、女人和小孩各有几人？*/
+
+//    var sumRen=30;
+//    var sumMoney=500;
+////    var man,women,child;
+//    for(var man=1;man<30;man++){//2
+//        for(var women=1;women<30;women++){//1
+//            for(var child=1;child<30;child++){//1
+//                if((man*30+women*20+child*10==500)&&(man+women+child==30)){
+//                    document.writeln("男人有"+man);
+//                    document.writeln("女人有"+women);
+//                    document.writeln("小有"+child);
+//                    document.write("<br/>");
+//                }
+//            }
+//        }
+//    }
+
+/*4.将一个正整数分解质因数。例如：输入90,打印出90=2*3*3*5。输入60=2*2*3*5。*/
+//    var n=parseInt(prompt("请输入一个正整数"));
+//    var i=2;
+//
+//    while(i<=n){
+//        if(n%i==0){
+//            document.write(i+"*");
+//            n=n/i;
+//        }else{
+//            i++;
+//        }
+//    }
+
+    var input=parseInt(prompt("请输入正整数"));//18
+    console.log(input);
+    for(var i=1;i<input;i++){//3<18
+        if(input%i==0&&input!=i&&input/i!=input){
+            input=input/i;//3
+            document.write(i+"*");//2 *3
+            i--;
+        }
+        //i++
+    }
+    document.write(input);
+
+
+    /*5.输入2个日期 （年月日），计算两个日期相差多少天？*/
+    
+//    var year1=parseInt(prompt("请输入四位数年份，第一次"));
+//    var year2=parseInt(prompt("请输入四位数年份，第二次"));
+//
+//    var month1=parseInt(prompt("请输入月份，第一次"));
+//    var month2=parseInt(prompt("请输入月份，第二次"));
+//
+//    var day1=parseInt(prompt("请输入日期，第一次"));
+//    var day2=parseInt(prompt("请输入日期，第二次"));
+//
+//    document.write("您第一次输入的日期为："+year1+"年"+month1+"月"+day1+"日");
+//    document.write("您第二次输入的日期为："+year2+"年"+month2+"月"+day2+"日");
+//
+//
+//    var totalDate1=0;
+//    switch (month1){
+//        case 1:totalDate1=day1;break;
+//        case 2:totalDate1=31+day1;break;
+//        case 3:totalDate1=31+28+day1;break;
+//        case 4:totalDate1=31+28+31+day1;break;
+//        case 5:totalDate1=31+28+31+30+day1;break;
+//        case 6:totalDate1=31+28+31+30+31+day1;break;
+//        case 7:totalDate1=31+28+31+30+31+30+day1;break;
+//        case 8:totalDate1=31+28+31+30+31+30+31+day1;break;
+//        case 9:totalDate1=31+28+31+30+31+30+31+31+day1;break;
+//        case 10:totalDate1=31+28+31+30+31+30+31+31+30+day1;break;
+//        case 11:totalDate1=31+28+31+30+31+30+31+31+30+31+day1;break;
+//        case 12:totalDate1=31+28+31+30+31+30+31+31+30+31+30+day1;break;
+//    }
+//    if(year1%100!=0&&year1%4==0||year1%400==0){
+//        if(month1>2){
+//            totalDate1++;
+//        }
+//    }
+//
+//    var totalDate2=0;
+//    switch (month2){
+//        case 1:totalDate2=day2;break;
+//        case 2:totalDate2=31+day2;break;
+//        case 3:totalDate2=31+28+day2;break;
+//        case 4:totalDate2=31+28+31+day2;break;
+//        case 5:totalDate2=31+28+31+30+day2;break;
+//        case 6:totalDate2=31+28+31+30+31+day2;break;
+//        case 7:totalDate2=31+28+31+30+31+30+day2;break;
+//        case 8:totalDate2=31+28+31+30+31+30+31+day2;break;
+//        case 9:totalDate2=31+28+31+30+31+30+31+31+day2;break;
+//        case 10:totalDate2=31+28+31+30+31+30+31+31+30+day2;break;
+//        case 11:totalDate2=31+28+31+30+31+30+31+31+30+31+day2;break;
+//        case 12:totalDate2=31+28+31+30+31+30+31+31+30+31+30+day2;break;
+//    }
+//    if(year2%100!=0&&year2%4==0||year2%400==0){
+//        if(month2>2){
+//            totalDate2++;
+//        }
+//    }
+//
+//    if(year1==year2){
+//        document.write("两个日期相差"+(totalDate2-totalDate1)+"天");
+//    }else{
+//        var param1=365-totalDate1;
+//        var param2=totalDate2;
+//        var param3=(year2-year1-1)*365;
+//        var lastTotalDay=param1+param2+param3;
+//        for(var i=(year1+1);i<year2;i++){
+//            if(i%4==0&&i%100!=0||i%400==0){
+//                lastTotalDay++;
+//            }
+//        }
+//        document.write("两个日期相差"+lastTotalDay+"天");
+//    }
+
+
+    /*作业一：
+    * 序列：1，2，3，5，8，13...。找出第20个数是多少?得出前20个数
+            之和是多少？（需用数组知识点）
+            [1，2，3，5，8，13]*/
+
+//    var arr=[1,2];
+//    var sum=0;
+//    for(var i=0;i<20;i++){//1
+//        var num;
+//        if(i<2){//1<2
+//            num=i+1;//num=2
+//        }else{
+//            num=arr[i-2]+arr[i-1];
+//        }
+//        arr.push(num);
+//        sum=sum+num;
+//        //i++
+//    }
+//    console.log(arr);
+</script>
+</body>
+</html>

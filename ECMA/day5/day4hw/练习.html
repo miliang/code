@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*练习：去掉数组中重复的元素*/
+    var array=[12,12,12,3,4,6,3,123,6,12,12,12];
+    /*array=[12,12,3,4,6,3,123,6];
+    * */
+//    console.log(array);
+//    for(var i=0;i<array.length;i++){//0
+//        for(var j=i+1;j<array.length;j++){//1
+//            if(array[i]==array[j]){
+//                array.splice(j,1);
+//                j--;
+//            }
+//            //j++
+//        }
+//    }
+//    console.log(array);
+
+//方法二
+    /*   var array=[12,12,12,3,4,6,3,123,6,12,12,12];
+    * var array=[12,12,12,3,4,6,3,123,6,12,12]
+    * var array=[12,12,12,3,4,6,3,123,6,12]
+    * var array=[12,12,12,3,4,6,3,123,6]
+    * var array=[12,12,3,4,6,3,123,6]
+    * var array=[3,4,6,3,123,6]*/
+//    for(var i=0;i<array.length;i++){//1
+//        for(var j=array.length-1;j>i;j--){//0
+//            if(array[i]==array[j]){//12-6
+//                array.splice(j,1);
+//            }
+//            //j--
+//        }
+//    }
+//    console.log(array);
+
+
+     /*1.猜数字游戏，有一个0-100随机数 玩家有5次输入的机会猜，
+     每次猜一次，都要将结果告诉玩家是小了，还是大了
+     如果在5次机会内猜中，输出“聪明”，程序结束*/
+
+//    var myNo=parseInt(Math.random()*101);
+//    for(var i=1;i<=5;i++){
+//        var guess=prompt("猜猜随机数");
+//        if(myNo==guess){
+//            alert("你真棒！猜对了，随机数是："+myNo);
+//            break;
+//        }else if(guess>myNo){
+//            alert("第"+i+"次，您输入的是："+guess+"，大了");
+//        }else if(guess<myNo){
+//            alert("第"+i+"次，您输入的是："+guess+"，小了");
+//        }
+//        console.log(i);
+//    }
+//    document.write("Game over！正确数字是："+myNo);
+
+
+    /*2.有一个4个长度的数组，每个位置装有0-9之间的随机数字，
+有10次输入的机会来猜每个位置的上的数是什么，
+每次猜完4个数字以后都要给出提示，正确几个 错误几个，
+只有位置和数字完全正确才算正确，其他情况全视为错误。*/
+//    var ansArray=new Array(4);//游戏设定的数组
+//    var guessArray=new Array(4);//猜数组
+//    var correctAns=0;//正确
+//    var wrongAns=0;//错误
+//
+//    /*为数组添加随机数*/
+//    for(var i=0;i<ansArray.length;i++){
+//        ansArray[i]=parseInt(Math.random()*10);
+//    }
+//    console.log(ansArray);
+//
+//    for(var count=0;count<10;count++){//0
+//        correctAns=0;//正确
+//        wrongAns=0;//错误
+//        for(var k=0;k<guessArray.length;k++){//2
+//            guessArray[k]=parseInt(prompt("请输入第"+(k+1)+"个数字"));
+//            if(guessArray[k]==ansArray[k]){
+//                correctAns++;
+//            }else{
+//                wrongAns++;
+//            }
+//        }
+//        console.log("第"+(count+1)+"次，你输入的是"+guessArray+"正确："+correctAns+"错误："+wrongAns);
+//        if(correctAns==4){
+//            alert("恭喜过关！");
+//            break;
+//        }
+//
+//    }
+
+    /*3. 根据双色球摇奖规则，产生6个红球1个蓝球；红球范围1-33，
+ 蓝球范围1-16. 红球不能有重复的产生。
+
+思路：每次产生一个随机球，存入数组中，下一次产生的随机球，
+要和数组中的进行比较，如果有相等的，
+则重新产生一个号（循环变量要减1），反之继续存入数组；
+直到产生6个球；蓝球单独产生；最后输出所有球。*/
+
+//    var redball=new Array();
+//
+//    for(var i=0;i<6;i++){//1
+//        var red=parseInt(Math.random()*32+1);
+//        console.log(red);
+//        redball.push(red);
+//        console.log(redball);
+//
+//        for(var j=i-1;j>=0;j--){//0
+//            if(redball[i]==redball[j]){
+//                redball.pop();//删除最后一项
+//                i--;
+//            }
+//        }
+//
+//    }
+
+</script>
+</body>
+</html>

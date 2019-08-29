@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<span>BOX之前的SPAN</span>
+<div id="box">
+    <p>BOX内的P元素</p>
+</div>
+
+<div id="txt">
+    <input type="text"/>
+    <button onclick="getValue()">点击获取值</button>
+    <button onclick="setValue()">点击设置值</button>
+</div>
+<a href="#">外面的A标签</a>
+<span>外面的SPAN2 </span>
+<div>外面的DIV</div>
+<p>
+    <!--<a href="#">-->
+    P元素里面的A标签
+    <!--</a>-->
+</p>
+<p>BOX之外的P元素</p>
+<script src="../jquery-1.11.3.js"></script>
+<script>
+    $(function(){
+
+        var box=document.getElementById("box");
+        console.log(box);
+
+        var jqBox=$("#box");
+        console.log(jqBox);
+        console.log(jqBox.length);
+
+        /*JQ对象转原生JS对象*/
+        var Dobj=$("#box").get(0);//JQUERY==>JS
+        console.log(Dobj);
+
+
+        /*原生JS对象转JQ对象*/
+        console.log($(box));
+    });
+
+    /*jquery 选择器*/
+    /*#box>p IE6不支持的*/
+//    $("#box>p")
+
+//    var b=document.getElementById("boxx").style.color="red";
+
+    $("#boxx").css("color","red");//不报错，jquery
+    console.log( $("#boxx").length);
+    /*$("#box").css()*/
+
+    /*多个选择器同时选取*/
+//    $("span,div,.box").css("color","red");
+//    $("*").css("color","red");
+//
+//    $("div +p").css("color","orange");
+//    $("div ~ p").css("color","orange");
+
+
+    /*jquery为后代选择器提供了一个等价的find()方法，*/
+//    $("#box").find("p").css("color","red");
+
+    /*2.box前后紧邻的同级元素*/
+    //    var box=document.getElementById("box").nextElementSibling
+//    $("#box").next().css("color","red");
+//    $("#box").prev().css("color","red");
+
+
+    /*3.Box前后所有的同级元素*/
+//    $("#box").nextAll().css("color","green");
+//    $("#box").nextAll("a").css("color","green");//box后制定标签的所有同级元素
+//
+//
+//    $("#box").prevAll().css("color","green");
+
+    /*4.其他*/
+//    $('#box').nextUntil("p").css("color","red");
+//    $('#box').prevUntil("p").css("color","red");
+
+    /*5.siblings(),box上下所有兄弟元素被选中*/
+//    $("#box").siblings().css("color","red");
+
+
+    function getValue(){
+        //value属性属于原生JS对象
+//        console.log($("input[type='text']").value);//undefined
+        //JQ对象
+        console.log($("input[type='text']").val());//jquery对象获取value的方法
+
+
+    }
+    /*设置输入框的值*/
+    function setValue(){
+        $("input[type='text']").val("hello!冯小龙");
+    }
+
+    $("#box").click(function(){
+//        console.log($("#box").html());
+        $("#box").html($("#box").html()+"<div><h1>龙超</h1></div>")
+    })
+</script>
+</body>
+</html>

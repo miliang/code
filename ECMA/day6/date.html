@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*Array String Math     Date*/
+    var d=new Date();//系统当前时间
+//    d=new Date(2001,0,15,3,3,50);//月份从0开始，年月日时分秒
+
+    console.log("创建的日期对象："+d);
+    console.log("获取年份"+d.getFullYear());
+    console.log("获取年份1900年距今："+(d.getYear()));
+    console.log("获取月份"+ (d.getMonth()+1));
+    console.log("获取日期"+ d.getDate());
+    console.log("获取星期几"+ d.getDay());
+    console.log("获取时"+ d.getHours());
+    console.log("获取分"+ d.getMinutes());
+    console.log("获取秒"+ d.getSeconds());
+    console.log("显示系统语言的日期方式"+ d.toLocaleString());
+
+    /*练习:写一个函数:传入年月日时分秒
+     如果没有传入的情况下，默认使用系统的时间
+     * 要以
+     * XXXX年XX月XX日 HH时MM分SS秒
+     * 返回给调用者*/
+</script>
+</body>
+</html>

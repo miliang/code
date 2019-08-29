@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: #00c2f5;
+            /*调用动画,自带过渡
+            1.调用动画规则的名称
+            2.动画持续时间
+            （可选）
+            3.动画过渡类型
+            4.延迟时间
+            5.动画播放次数（默认1次，也可以写成数字或者infinite-无限循环）
+            6.是否停留在结束状态 forwards
+            7.反向运动 alternate*/
+            /*-webkit-animation: myMove 2s;*/
+            /*-webkit-animation: myMove 2s linear 2s infinite;*//*无限循环*/
+            /*-webkit-animation: myMove 2s linear forwards ;*//*停留在结束状态*/
+            /*-webkit-animation: myMove 5s linear 2 alternate ;/!*反向运动播放次数至少2次*!/*/
+           /*复杂动画规则*/
+            -webkit-animation: myMove2 5s  ;
+        }
+        /*动画规则：*/
+        @-webkit-keyframes myMove {
+              from{
+                  margin-left: 0;
+                  background-color: #00c2f5;
+              }
+              to{
+                  margin-left: 600px;
+                  background-color: orange;
+              }
+          }
+            /*复杂动画设置：*/
+
+        @-webkit-keyframes myMove2 {
+            0%{
+                margin-left: 0;
+            }
+            5%{
+                margin-left: 50px;
+                background-color: red;
+            }
+            50%{
+                margin-top: 100px;
+                background-color: orange;
+            }
+            80%{
+                margin-top: 50px;
+                margin-left: 200px;
+                background-color: #00c2f5;
+                width:150px ;
+            }
+            100%{
+                width: 200px;
+                margin-top: 0;
+                margin-left: 0;
+            }
+        }
+        /*暂停动画*/
+        #div1:hover{
+            -webkit-animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

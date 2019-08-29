@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            text-align: center;
+            /*color: white;*/
+            display: table-cell;
+            vertical-align: middle;
+            border: 3px solid yellow;
+        }
+        #div1{
+            background-color: rgba(138,43,226,.6);
+            /*rgba是值，只能用在设置颜色的地方
+            只有在用的透明色的地方透明
+            取值范围0-1
+            a-alpha=透明度通道*/
+        }
+        #div2{
+            opacity: .6;
+        }
+        /*opacity是属性:整个元素包含子元素全部透明
+          取值范围0-1
+        */
+    </style>
+
+</head>
+<body>
+<div id="div1">
+    <h1>div1</h1>
+</div>
+<div id="div2">
+    <h1>div2</h1>
+</div>
+</body>
+<!--
+1.css3选择器
+2.before after
+3.transtion  transform
+-->
+</html>

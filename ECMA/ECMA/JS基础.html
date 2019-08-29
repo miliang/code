@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*JS变量-容器
+    * var 变量名
+    * 只能是英文、数字，_、$开头，不能以数字开头
+    * 见名知意，驼峰命名法*，不能出现空格
+    * JS关键词以及保留词：open close name true false null……
+    * 加前缀去避免使用关键词和保留词 myOpen myClose */
+    var myName;/*每一段代码结束必须加分号*/
+
+    var mySex;/*定义变量，未初始化*/
+//    alert(mySex);
+    /*初始化变量*/
+    mySex="123";/*变量申明之后，后续操作不需要重复写var关键词*/
+//    alert(mySex);
+
+    myName=false;
+    /*通过赋值操作来添加值
+    * JS里面  “=”用来赋值，并不代表等于
+    * JS里面 = 左边永远是变量 等到的右边永远是值，值的类型只能是基本类型*/
+
+
+//    alert(myName);
+    /*JS-5个基本数据类型
+    * 1.未定义/未知类型 undefined
+    * 2.空值 null
+    * 3.数字类型 number：正数 负数 浮点
+    * 4.字符串（文字）string：“”只要有引号就是字符串
+    * 5.布尔值 boolean:true false*/
+
+    var productName="商品名称";
+
+    productName="苹果";//string
+    /*输出的方式：3种*/
+//    alert(productName);//用弹框打印变量中的内容
+//    console.log(productName);//写在控制台上-建议使用
+//    document.write(productName);//直接写到页面上
+
+    var myUndefind;
+    var myBoolean=true;
+    var myNull=null;
+    var myString="冯小龙";
+    var myNumber=123;
+
+
+//    alert(typeof myUndefind);
+//    alert(typeof myBoolean);
+//    alert(typeof myNull);
+//    alert(typeof myString);
+//    alert(typeof myNumber);//typeof 得到变量中的值得数据类型
+
+    /*输入的方式*/
+//    var userAge=prompt("请输入您的年龄");
+//    console.log(userAge);
+//    console.log(typeof userAge);//字符串，不能和数字相加
+    /*数据类型转换操作
+    * 1.强制转换 string==>Number*/
+
+//    userAge=Number(userAge);
+
+//    console.log(typeof userAge);
+//
+//    console.log("用户十年之后应该是多少岁");
+//
+//    console.log(userAge+10);
+
+    /*2.第二种转换：通过parseInt()，转换成Number整数-直接砍掉小数点*/
+
+//    userAge=parseInt(userAge);
+//    console.log(userAge);
+//    console.log(typeof userAge);
+
+    /*3.parseFloat()转换成number 保留小数点*/
+
+//        userAge=parseFloat(userAge);
+//        console.log(userAge);
+//        console.log(typeof userAge);
+
+
+    var myContent=window.prompt("请输入");
+    console.log(typeof myContent);//string
+//    myContent=Number(myContent);
+    console.log(myContent);//NaN ,not a number
+
+    myContent=parseFloat(myContent);
+    console.log(myContent);
+
+    /*parseInt和Number区别
+    *用户输入123aa
+    * Number()==》NaN  //看整体，只要其中有一个是NaN,整个都不能转成Number
+    * ParseInt()==>123从左向右，转到不能转为止，把钱面已经转换的数字返回Number类型*/
+</script>
+</body>
+</html>

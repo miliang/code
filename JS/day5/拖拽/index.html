@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #425A7D;
+        }
+        p{
+            font-size: 30px;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 50px;
+        }
+        /*彩色照片*/
+        div:nth-of-type(1){
+            margin-top: 50px;
+            width: 800px;
+            margin-left: 270px;
+        }
+        img{
+            width: 800px;
+        }
+        /*黑白照片*/
+        div:nth-of-type(2){
+            width: 400px;
+            height: 450px;
+            margin-left: 270px;
+            top:140px;
+            position: absolute;
+            overflow: hidden;
+        }
+        /*按钮*/
+        #btn{
+            width: 50px;
+            height: 50px;
+            background-color: #E27976;
+            border-radius: 100%;
+            position: absolute;
+            top: 320px;
+            left: 643px;
+            color: #ffffff;
+            cursor: pointer;
+            display: none;
+        }
+        #btn:hover{
+            background-color: #425A7D;
+        }
+        #btn:before{
+            content: "\25c0 \25B6";
+            font-size: 15px;
+            position: absolute;
+            top: 14px;
+            left: 10px;
+        }
+        /*左右文字*/
+        #word1,#word2{
+            color: #ffffff;
+            position: absolute;
+            top: 554px;
+        }
+        #word1{
+            left: 282px;
+        }
+        #word2{
+            left:990px;
+        }
+        /*===========动画设置===========*/
+
+        /*黑白照片的动画*/
+        @-webkit-keyframes picJump {
+            0%{
+                width: 200px;
+            }
+            50%{
+                width: 480px;
+            }
+            70%{
+                width: 450px;
+            }
+            100%{
+                width: 400px;
+            }
+         }
+
+        /*按钮*/
+        @-webkit-keyframes btnBigger {
+            0%{
+                transform: scale(0,0);
+            }
+            60%{
+                transform: scale(0.5,0.5);
+            }
+            100%{
+                transform: scale(1,1);
+            }
+        }
+        /*文字动画*/
+        @-webkit-keyframes wordMove {
+            0%{
+                opacity: 0;
+                top: 590px;
+            }
+            70%{
+                opacity: 0;
+                top: 570px;
+            }
+            100%{
+                opacity: 1;
+                top: 554px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<p>Image Comparison Slider</p>
+<div><!--彩色照片-->
+    <img src="img-original.jpg" alt=""/>
+</div>
+<div id="divModified"><!--黑白照片-->
+    <img src="img-modified.jpg" alt=""/>
+</div>
+<div id="btn" onmousedown="btnMove(this)" onmouseup="deleteEvent()"></div><!--按钮-->
+<div id="word1">Modified</div>
+<div id="word2">Original</div>
+
+
+<script>
+    var divModified=document.getElementById("divModified");
+    var btn=document.getElementById("btn");
+    var word1=document.getElementById("word1");
+    var word2=document.getElementById("word2");
+
+    window.onload=function(){
+        myStart()
+    };
+
+    function myStart(){
+        //按钮
+        btn.style.display="block";
+        btn.style.webkitAnimation="btnBigger 1s linear";
+
+        //照片
+        divModified.style.webkitAnimation="picJump .7s linear";
+
+        //文字
+        word1.style.webkitAnimation="wordMove .9s linear";
+        word2.style.webkitAnimation="wordMove .9s linear";
+    }
+
+
+    function btnMove(obj){
+        //obj代表btn
+        var e=window.event||arguments[0];
+        document.onmousemove=function(){
+            var mouseMoveE=window.event||arguments[0];
+
+            obj.style.left=(mouseMoveE.clientX- e.offsetX)+"px";
+
+            /*黑白照片DIV的宽度=鼠标移动的位置-图片与浏览器之间的间距*/
+            var imgDivWidth=mouseMoveE.clientX-270-mouseMoveE.offsetX+25;
+            divModified.style.width=imgDivWidth+"px";
+
+
+            setWordDisplay(divModified);
+
+            if(imgDivWidth<25){
+                divModified.style.width="25px";
+                obj.style.left="270px";
+            }else if(imgDivWidth>775){
+                divModified.style.width="775px";
+                obj.style.left=(270+800-50)+"px"
+            }
+        }
+    }
+
+    function setWordDisplay(divMove){
+        word1.style.webkitAnimation="aaa";
+        word2.style.webkitAnimation="bbb";
+        if(parseInt(divMove.style.width)<100){
+            word1.style.display="none";
+        }else{
+            word1.style.display="block";
+        }
+
+        if(parseInt(divMove.style.width)>710){
+            word2.style.display="none";
+        }else{
+            word2.style.display="block";
+        }
+    }
+
+    function deleteEvent(){
+        document.onmousedown=null;
+        document.onmousemove=null;
+    }
+</script>
+</body>
+</html>

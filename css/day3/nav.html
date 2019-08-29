@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        nav img{
+            width: 120px;
+        }
+        nav img,.menu{
+            float: left;
+        }
+        li{
+            list-style: none;
+            width: 150px;
+            height: 50px;
+            /*border: 1px solid red;*/
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;/*鼠标手型*/
+        }
+        .myLi{
+            float: left;
+            background-color: #00c2f5;
+            color: white;
+            overflow: hidden;/*溢出隐藏*/
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        .myLi li{
+            color: #00c2f5;
+            border: 1px solid #00c2f5;
+        }
+        .myLi:hover{
+            overflow: visible;
+            background-color: #4addf5;
+            color: #e0e0e0;
+            font-weight: bolder;
+        }
+        .myLi li:hover{
+            background-color: #00c2f5;
+            color: white;
+        }
+        #li1:hover+#li2{/*移入改变紧邻下一个兄弟元素*/
+            color: #343434;
+        }
+        #li2:hover #sonMenu li {
+            color: #7517ff;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="36kr.png" alt=""/>
+        <ul class="menu">
+            <li class="myLi" id="li1"><a href="#">首页</a></li>
+            <li class="myLi" id="li2">
+                产品
+                <ul id="sonMenu">
+                    <li>子菜单1</li>
+                    <li>子菜单2</li>
+                    <li>子菜单3</li>
+                </ul>
+            </li>
+            <li class="myLi" id="li3">
+                服务
+                <ul>
+                    <li>子菜单1</li>
+                    <li>子菜单2</li>
+                    <li>子菜单3</li>
+                    <li>子菜单3</li>
+                    <li>子菜单3</li>
+                </ul>
+            </li>
+            <li class="myLi">关于我们</li>
+        </ul>
+    </nav>
+</body>
+</html>

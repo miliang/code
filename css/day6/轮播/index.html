@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #boxhidden{
+            width: 620px;
+            height: 250px;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+        #boximg{
+            height: 250px;
+            width: 3720px;
+            font-size: 0;
+            -webkit-animation: imgmove 20s linear infinite;
+            -o-animation: imgmove 20s linear infinite;
+            animation: imgmove 20s linear infinite;
+        }
+        @-webkit-keyframes imgmove {
+            /*from{*/
+                /*margin-left: 0;*/
+            /*}*/
+            /*to{*/
+                /*margin-left: -3100px;*/
+            /*}*/
+
+
+            0%{
+                margin-left: 0;
+            }
+            10%{
+                margin-left: 0;
+            }
+            20%{
+                margin-left: -620px;
+            }
+            30%{
+                margin-left: -620px;
+            }
+            40%{
+                margin-left: -1240px;
+            }
+            50%{
+                margin-left: -1240px;
+            }
+            60%{
+                margin-left: -1860px;
+            }
+            70%{
+                margin-left: -1860px;
+            }
+            80%{
+                margin-left: -2480px;
+            }
+            90%{
+                margin-left: -2480px;
+            }
+            100%{
+                margin-left: -3100px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+<div id="boxhidden"><!--设置溢出隐藏-->
+    <div id="boximg">
+        <img src="images/m1.jpg" alt=""/>
+        <img src="images/m2.png" alt=""/>
+        <img src="images/m3.jpg" alt=""/>
+        <img src="images/m4.png" alt=""/>
+        <img src="images/m5.jpeg" alt=""/>
+        <img src="images/m6.jpg" alt=""/>
+    </div>
+    <!--自己完成-->
+    <div id="moveleft">< </div>
+    <div id="moveright"> > </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .banner{
+            height: 330px;
+            width: 980px;
+            position: relative;
+            /*outline: 1px solid red;*/
+            background-color: #000000;
+        }
+
+        #imgBanner{
+            height: 330px;
+            width: 980px;
+            transition: all 1s linear;
+        }
+
+        #divNext,#divPrev{
+            position: absolute;
+            font-size: 40px;
+            color:  gainsboro;
+            top: 150px;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #divNext{
+            right: 0px;
+        }
+        #divPrev{
+            left: 0px;
+        }
+
+
+        .circle{
+            font-size: 30px;
+            color: #CCCCCC;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="banner">
+        <!--显示图片-->
+        <div class="content">
+            <div id="imgBanner"></div>
+        </div>
+        <!--上/下一页-->
+        <div id="divNext" onclick="next()">></div>
+        <div id="divPrev" onclick="prev()"><</div>
+        <!--小圆点-->
+        <div id="divCircle">
+
+        </div>
+    </div>
+</header>
+
+<script>
+    var arr=["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg"];
+//    var   小圆点=[0,1,2,3,4]
+    var index=0;
+    var imgBanner=document.getElementById("imgBanner");
+    imgBanner.style.backgroundImage="url("+arr[index]+")";
+
+    var time=setInterval(dis,4000);
+    function dis(){
+       index++;
+        if(index==arr.length){
+            index=0;
+        }
+        imgBanner.style.backgroundImage="url("+arr[index]+")";
+
+        disCirCleStyle();
+    }
+
+    //控制圆点
+
+    var divCircle=document.getElementById("divCircle");
+    for(var i=0;i<arr.length;i++){
+        divCircle.innerHTML+="<span>●</span>"
+    }
+
+    /*显示小圆点对应的样式*/
+    disCirCleStyle();
+    function disCirCleStyle(){
+        var spanArr=divCircle.getElementsByTagName("span");
+        for(var i=0;i<spanArr.length;i++){
+            spanArr[i].className="";
+        }
+        divCircle.getElementsByTagName("span")[index].className="circle";
+    }
+    /*下一页*/
+    function next(){
+        clearInterval(time);
+        index++;
+        if(index==arr.length){index=0;}
+        imgBanner.style.backgroundImage="url("+arr[index]+")";
+        disCirCleStyle();
+        time=setInterval(dis,4000);
+    }
+    //上一页
+    function prev(){
+        clearInterval(time);
+        index--;
+        if(index<0){index=arr.length-1;}
+        imgBanner.style.backgroundImage="url("+arr[index]+")";
+        disCirCleStyle();
+        time=setInterval(dis,4000);
+    }
+
+    /*点击小圆点*/
+    for(var i=0;i<arr.length;i++){
+        var span= document.getElementsByTagName("span");
+        span[i].myNO=i;
+        span[i].onclick=function(){
+            console.log(this.myNO);
+            index=this.myNO;
+            clearInterval(time);
+            imgBanner.style.backgroundImage="url("+arr[index]+")";
+            disCirCleStyle();
+            time=setInterval(dis,4000);
+        };
+//        console.log(span[i].index);
+//        document.getElementsByTagName("span")[i].index=i;
+    }
+</script>
+</body>
+</html>

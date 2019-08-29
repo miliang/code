@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var arr1=[1,2,3,4,5,6];
+//    console.log(arr1.length);
+
+//    console.log(arr1[0]);
+//    console.log(arr1[1]);
+//    console.log(arr1[2]);
+//    console.log(arr1[3]);
+    //遍历数组 i 下标
+//    for(var i=0;i<arr1.length;i++){
+//        console.log(arr1[i]);
+//    }
+
+    //循环添加内容
+//    var arr2=new Array(6);
+//    for(var i=0;i<arr2.length;i++){
+//        arr2[i]=prompt("请输入！");
+//    }
+//    console.log(arr2);
+//    console.log(typeof arr2[0]);
+
+
+    /*添加数据的第二种方法：push()*/
+//    var arr3=new Array(1,2,3);
+//    arr3[3]=4;
+//    console.log(arr3);//1 2 3 4
+//    arr3.push("a","b");//默认添加到数组的最后
+//    console.log(arr3);
+//    arr3.push("a");
+//    console.log(arr3);
+
+    //删除数据 ：shift()-删除第一条数据
+//    var arr4=["a","b","c","d","e","f"];
+//    console.log(arr4);
+//    arr4.shift();
+//    console.log(arr4);
+
+    //删除最后一条数据：pop()
+//    arr4.pop();
+//    console.log(arr4);
+
+//    删除中间某一条数据
+    /*splice(起始下标(包含)，删除多少项)*/
+//    arr4.splice(1,2);
+//    console.log(arr4);
+//    console.log(arr4.length)
+
+    /*替换数据：splice(起始下标，删除多少项，替换的新数据)*/
+//    var arr5=["a","b","c","d","e","f"];
+//    arr5.splice(1,3,"bbbbb");//a bbbbb e f
+//    console.log(arr5);
+
+    /*插入数据：splice(起始下标，删除多少项，插入的新数据)*/
+//    arr5.splice(1,0,"cccccc");
+//    console.log(arr5);
+
+    /*数组合并：concat()*/
+//    var arr6=["程衍铭"];
+//    var arr7=["刘杰"];
+//    var newarr=arr6.concat(arr7);
+//    console.log(newarr);
+//    newarr=arr6.concat("去嘘嘘！","刘杰，脖子痛！");
+//    console.log(newarr);
+
+    /*数组抽取：slice(起始下标，结束下标不包含自己)*/
+//    var arr8=[1,2,3,4,5,6];
+//    var newarr2=arr8.slice(2,4);
+//    newarr2=arr8.slice(2,-1);//负数代表从最后开始倒数
+//    console.log(newarr2);//3 4
+
+    //数组复制
+//    var arr9=[3,2,1,6,4,7,5];
+//    var arr10=[3,2,1,6,4,7,5];
+//    arr10=arr9;
+//    console.log(arr9);
+//    console.log(arr10);
+//    var arr10=[];
+//    for(var i=0;i<arr9.length;i++){
+//        arr10[i]=arr9[i]
+//    }
+//    console.log(arr10);
+
+
+
+    /*数组排序*/
+//    arr9.sort();//从小到大进行排序
+//    console.log(arr9);
+
+    /*数组串联：join("串起来的符号")*/
+    var arr11=[1,2,3,4,5,6];
+    var newarr3=arr11.join("+");//把所有数组内的数据通过指定字符串联起来
+    console.log(newarr3);
+    console.log(typeof newarr3);//字符串，不再是数组
+    console.log(newarr3.length);//字符串也有长度
+</script>
+</body>
+</html>

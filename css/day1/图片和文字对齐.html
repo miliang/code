@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        img{
+            width: 100px;
+        }
+        .mydiv2{
+            width: 100%;
+            /*height: 300px;*/
+        }
+        .mydiv2 img{
+            vertical-align: middle;
+            width: 150px;
+        }
+        .mydiv3 img{
+            float: left;
+        }
+
+        .myImg{
+            width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+<!--正常文档流：文字与图片的底部对齐-->
+<div class="mydiv">
+    <img src="duorou.jpg" alt="#"/>
+    <span>我就是可爱的多肉</span>
+</div>
+<div class="mydiv2" id="mydiv2">
+    <img src="duorou.jpg" alt="#" class="myImg" id="myImg"/>
+    <span>我就是可爱的多肉</span>
+</div>
+<div class="mydiv3">
+    <img src="duorou.jpg" alt="#"/>
+    <span>我就是可爱的多肉</span>
+</div>
+</body>
+</html>

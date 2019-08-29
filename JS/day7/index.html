@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            width: 400px;
+            height: 600px;
+            position: absolute;
+            left: 50%;
+            margin-left: -200px;
+            background-image: url("images/background_1.png");
+            overflow: hidden;
+        }
+        #titleScore{
+            margin: 20px;
+            font-size: 20px;
+        }
+        #title{
+            /*margin-top: 150px;*/
+            /*margin-left: 100px;*/
+            margin: 150px 0 50px 100px;
+            animation: fontChange 5s infinite linear;
+        }
+
+        @-webkit-keyframes fontChange {
+            0%{
+                color: #0086b3;
+            }
+            25%{
+                color: #786fb3;
+            }
+            50%{
+                color: #b35565;
+            }
+            75%{
+                color: #ff981e;
+            }
+            100%{
+                color: #60aeff;
+            }
+        }
+
+        #btn1,#btn2{
+            width: 150px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background-color: rgba(0, 0, 0, 0.69);
+            border-radius: 5px;
+            margin: 30px 0 10px 130px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="titleScore">
+        <div>杀敌：</div>
+        <div>总分：</div>
+    </div>
+    <div id="title">
+        <h1>一起来打飞机吧</h1>
+    </div>
+    <div id="btn1" onclick="startGame()">Start Game</div>
+    <div id="btn2">Exit</div>
+</div>
+
+<script>
+    var mainObj=document.getElementById("main");
+    var enemyArray=[];//敌方小飞机数组
+
+
+    function startGame(){
+        document.getElementById("titleScore").style.display="none";
+        document.getElementById("title").style.display="none";
+        document.getElementById("btn1").style.display="none";
+        document.getElementById("btn2").style.display="none";
+
+        var playerPlane=new PlayerPlane("images/myplane.gif",150,450,5,5);
+        setInterval(createEnemy,1000);
+
+        setInterval(enemyPlaneMove,100);
+//        var myimg=document.createElement("img");
+//        myimg.src="images/myplane.gif";
+//        mainObj.appendChild(myimg);
+//        myimg.style.position="absolute";
+//        myimg.style.bottom="0px";
+//        myimg.style.left="100px";
+    }
+
+
+    /*玩家飞机构造函数
+    玩家飞机属性：
+    * 1.玩家飞机图片节点
+    * 2.图片路径
+    * 3.起始坐标X
+    * 4.起始坐标Y
+    * 5.血量
+    * 6.移动速度
+    *
+    * 玩家飞机行为：
+    * 1.发子弹
+    * 2.移动*/
+
+    /*JS注释方式*/
+
+    /**
+     *  @param{string} imgsrc 图片路径
+     *  @param{number} x 起始x坐标
+     *  @param{number} y 起始y坐标
+     *  @param{number} blood 血量
+     *  @param{number} speed 速度
+     *  @constructor*/
+
+    function PlayerPlane(imgsrc,x,y,blood,speed){
+        this.planeNode=document.createElement("img");
+        this.imgsrc=imgsrc;
+        this.x=x;
+        this.y=y;
+        this.blood=blood;
+        this.speed=speed;
+        this.shoot=function(){
+
+        };
+        this.move=function(){
+
+        };
+
+        /*初始化函数*/
+        this.init=function(){
+            this.planeNode.src=this.imgsrc;
+            this.planeNode.style.position="absolute";
+            this.planeNode.style.left=this.x+"px";
+            this.planeNode.style.top=this.y+"px";
+            mainObj.appendChild(this.planeNode);
+        };
+        this.init();
+    }
+
+
+    /*标准注释应该放置在构造函数上方-表示这段注释是PlayerPlane函数的
+    "*"和@param之间有空格
+    第一行双*号，并且不能写内容
+     * */
+
+    /*敌方小飞机模板
+    * 属性：
+    * 1.图片节点
+    * 2.图片路径
+    * 3.x、y坐标
+    * 4.blood
+    * 5.移动速度
+    * 行为：
+    * 1.移动
+    * 2.初始化行为*/
+    function EnemyPlane(imgsrc,x,y,blood,speed){
+        this.imgNode=document.createElement("img");
+        this.imgsrc=imgsrc;
+        this.x=x;
+        this.y=y;
+        this.blood=blood;
+        this.speed=speed;
+
+        this.move=function(){
+            this.imgNode.style.top=(parseInt(this.imgNode.style.top)+this.speed)+"px";
+        };
+
+        this.init=function(){
+            this.imgNode.src= this.imgsrc;
+            this.imgNode.style.position="absolute";
+            this.imgNode.style.left=this.x+"px";
+            this.imgNode.style.top=this.y+"px";
+            mainObj.appendChild(this.imgNode);
+        };
+        this.init();
+    }
+
+
+    function createEnemy(){
+        var enemy=new EnemyPlane("images/enemy1_fly_1.png",Math.random()*366,-Math.random()*60,1,Math.random()*5+1);
+        enemyArray.push(enemy);
+        console.log(enemyArray.length);
+    }
+
+    function enemyPlaneMove(){
+        for(var i=0;i<enemyArray.length;i++){
+            console.log(enemyArray[i]);
+            enemyArray[i].move();
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    var bfArray=new Array()
+
+    function BoyFriends(height,money,handsome){
+        this.height=height;
+        this.money=money;
+        this.handsome=handsome;
+        this.maimaimai=function(){
+            this.money=this.money-5000;
+            console.log("现在我还有"+this.money);
+        }
+    }
+
+
+    var bf=new BoyFriends(180,parseInt(Math.random()*55000000+10),true);
+//    console.log(bf.money);
+//    bf.maimaimai();
+    var bf2=new BoyFriends(200,parseInt(Math.random()*55000000+10),false);
+    console.log(bf2.money);
+
+
+    var bfArray=[];
+    setInterval(creatBf,2000);
+    function creatBf(){
+        var bf=new BoyFriends(180,parseInt(Math.random()*50000+10),true);
+        bfArray.push(bf);
+        console.log("我有"+bfArray.length+"个男朋友");
+    }
+</script>
+</body>
+</html>

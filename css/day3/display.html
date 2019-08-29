@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        span{
+            width: 200px;
+            height: 200px;
+            background-color: #00c2f5;
+            /*display: block;/!*内嵌元素==》块级元素*!/*/
+            display: inline-block;/*带块级特性的内嵌元素：可以设置宽高，不会自动换行*/
+
+            margin-top: 20px;
+        }
+        #span3{
+            /*display: none;/!*不会占据文档流的空间*!/*/
+            visibility: hidden;/*视觉上隐藏了元素，所占据的空间依然被占据*/
+        }
+        #span2:hover+#span3{
+            /*display: block;*//*显示，内嵌转块级*/
+            visibility: visible;/*显示*/
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: #8a2be2;
+            /*display: inline;/!*块级==》内嵌*!/*/
+            display: inline-block;
+
+        }
+        /*display:table-cell*/
+    </style>
+</head>
+<body>
+    <span id="span1">SPAN元素</span>
+    <span id="span2">SPAN元素</span>
+    <span id="span3">SPAN元素</span>
+    <div>div元素</div>
+    <div>div元素</div>
+    <div>div元素</div>
+</body>
+</html>

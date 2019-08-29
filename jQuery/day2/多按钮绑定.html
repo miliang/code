@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #mydiv{
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+<div id="mydiv">
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+</div>
+
+
+<script src="../jquery-3.1.1.js"></script>
+<script>
+//    $("button").on("click",function(){
+//        alert("刘杰你在干嘛~！");
+//    })
+//on提供事件委托，事件只绑定在一个元素上，通过它来分发事件
+    $("#mydiv").on("click","button",function(){
+        alert(111);
+    })
+</script>
+</body>
+</html>

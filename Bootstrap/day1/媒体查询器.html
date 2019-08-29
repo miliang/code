@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>媒体查询器</title>
+    <link rel="stylesheet" href="">
+    <style>
+        @media screen and (min-width:1200px){/*屏幕大于1200px*/
+            body{
+                background: #00a9e3;
+                color: white;
+                font-size: 50px;
+            }
+            #mid,#small{
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1200px){/*  1200> screen>768*/
+            body{
+                background: black;
+                color: yellow;
+                font-size: 40px;
+            }
+            #large,#small{
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 768px){/*   screen<768*/
+            body{
+                background: #8a2be2;
+                color: yellow;
+                font-size: 20px;
+            }
+            #large,#mid{
+                display: none;
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+Hello~迟到的小朋友们，请准备节目！
+<div id="large">Big</div>
+<div id="mid">MID</div>
+<div id="small">SMALL</div>
+
+
+<script src=""></script>
+</body>
+</html>

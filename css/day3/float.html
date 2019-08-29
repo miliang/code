@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+               #mainDiv{
+            background-color: black}
+        div{
+            width: 500px;
+            height: 500px;
+        }
+        #div1{
+            background-color: yellow;
+        }
+        #div2{
+            background-color: red;
+        }
+        #div3{
+            background-color: aqua;
+            float: right;
+        }
+    </style>
+</head>
+<body bgcolor="white">
+<section id="mainDiv">
+    <div id="myLeft"></div>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+    <div id="div5"></div>
+    <div id="div6"></div>
+
+
+<!--浮动的影响：
+1.在允许的空间并排呈现，如果空间不够，会自动换行
+2.改变块级元素占据一整行的特性，去掉多余的空间，把宽度缩成本身內容的宽度
+或者设置的宽度
+3.浮动会脱离正常的文档流，后续的正常文档流的元素会占据浮动元素的位置
+4.浮动会造成父元素的塌陷
+5.内嵌元素浮动后将可以设置宽高-->
+
+    <!--解决浮动的影响
+    1.清除浮动 clear:both
+    2.为父元素设置宽高
+    3.让父元素与子元素一起浮动(不推荐)
+    4.为父元素设置overflow:hidden
+    5.为塌陷的父元素添加一个after属性，设置如下：
+    div:after{
+    clear:both
+    conter""
+    height:0
+    width:0
+    visibility:hidden-->
+</section>
+</body>
+</html>

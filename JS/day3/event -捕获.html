@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div1">
+    <button id="btn">按钮</button>
+</div>
+<script>
+    var btn=document.getElementById("btn");
+    var div=document.getElementById("div1");
+
+    btn.addEventListener("click",showMsg,true);//true-捕获 false-默认冒泡
+    div1.addEventListener("click",showMsg2,true);
+    document.body.addEventListener("click",showMsg3,true);
+    function showMsg(){
+        alert("button");
+    }
+    function showMsg2(){
+        alert("div");
+    }
+    function showMsg3(){
+        alert("body");
+    }
+</script>
+</body>
+</html>

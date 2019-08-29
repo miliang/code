@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        @font-face {
+            font-family: "myFont";
+            src:url(iconfont/iconfont.ttf);
+        }
+        .myFt{
+            font-family: "myFont";
+            font-size: 18px;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: "微软雅黑“;
+            font-size:"14px";
+            font-weight: bold;
+        }
+        body{
+            background-color: #464646;
+        }
+        #divMain{
+            margin: 0 auto;
+            width: 500px;
+            outline: 5px solid white;
+        }
+        #divMain ul{
+            list-style: none;
+            margin: 0 auto;
+            width: 330px;
+        }
+
+
+        #divMain ul li{
+            background-color: white;
+            color: #333333;
+            width: 337px;
+            height: 45px;
+            line-height: 45px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all .3s;
+        }
+        #divMain ul li:not(:first-child){
+            border-top: 2px solid #CCCCCC;
+        }
+        li:nth-child(1){
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        li:nth-child(4){
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        span:nth-child(1){
+            padding-left: 13px;
+            /*background-color:red ;*/
+        }
+        span:nth-child(2){
+            outline: 1px solid red;
+            display: inline-block;
+            width: 200px;
+            padding-left: 20px;
+            padding-right: 50px;
+
+        }
+        #divMain>ul>li>a{
+
+        }
+    </style>
+</head>
+<body>
+<div id="divMain">
+    <ul>
+        <li>
+            <span class="myFt">&#xf0022;</span>
+            <span>Diseno web</span>
+            <a class="myFt">&#xf0170;</a>
+            <div>HTML</div>
+            <div>CSS</div>
+            <div>Javascript</div>
+            <div>PHP</div>
+        </li>
+        <li>
+            <span class="myFt">&#xf01bd;</span>
+            <span>Desarrolllo front-end</span>
+            <a class="myFt">&#xf0170;</a>
+            <div>HTML</div>
+            <div>CSS</div>
+            <div>Javascript</div>
+        </li>
+        <li>
+            <span class="myFt">&#xf00a2;</span>
+            <span>Diseno responsive</span>
+            <a class="myFt">&#xf0170;</a>
+            <div>HTML</div>
+            <div>CSS</div>
+            <div>Javascript</div>
+            <div>PHP</div>
+        </li>
+        <li>
+            <span class="myFt">&#xf00b9;</span>
+            <span>Posicionamiento web</span>
+            <a class="myFt">&#xf0170;</a>
+            <!--<div>HTML</div>-->
+            <!--<div>CSS</div>-->
+            <!--<div>Javascript</div>-->
+            <!--<div>PHP</div>-->
+        </li>
+    </ul>
+</div>
+</body>
+</html>

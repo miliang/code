@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    var str="hello";//字面量方法
+//    var str1=new String("hello");//String对象
+//    console.log(str);
+//    console.log(str1);
+//
+//    console.log(typeof  str);//String
+//    console.log(typeof  str1);//Obejct
+//
+//    console.log(str==str1);//true
+//    console.log(str===str1);//false
+
+    /*string可以通过方法去操作*/
+    /*1.返回下标对应的字符--charAt(下标)*/
+    var str="hello world";
+//    var reszult=str.charAt(8);//下标从0开始
+//    console.log(reszult);
+
+
+    /*2.截取字符串，从起始下标开始，截取多少个
+     substr(起始下标，截取多少个)*/
+    reszult=str.substr(1,5);
+    console.log(reszult);
+
+    /*3.截取字符串：从起始下标开始，到结束下标，不包含结束下标
+    slice()*/
+    reszult=str.slice(1,8);
+    console.log(reszult);
+
+    /*4.字符第一次出现的下标位置，indexOf*/
+    reszult=str.indexOf("e");
+    console.log(reszult);
+
+    /*5.替换字符，replace("被替换的字符"，“要替换成什么字符”)*/
+    reszult=str.replace("ld","龙超");
+    console.log(reszult);
+
+    /*6.搜索字符存不存在，search("字符")
+    * -1：没有
+    * 有：返回起始下标*/
+    reszult=str.search("a");
+    console.log(reszult);
+
+    /*7.字符串分割 split(“分割符”)
+    * 返回数组，分割符会被去掉*/
+
+    reszult=str.split("o");
+    console.log(reszult);
+
+    /*8.合并字符，concat("合并的字符串")*/
+    var str2="byebye!";
+    reszult=str.concat(str2);
+    console.log(reszult);
+
+    /*9.清除前后空格 :trim()*/
+    var str3="     hello  world    ";
+    reszult=str3.trim();
+    console.log(reszult);//不会清除文字之间的空格
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        @font-face {
+            font-family: "myFont";
+            src:url("iconfont/iconfont.ttf");
+        }
+        .myFt{
+            font-family: "myFont";
+            font-size: 32px;
+            color: #d18500;
+        }
+        #divImg{
+            width: 1005px;
+            height: 328px;
+            background-image: url("images/index_slide_con01.png");
+            margin: 0 auto;
+            transition: all .5s;
+            background-color: #cf8600;
+        }
+        #divMain ul{
+            list-style: none;
+            height: 50px;
+            /*margin-left: 170px;*/
+            /*outline: 1px solid red;*/
+            width: 605px;
+            margin: 0 auto;
+            margin-top: -50px;
+        }
+        #divMain ul li{
+            width: 120px;
+            height: 50px;
+            line-height: 50px;
+            background-color: rgba(255,255,255,.5);
+            float: left;
+            margin-left: 1px;
+            text-align: center;
+            cursor: pointer;
+            transition: all .3s ;
+        }
+    </style>
+</head>
+<body>
+<div id="divMain">
+    <div id="divImg"></div><!--背景图-->
+    <ul>
+        <li onclick="changeImg(this)" id="li1">
+            <span  class="myFt">&#xf00b9;</span>
+        </li>
+        <li onclick="changeImg(this)" id="li2">
+            <span class="myFt">&#xf00a2;</span>
+        </li>
+        <li onclick="changeImg(this)" id="li3">
+            <span class="myFt">&#xf00b9;</span>
+        </li>
+        <li onclick="changeImg(this)" id="li4">
+            <span class="myFt">&#xf00a2;</span>
+        </li>
+        <li onclick="changeImg(this)" id="li5">
+            <span class="myFt">&#xf00b9;</span>
+        </li>
+    </ul>
+    <!--<div id="btnApplyB">-->
+        <!--<div id="btnApply">投放申请</div>-->
+    <!--</div>-->
+</div>
+<script>
+    function changeImg(clickLi){
+        var imgEle=document.getElementById("divImg");
+//        console.log(clickLi.id);
+        var myID=clickLi.getAttribute("id");
+        console.log(myID);
+        var num=myID.substr(2,1);
+        console.log(num);
+        imgEle.style.backgroundImage="url('images/index_slide_con0"+num+".png')"
+
+        if(clickLi.style.height==""||clickLi.style.height=="50px"){
+            clickLi.style.height="60px";
+            clickLi.style.marginTop="-10px"
+        }
+        else{
+            clickLi.style.height="50px";
+            clickLi.style.marginTop="0px"
+        }
+
+        var liList=document.getElementsByTagName("li");
+        for(var i=0;i<liList.length;i++){
+            if(liList[i]!=clickLi){
+                liList[i].style.height="50px";
+                liList[i].style.marginTop="0px";
+            }
+        }
+    }
+</script>
+</body>
+</html>

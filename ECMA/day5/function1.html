@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*函数：代码重用*/
+//    for(var j=1;j<5;j++){//行
+//        for(var i=1;i<20;i++){//列
+//            document.write("*");
+//        }
+//        document.write("</br>");
+//    }
+//
+//    for(var j=1;j<8;j++){//行
+//        for(var i=1;i<15;i++){//列
+//            document.write("*");
+//        }
+//        document.write("</br>");
+//    }
+
+//    function juXing(hang,lie){
+//        for(var j=1;j<hang;j++){//行
+//            for(var i=1;i<lie;i++){//列
+//                document.write("*");
+//            }
+//            document.write("</br>");
+//        }
+//    }
+//
+//    juXing(5,20);
+//
+//    juXing(15,25);
+//
+//    juXing(25,25);
+
+    /*定义函数语法：
+    * function 关键词 函数名称（【可选】参数）{
+    *
+    *   函数体-要执行的内容
+    *   可以像变量一样去使用参数，只能在函数内部使用
+    *
+    *   return 返回值；//return只能放在函数最后，它之后的内容不会被执行
+    * }*/
+
+    /*无参函数*/
+//    function myalert(){
+//        alert("代俊很帅！");
+//    }
+//    myalert();
+    /*函数内语句不会被默认执行，必须通过调用函数才能执行函数内部语句
+    * 调用：函数名()
+    * 有参函数：函数名（参数，参数）*/
+
+//    function myShop(money){//形参
+//        console.log(money);
+//        if(money==100){
+//            alert("买了个西瓜！");
+//        }else if(money==50){
+//            alert("买了个米良！");
+//        }
+//    }
+//    myShop(100);//实参
+
+    //return,拿到函数执行的结果
+    function myShop(money){//形参
+        console.log(money);
+        var good="";
+        if(money==100){
+            alert("买了个西瓜！");
+            good="西瓜";
+        }else if(money==50){
+            alert("买了个米良！");
+            good="米良";
+        }
+        return good;
+        console.log("return 之后的内容");//return 之后的内容不会被执行
+    }
+    var myGood=myShop(100);//实参
+    console.log(myGood);
+
+</script>
+</body>
+</html>

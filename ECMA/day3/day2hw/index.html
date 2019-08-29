@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*练习1：
+     * 1.用户户输入整数。
+     如果输入的是1～6 的整数，则程序输出:your number is in 1～6.  c=（用户输入的数）
+     如果输入的是其它数字，输出:Your number is too large. c=（用户输入的数）*/
+//    var c=prompt("请输入1-6的整数！");
+//    if(c>=1&&c<=6){
+//        console.log("your number is in 1～6");
+//    }else{
+//        console.log("Your number is too large");
+//    }
+    /*练习2.输入a,b,c 三个个位数（0-9）之间，组成一个最大的三位数*/
+//    var no1=parseInt(prompt("请输入0-9之间的数"));
+//    var no2=parseInt(prompt("请输入0-9之间的数"));
+//    var no3=parseInt(prompt("请输入0-9之间的数"));
+//    var large;
+//    var mid;
+//    var small;
+//    if((no1>=0&&no1<=9)&&(no2>=0&&no2<=9)&&(no3>=0&&no3<=9)){
+//        if(no1>=no2&&no1>=no3){//1 2 3
+//            large=no1;
+//            if(no2>=no3){
+//                small=no3;
+//                mid=no2;
+//            }else{
+//                small=no2;
+//                mid=no3;
+//            }
+//        }else if(no2>=no1&&no2>=no3){
+//            large=no2;
+//            if(no1>no3){
+//                mid=no1;
+//                small=no3;
+//            }else{
+//                mid=no3;
+//                small=no1;
+//            }
+//        }else if(no3>=no1&&no3>=no2){
+//            large=no3;
+//            if(no1>=no2){
+//                mid=no1;
+//                small=no2
+//            }else{
+//                mid=no2;
+//                small=no1;
+//            }
+//        }
+//    }
+////    document.write(large+mid+small+"<br/>");//3 2 1
+//    document.write(large*100+mid*10+small);//3 2 1
+
+
+    /*练习3、判定2000-2500年中是闰年的年，输出闰年的条件是：
+     (1).能被4整除，但同时不能被100整除的年份都是闰年
+     (2).能被400整除的年份是闰年
+     其它情况都不是闰年*/
+
+//    var y=prompt("请输入范围为2000-2500中的任意一个数字");
+//    if(y>=2000&&y<=2500){
+//        if((y%4==0&&y%100!=0)||y%400==0){
+//            console.log("您输入的年份"+y+"是闰年")
+//        }else{
+//            console.log("您输入的年份"+y+"不是闰年")
+//        }
+//    }
+
+    /*某公司运输公司，官网上可以让用户根据所托运的货物重量和运输距离来自助计算送货费，
+     每公里每吨货物的基本运费为 10元 ,货物重为weight,距离为space,折扣为discount,
+     距离越远运费越低。
+     总运费 freight 的计算公式为：f = 10 *weight * space * (1-discount)
+
+     space<250km          无折扣
+     250 <=space <500     2%折扣
+     500 <=space <1000    5%折扣
+     1000 <=space <2000   8%折扣
+     2000 <=space <3000   10%折扣
+     3000 <=space         15%折扣
+     */
+
+//    var d;//折扣
+//    var s=prompt("请输入运输距离");//距离
+//    var w=prompt("请输入货物重量");//重量
+//    var f;//总运费
+//
+//    if(s<250){
+//        d=0;
+//        f=10*w*s*(1-d);
+//    }
+//    else if(s<500&&s>=250){
+//        d=0.02;
+//        f=10*w*s*(1-d);
+//    }
+
+
+    /*
+     * 作业1.模拟自动饮料机
+     要求：
+     1.当输入0时，模拟自动饮料机停止运行
+     2.自动饮料机运行的过程中，当输入1-5时候给出对应的饮料
+     (1.可口可乐 2.雪碧 3.鲜橙多 4.冰红茶 5.矿泉水)
+     输入其他值的时候给出非法操作提示，并提示重新输入*/
+
+//    var drink=prompt("请按下按钮1-5选择您需要的饮料：1.可口可乐 2.雪碧 3.鲜橙多 4.冰红茶 5.矿泉水");
+//    switch (drink){
+//        case "0":document.write("自动饮料机故障，停止运行！");break;
+//        case "1":document.write("请拿走您的可乐");break;
+//        case "2":document.write("请拿走您的雪碧");break;
+//        case "3":document.write("请拿走您的鲜橙多");break;
+//        case "4":document.write("请拿走您的冰红茶");break;
+//        case "5":document.write("请拿走您的矿泉水");break;
+//        default :document.write("非法操作，请勿离开，已拨打110");
+//    }
+
+
+    /*作业2：水仙花数
+     例：水仙花数 153=1*1*1+5*5*5+3*3*3
+     输入三位一个数，判断是不是水仙花数*/
+//    var a=parseInt(prompt("请输入一个三位数！"));
+//    if(a>=100&&a<=999){//321
+//        var bw=parseInt(a/100);//百位数
+//        var sw=parseInt(a%100/10);//十位
+//        var gw=a%10;
+//
+//        if(bw*bw*bw+sw*sw*sw+gw*gw*gw==a){
+//            document.write("这是水仙花数");
+//        }
+//    }
+
+
+    /*作业3.
+     根据三角形的三条边长(长、中、短三条边)，来判断三角形类型。注意：
+     (1) 一个三角形的边应该都为正数
+     (2) 一个三角形的边都应该满足三角形条件:两边之和大于第三边
+     如果有两边的平方和比第三边的平方小，它就是钝角三角形
+     比如：a*a+b*b<c*c
+     如果两边的平方和等于第三边的平方，它就是直角三角形
+     比如：a*a+b*b＝c*c
+     如果任意两边的平方和都大于第三边的平方，它就是锐角三角形*/
+//    var a=parseInt(prompt("1"));
+//    var b=parseInt(prompt("2"));
+//    var c=parseInt(prompt("3"));
+//    if(a>0&&b>0&&c>0){//边长必须是正数
+//        if(a+b>c&&a+c>b&&b+c>a){//l两边之和大于第三边
+//            if(a*a+b*b==c*c||a*a+c*c==b*b||b*b+c*c==a*a){
+//                alert("直角三角形");
+//            }else if(a*a+b*b<c*c||a*a+c*c<b*b||b*b+c*c<a*a){
+//                alert("钝角三角形");
+//            }else{
+//                alert("锐角三角形");
+//            }
+//        }else{
+//            alert("不是三角形");
+//        }
+//    }else{
+//        alert("请输入正数");
+//
+//    }
+
+    /*作业4
+     按年/月/日的顺序输入一个任意日期，在页面输出：这是这一年的第几天
+     如：2016年1月2日 是2016年的第2天，
+     而2016年12月31日则是2016年的第366天（因为闰年会多一天）
+     */
+//    var myYear=parseInt(prompt("请输入年份"));//2017 3 23
+//    var myMonth=parseInt(prompt("请输入月份"));
+//    var myDate=parseInt(prompt("请输入日期"));
+//
+//    if(myYear%100!=0&&myYear%4==0||myYear%400==0){
+//        if(myMonth>2){
+//            myDate++;
+//        }
+//    }
+//
+//    switch (myMonth){
+//        case 1:console.log("这是第"+myDate+"天");break;
+//        case 2:console.log("这是第"+(31+myDate)+"天");break;
+//        case 3:console.log("这是第"+(31+28+myDate)+"天");break;
+//        case 4:console.log("这是第"+(31+28+31+myDate)+"天");break;
+//        case 5:console.log("这是第"+(31+28+31+30+myDate)+"天");break;
+//        case 6:console.log("这是第"+(31+28+31+30+31+myDate)+"天");break;
+//        case 7:console.log("这是第"+(31+28+31+30+31+30+myDate)+"天");break;
+//        case 8:console.log("这是第"+(31+28+31+30+31+30+31+myDate)+"天");break;
+//        case 9:console.log("这是第"+(31+28+31+30+31+30+31+31+myDate)+"天");break;
+//        case 10:console.log("这是第"+(31+28+31+30+31+30+31+31+30+myDate)+"天");break;
+//        case 11:console.log("这是第"+(31+28+31+30+31+30+31+31+30+31+myDate)+"天");break;
+//        case 12:console.log("这是第"+(31+28+31+30+31+30+31+31+30+31+30+myDate)+"天");break;
+//    }
+
+</script>
+</body>
+</html>

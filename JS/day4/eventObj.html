@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #00a9e3;
+        }
+    </style>
+</head>
+<!--<body onclick="alert('body')">-->
+<body>
+<div onclick="myEvent()"></div>
+
+<input type="text"  onkeyup="myEvent2()"/>
+
+<button onclick="myHistoryn()">返回Bom页面</button>
+<button onclick="myClose()">关闭窗口</button>
+<script>
+    function myClose(){
+        console.log(111);
+        window.close();
+    }
+
+    function myHistoryn(){
+        history.back();
+    }
+
+    function myEvent(){
+        var e=window.event||arguments[0];
+//        alert(e);
+//        console.log(e.type);//事件类型
+
+//        console.log(e.clientX);//鼠标在页面上的坐标X位置
+//        console.log(e.clientY);//鼠标在页面上的坐标Y位置
+//
+//        console.log(e.screenX);//鼠标在屏幕上的坐标X位置
+//        console.log(e.screenY);//鼠标在屏幕上的坐标Y位置
+
+//
+//        console.log(e.offsetX);//鼠标在事件源的坐标位置，相对div的左上角
+//        console.log(e.offsetY);
+
+        /*event 阻止冒泡*/
+//        e.stopPropagation();//DOM
+        e.cancelBubble=true;//IE& DOM
+
+        /*获取事件源*/
+//        console.log(e.target); //DOM
+        console.log(e.srcElement); //IE
+
+    }
+    var div=document.getElementsByTagName("div")[0];
+    div.style.marginTop="0px";
+    function myEvent2(){
+
+        var e=window.event||arguments[0];
+//        console.log(e);
+        console.log(e.key);//监听按键
+
+        console.log(e.keyCode);
+
+        if(e.keyCode==87){
+            console.log(div.style.marginTop);
+            div.style.marginTop=(parseInt(div.style.marginTop)-20)+"px"
+
+        }else if(e.keyCode==81){
+            alert("Q");
+        }
+    }
+</script>
+</body>
+</html>

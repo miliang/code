@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: #00a9e3;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" onmousedown="myDrag()" ></div>
+<script>
+var kaiGuan;
+function myDrag(){
+    var div1=document.getElementById("div1");
+    var clickE=window.event||arguments[0];
+    kaiGuan=true;
+    document.onmousemove=function(){
+        var moveE=window.event||arguments[0];
+        if(kaiGuan==true){
+            div1.style.marginLeft=moveE.clientX-clickE.offsetX+"px";
+            div1.style.marginTop=moveE.clientY-clickE.offsetY+"px";
+        }
+
+    };
+    document.onmouseup=function(){
+        kaiGuan=false;
+    }
+}
+</script>
+</body>
+</html>

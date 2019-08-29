@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+
+<div id="box">
+    <ul>
+        <li>我是li</li>
+    </ul>
+</div>
+<img src="" alt=""/>
+<div class="box">`</div>
+
+<script src="../jquery-1.11.3.js"></script>
+<script >
+    /*1.$("css选择器")*/
+//    console.log($("#box"));
+//    jQuery("#box");
+//    console.log($===jQuery);//true
+//
+//
+//    $(".box");
+//    $("div");
+//    $(".box ul li");
+//  复合选择器
+//    var myLi=$("li:nth-child(1)")
+//    console.log(myLi);
+
+
+    /*2.$(function(){
+        里面写内容
+    }) 代表DOM ready,*/
+
+    window.onload=function(){//只能执行一次，原生JS的方法,css js 图片 视频 音频加载完毕执行
+        alert("window.onload");
+    };
+    window.onload=function(){
+        alert("window.onload2");
+    };
+
+
+//    $(function(){//多次执行，DOM加载完毕之后就可以执行
+//        console.log("111")
+//    });
+//    $(function(){
+//        console.log("222")
+//    });
+//    /*完整写法：*/
+//    $(document).ready(function(){
+//
+//    });
+
+    //============================
+//    $(document).ready(function(){
+//
+//    }(jQuery));
+
+//      区别其他JS库
+//    $(document).ready(function(){
+//
+//
+//    })(jQuery);
+    //=======================
+
+    $("<div>我是div</div>");
+
+    /* $(window).load*/
+//    $(window).load(function(){
+//        alert("jquery window.load()")
+//    });
+//    $(window).load(function(){
+//        alert("jquery window.load()2")
+//    });
+
+    /*$(window).load不会被覆盖，所有资源 （css js dom 图片 视频 音频）加载完毕之后执行的内容*/
+
+
+    /*如果不喜欢$符号，用其他符号代替*/
+    var Q=jQuery;
+
+
+    console.log(Q("#box"));
+    console.log($("#box"));
+</script>
+
+
+</body>
+</html>

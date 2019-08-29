@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // 1.用代码实现
+    // 变量a中存储的数字10，变量b中存储的数字是3
+    // 1）a除以b后，并取整，在页面输出得到的结果？
+//    var a=10;
+//    var b=3;
+//    document.write(parseInt(a/b));
+    // 2）将a%b后得到的结果转换为字符串类型，在打印台输出得到的结果，
+    // 并验证最终的结果数据类型是否为字符串
+//    var c=String(a%b);
+//    console.log(c);
+//    console.log(typeof c);
+
+    // 2.用代码实现
+    // 输入一数字作为秒数，在页面按小时，分钟，秒的格式输出
+    // （ 如输入600，页面显示：0小时10分0秒 ）
+//    var a=window.prompt("请输入秒数");
+//    console.log(a);
+//    var h, m,s;//时 分 秒
+//    h=parseInt(a/3600);//小时
+//    console.log(h);
+//    m=parseInt(a%3600/60);//分钟数
+//    console.log(m);
+//    s=a%3600%60;//秒数
+//    document.write(h+"时"+m+"分"+s+"秒")
+
+    //1）小明和妈妈约定，期末考试如果语文数学成绩都是满分100，
+    // 周末妈妈就带他去游乐园，否则就只有在家改错题
+
+//    var yuWen=window.prompt("你的语文成绩是?");
+//    var shuXue=window.prompt("你的数学成绩是？");
+//    yuWen==100&&shuXue==100?alert("去游乐园嗨"):alert("在家改bug");
+    // 2）小明考了双百分，妈妈周末带小明去游乐园玩了一天，随后和小明约定，
+    // 如果明年小明还能拿到双百分并且奥数能够获得华杯赛前90名就带他去迪斯尼乐园，
+    // 否则就只有后年再努力了
+//    var aoShu=window.prompt("请输入奥数名次");
+//    yuWen==100&&shuXue==100&&(aoShu<=90&&aoShu>=1)?alert("去迪士尼嗨"):alert("挨打！")
+
+
+    //输入1个同学的成绩，60-70为D，70-80为C ，80-90为B，90-100为A
+    // 不及格-60为E 最后输出这个同学到底是哪个分段
+
+//    var chengJi=prompt("请输入您的分数");
+//
+//    if(chengJi<60){
+//        console.log("E");
+//    }else if(chengJi>=60&&chengJi<70){
+//        console.log("D");
+//    }else if(chengJi>=70&&chengJi<80){
+//        console.log("C");
+//    }else if(chengJi>=80&&chengJi<90){
+//        console.log("B");
+//    }else{
+//        console.log("A");
+//    }
+
+//输入三个数,找出最大数
+    var no1=window.prompt("请输入第一个数");
+    var no2=window.prompt("请输入第二个数");
+    var no3=window.prompt("请输入第三个数");
+    var max;//最大数
+    if(no1>=no2&&no1>=no3){
+        max=no1
+    }else if(no2>=no1&&no2>=no3){
+        max=no2
+    }else{
+        max=no3;
+    }
+    console.log(max);
+</script>
+</body>
+</html>

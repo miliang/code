@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            position: relative;/*相对定位*/
+            width: 200px;
+            height: 200px;
+            background-color: #00c2f5;
+            margin-left: 200px;
+        }
+        #div1Baby{
+            width: 100px;
+            height: 100px;
+            /*position: relative;*/
+            position: absolute;
+            background-color: #7517ff;
+            left: 50px;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background-color: black;
+        }
+
+    </style>
+</head>
+<body>
+<!--相对定位
+1.不脱离文档流，原本元素在标准文档流之中占据的位置不会释放
+2.根据自身在文档流的位置作为原点计算
+
+父相子绝
+1.能保证文档流不受影响
+2.能给子元素绝对定位提供原点参考
+-->
+<div id="div1">
+    <div id="div1Baby"></div>
+</div>
+<div id="div2"></div>
+</body>
+</html>

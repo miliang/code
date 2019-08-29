@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="main">
+    <h1>小丁丁</h1>
+    <p>小小文</p>
+</div>
+
+<button onclick="getInnerHTML()">获取innerHTML</button>
+<button onclick="getInnerText()">获取innerText</button>
+<button onclick="getOuterHTM()">获取outerHTML</button>
+<button onclick="setInnerHTML()">设置innerHTML</button>
+<script>
+    var main=document.getElementById("main");
+    function getInnerHTML(){
+        console.log(main.innerHTML);
+    }
+    function getInnerText(){
+        console.log(main.innerText);
+    }
+    function getOuterHTM(){
+        console.log(main.outerHTML);
+    }
+    function setInnerHTML(){
+//        main.innerHTML="";//清空所有子节点
+//        main.outerHTML="";//清空包含自己在内的所有子节点
+        var text="冯小龙";
+        main.innerHTML="<h1><span>"+text+"</span></h1>";
+    }
+</script>
+</body>
+</html>

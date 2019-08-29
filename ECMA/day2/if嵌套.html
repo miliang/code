@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ans1=window.prompt("是不是女的？1.是 2.不是");
+    if(ans1==1){//女
+        var ans2=window.prompt("白否？1.白 2.一般" );
+        if(ans2==1){// 女、白
+            var ans3=prompt("富否？1.是 2.一般");
+            if(ans3==1){// 女、白 、富
+                var ans4=prompt("美否？1.是 2.一般");
+                if(ans4==1){//女 、 白 、富、美
+                    alert("我要~！我要！")
+                }else{//女，白，富，不美
+                    alert("土豪！我们做朋友吧！")
+                }
+            }else{//女、白、一般
+                alert("请联系廖航！")
+            }
+        }else{//不白
+            alert("请联系程衍铭！")
+        }
+    }else{//男
+        alert("请联系代俊！")
+    }
+</script>
+</body>
+</html>

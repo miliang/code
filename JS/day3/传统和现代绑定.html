@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button onclick="showMsg('hello')" id="btn1">传统指派1</button>
+<button id="btn2">传统指派2</button>
+<button id="btn3">取消传统指派</button>
+
+<!--现代指派-->
+<button id="btn4">btn4,现代指派</button>
+
+<!--IE现代指派-->
+<button id="btn5">IE现代指派</button>
+<!--兼容方式-->
+<button id="btn6">兼容指派方式</button>
+<script>
+    var btn1=document.getElementById("btn1");
+    btn1.onclick=null;
+    function showMsg(str){
+        alert(str);
+    }
+    var btn2=document.getElementById("btn2");
+/*传统指派2
+* 节点.onclick=匿名函数*/
+
+    btn2.onclick=function() {
+        alert("传统指派2")
+    };
+    btn2.onclick=function(){
+        alert("传统指派2,第二次绑定")
+    };
+
+
+
+/*元素.onclick=函数*/
+//btn2.onclick=showMsg2;
+//    function showMsg2(){
+//        alert("传统指派2")
+//    }
+
+
+    /*取消指派*/
+    var btn3=document.getElementById("btn3");
+    btn3.onclick=function(){
+        btn2.onclick=null;
+    };
+
+    /*现代指派*/
+    var btn4=document.getElementById("btn4");
+    /*事件源.addEventListener("要绑定的事件名 去掉on"，“事件处理函数，不加括号”，布尔值)
+    * true-捕获机制 false-冒泡机制*/
+
+    btn4.addEventListener("click",showMsg4,false);//布尔值，可以不写，默认冒泡
+        function showMsg4(){
+            alert("现代指派")
+        }
+    btn4.addEventListener("click",function(){
+        alert("btn4第二次绑定");
+    });
+//    btn4.addEventListener("click",function showMsg4(){
+//        alert("现代指派")
+//    },false);
+
+/*取消现代指派*/
+//    btn4.removeEventListener("click",showMsg4,false);
+
+
+    /*IE现代指派方式*/
+
+//    var btn5=document.getElementById("btn5");
+//    btn5.attachEvent("onclick",showMsg5);
+//    function showMsg5(){
+//        alert("IE现代指派")
+//    }
+//    btn5.attachEvent("onclick",function(){
+//        alert("IE现代指派")
+//    });
+/*IE取消现代绑定*/
+//    btn5.detachEvent("onclick",showMsg5);
+
+    console.log(document.attachEvent);
+
+    var btn6=document.getElementById("btn6");
+    if(document.attachEvent==undefined){
+        btn6.addEventListener("click",showMsg6)
+    }else{
+        btn6.attachEvent("onclick",showMsg6)
+    }
+    function showMsg6(){
+        console.log("兼容方式")
+    }
+</script>
+</body>
+</html>

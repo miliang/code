@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            width: 400px;
+            height: 600px;
+            position: absolute;
+            left: 50%;
+            margin-left: -200px;
+            background-image: url("images/background_1.png");
+            /*overflow: hidden;*/
+        }
+        #titleScore{
+            margin: 20px;
+            font-size: 20px;
+        }
+        #title{
+            /*margin-top: 150px;*/
+            /*margin-left: 100px;*/
+            margin: 150px 0 50px 100px;
+            animation: fontChange 5s infinite linear;
+        }
+
+        @-webkit-keyframes fontChange {
+            0%{
+                color: #0086b3;
+            }
+            25%{
+                color: #786fb3;
+            }
+            50%{
+                color: #b35565;
+            }
+            75%{
+                color: #ff981e;
+            }
+            100%{
+                color: #60aeff;
+            }
+        }
+
+        #btn1,#btn2{
+            width: 150px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background-color: rgba(0, 0, 0, 0.69);
+            border-radius: 5px;
+            margin: 30px 0 10px 130px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="titleScore">
+        <div>杀敌：</div>
+        <div>总分：</div>
+    </div>
+    <div id="title">
+        <h1>一起来打飞机吧</h1>
+    </div>
+    <div id="btn1" onclick="startGame()">Start Game</div>
+    <div id="btn2">Exit</div>
+</div>
+
+<script>
+    var mainObj=document.getElementById("main");
+    var enemyArray=[];//敌方小飞机数组
+    var playerPlane;
+
+    var bulletArray=[];//子弹数组
+
+    //玩家移动，默认开关关闭
+    var upBtnStatus=false;
+    var downBtnStatus=false;
+    var leftBtnStatus=false;
+    var rightBtnStatus=false;
+
+
+
+    function startGame(){
+        document.getElementById("titleScore").style.display="none";
+        document.getElementById("title").style.display="none";
+        document.getElementById("btn1").style.display="none";
+        document.getElementById("btn2").style.display="none";
+
+        playerPlane=new PlayerPlane("images/myplane.gif",150,450,5,5);
+        setInterval(createEnemy,1000);
+
+        setInterval(enemyPlaneMove,100);
+
+        setInterval(ctrlPlaneMove,50);
+
+        setInterval(bulletFly,100);
+//        var myimg=document.createElement("img");
+//        myimg.src="images/myplane.gif";
+//        mainObj.appendChild(myimg);
+//        myimg.style.position="absolute";
+//        myimg.style.bottom="0px";
+//        myimg.style.left="100px";
+    }
+
+
+    /*玩家飞机构造函数
+    玩家飞机属性：
+    * 1.玩家飞机图片节点
+    * 2.图片路径
+    * 3.起始坐标X
+    * 4.起始坐标Y
+    * 5.血量
+    * 6.移动速度
+    *
+    * 玩家飞机行为：
+    * 1.发子弹
+    * 2.移动*/
+
+    /*JS注释方式*/
+
+    /**
+     *  @param{string} imgsrc 图片路径
+     *  @param{number} x 起始x坐标
+     *  @param{number} y 起始y坐标
+     *  @param{number} blood 血量
+     *  @param{number} speed 速度
+     *  @constructor*/
+
+    function PlayerPlane(imgsrc,x,y,blood,speed){
+        this.planeNode=document.createElement("img");
+        this.imgsrc=imgsrc;
+        this.x=x;
+        this.y=y;
+        this.blood=blood;
+        this.speed=speed;
+        //飞机发射子弹
+        this.shoot=function(){
+            var bullet=new Bullet("images/bullet1.png",parseInt(this.planeNode.style.left)+31,parseInt(this.planeNode.style.top)+5,20,1);
+            bulletArray.push(bullet);
+        };
+        //玩家飞机移动
+       this.topMove=function(){
+           this.planeNode.style.top=parseInt( this.planeNode.style.top)-this.speed+"px";
+       };
+        this.bottomMove=function(){
+            this.planeNode.style.top=parseInt( this.planeNode.style.top)+this.speed+"px";
+        };
+        this.leftMove=function(){
+            this.planeNode.style.left=parseInt( this.planeNode.style.left)-this.speed+"px";
+        };
+        this.rightMove=function(){
+            this.planeNode.style.left=parseInt( this.planeNode.style.left)+this.speed+"px";
+            if(parseInt(this.planeNode.style.left)>=400-66){
+                this.planeNode.style.left="334px";
+            }
+
+        };
+
+        /*初始化函数*/
+        this.init=function(){
+            this.planeNode.src=this.imgsrc;
+            this.planeNode.style.position="absolute";
+            this.planeNode.style.left=this.x+"px";
+            this.planeNode.style.top=this.y+"px";
+            this.planeNode.style.zIndex=99;
+            mainObj.appendChild(this.planeNode);
+        };
+        this.init();
+    }
+
+    /*标准注释应该放置在构造函数上方-表示这段注释是PlayerPlane函数的
+    "*"和@param之间有空格
+    第一行双*号，并且不能写内容
+     * */
+
+    //玩家飞机移动绑定
+    document.onkeydown=function(){
+
+        var e=window.event||arguments[0];
+//        console.log(e.keyCode);
+        // 38上 40 下 39 右 37 左    32 空格
+        if(e.keyCode==38){//上
+//            playerPlane.topMove();
+           upBtnStatus=true;
+//            console.log(upBtnStatus);
+        }
+        if(e.keyCode==40){//下
+//            playerPlane.bottomMove();
+            downBtnStatus=true;
+//            console.log(downBtnStatus);
+        }
+        if(e.keyCode==37){//左
+//            playerPlane.leftMove();
+            leftBtnStatus=true;
+//            console.log(leftBtnStatus);
+        }
+        if(e.keyCode==39){//右
+            rightBtnStatus=true;
+//            console.log(rightBtnStatus);
+        }
+        if(e.keyCode==32){
+            playerPlane.shoot();
+        }
+    };
+//玩家飞机移动解除
+    document.onkeyup=function(){
+        var e=window.event||arguments[0];
+        if(e.keyCode==38){//上
+//            playerPlane.topMove();
+            upBtnStatus=false;
+        }
+        if(e.keyCode==40){//下
+//            playerPlane.bottomMove();
+            downBtnStatus=false;
+        }
+        if(e.keyCode==37){//左
+//            playerPlane.leftMove();
+            leftBtnStatus=false;
+        }
+        if(e.keyCode==39){//右
+            rightBtnStatus=false;
+        }
+    };
+//玩家飞机移动
+    function ctrlPlaneMove(){
+        if(upBtnStatus==true){
+//            console.log("top");
+            playerPlane.topMove();
+        }
+        if(downBtnStatus==true){
+//            console.log("bottom");
+            playerPlane.bottomMove();
+        }
+        if(leftBtnStatus==true){
+//            console.log("left");
+            playerPlane.leftMove();
+        }
+        if(rightBtnStatus==true){
+//            console.log("right");
+            playerPlane.rightMove();
+        }
+    }
+
+//敌方小飞机模板
+    /*
+    * 属性：
+    * 1.图片节点
+    * 2.图片路径
+    * 3.x、y坐标
+    * 4.blood
+    * 5.移动速度
+    * 行为：
+    * 1.移动
+    * 2.初始化行为*/
+    function EnemyPlane(imgsrc,x,y,blood,speed){
+        this.imgNode=document.createElement("img");
+        this.imgsrc=imgsrc;
+        this.x=x;
+        this.y=y;
+        this.blood=blood;
+        this.speed=speed;
+
+        this.move=function(){
+            this.imgNode.style.top=(parseInt(this.imgNode.style.top)+this.speed)+"px";
+        };
+
+        this.init=function(){
+            this.imgNode.src= this.imgsrc;
+            this.imgNode.style.position="absolute";
+            this.imgNode.style.left=this.x+"px";
+            this.imgNode.style.top=this.y+"px";
+            mainObj.appendChild(this.imgNode);
+        };
+        this.init();
+    }
+
+//创建敌方飞机
+    function createEnemy(){
+        var enemy=new EnemyPlane("images/enemy1_fly_1.png",Math.random()*366,-Math.random()*60,1,Math.random()*5+1);
+        enemyArray.push(enemy);
+//        console.log(enemyArray.length);
+    }
+//敌方飞机移动
+    function enemyPlaneMove(){
+        for(var i=0;i<enemyArray.length;i++){
+//            console.log(enemyArray[i]);
+            enemyArray[i].move();
+            //移除超出界限的小飞机
+            if(parseInt(enemyArray[i].imgNode.style.top)>600){
+                mainObj.removeChild(enemyArray[i].imgNode);
+                enemyArray.splice(i,1);
+            }
+        }
+    }
+
+    //子弹模板
+    /*
+    * 属性：
+    * 1.图片节点
+    * 2.图片路径
+    * 3.x,y
+    * 4.攻击力
+    * 5.速度
+    * 行为：
+    * 1.移动
+    * 2.初始化*/
+
+    function Bullet(imgsrc,x,y,speed,attack){
+        this.imgNode=document.createElement("img");
+        this.imgsrc=imgsrc;
+        this.x=x;
+        this.y=y;
+        this.speed=speed;
+        this.attack=attack;
+
+        this.move=function(){
+            this.imgNode.style.top=parseInt(this.imgNode.style.top)-this.speed+"px";
+        };
+
+        this.init=function(){
+            this.imgNode.src=this.imgsrc;
+            this.imgNode.style.position="absolute";
+            this.imgNode.style.left=this.x+"px";
+            this.imgNode.style.top=this.y+"px";
+            mainObj.appendChild(this.imgNode);
+        };
+        this.init();
+    }
+
+    function bulletFly(){
+        for(var i=0;i<bulletArray.length;i++){
+            bulletArray[i].move();
+            if(parseInt(bulletArray[i].imgNode.style.top)<-20){
+                mainObj.removeChild(bulletArray[i].imgNode);
+                bulletArray.splice(i,1);
+                console.log(bulletArray.length);
+            }
+
+        }
+    }
+
+</script>
+</body>
+</html>

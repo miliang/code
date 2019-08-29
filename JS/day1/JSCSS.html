@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .myClass{
+            /*background-color: #00a9e3;*/
+            background-color: orange;
+            height: 100px;
+            width: 100px;
+            transition: all 1s linear;
+        }
+
+    </style>
+</head>
+<body>
+<button onclick="changeColor()">改变DIV的颜色</button>
+<button onclick="getColor()">获取DIV的颜色</button>
+<button onclick="swapColor()">轮换DIV的颜色</button>
+<button onclick="moveRight()">向右移动DIV</button>
+<button onclick="getComputed()">获取最终样式表</button>
+<div id="div1" class="myClass"></div>
+
+
+<script>
+    var div1=document.getElementById("div1");
+     function changeColor(){
+         /*节点.style.CSS属性=“值”*/
+        div1.style.width="200px";//设置也是内联样式
+//         div1.style.backgroundColor=""
+     }
+
+    function getColor(){
+        console.log(div1.style.backgroundColor);//获取内联样式
+    }
+    function swapColor(){
+        console.log("调用函数");
+        console.log(div1.style.backgroundColor);
+//        if(div1.style.backgroundColor==""){
+//            div1.style.backgroundColor="orange";
+//        }
+
+        if(div1.style.backgroundColor==""||div1.style.backgroundColor=="orange"){
+            console.log(111);
+            div1.style.backgroundColor="#00a9e3";
+//            div1.style.backgroundColor="orange";
+
+        }else if(div1.style.backgroundColor=="rgb(0, 169, 227)"){
+            console.log(222);
+            div1.style.backgroundColor="orange";
+        }
+    }
+
+    function moveRight(){
+        console.log(typeof div1.style.marginLeft);
+        if(div1.style.marginLeft==""){
+            div1.style.marginLeft="0px";
+        }
+//        div1.style.transition="all 1s linear";
+        div1.style.marginLeft=(parseInt(div1.style.marginLeft)+100)+"px";
+    }
+
+    function getComputed(){
+        console.log(div1.currentStyle);
+        if(div1.currentStyle==undefined){//DOM
+            console.log("DOM");
+            var finalWidth=document.defaultView.getComputedStyle(div1,null).height;
+            console.log(finalWidth);
+        }else{//IE
+            console.log(div1.currentStyle.width);
+//            console.log(div1.currentStyle);
+        }
+    }
+</script>
+</body>
+</html>

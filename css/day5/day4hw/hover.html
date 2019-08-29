@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*背景Div*/
+        .bgImg{
+            width: 400px;
+            height: 360px;
+            border: 1px solid red;
+            background-image: url("12.jpg");
+            position: relative;
+        }
+        /*标题文字*/
+        .title{
+            margin-top: 50px;
+            text-align: center;
+            color: white;
+            font-size: 28px;
+        }
+        .bgImg:before{
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 150px;
+            border: 5px solid white;
+            /*left: 200px;*/
+            left: 50%;
+            margin:40px 0 0 -155px;
+            transition: all .3s linear;
+        }
+        .bgImg:hover:before{
+            margin-top: 160px;
+        }
+        /*小内容文字*/
+        .bgImg:after{
+            content: "hello world,this is a picture,this is mine picture";
+            width: 300px;
+            /*height: 150px;*/
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            margin: 40px 0 0 -150px;
+            color: white;
+            transition: all .3s linear;
+            opacity: 0;
+        }
+        .bgImg:hover:after{
+            margin-top: 160px;
+            opacity: 1;
+        }
+        .bgImg:hover{
+            filter: brightness(80%);
+        }
+
+
+        /*.bright{*/
+            /*width: 400px;*/
+            /*height: 360px;*/
+            /*position: absolute;*/
+            /*left: 0;*/
+            /*top: 0;*/
+            /*background-color: rgba(0,0,0,0);*/
+            /*transition: all .3s linear;*/
+        /*}*/
+        /*.bgImg:hover .bright{*/
+            /*background-color: rgba(0,0,0,.3);*/
+        /*}*/
+    </style>
+</head>
+<body>
+<section>
+    <div class="bgImg"><!--背景图-->
+        <div class="title">STRANGE DEXTER</div><!--标题文字-->
+        <!--透明遮罩层-->
+        <!--<div class="bright"></div>-->
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+       *{
+            padding: 0;
+           margin: 0;
+        ;}
+        div{
+            position: relative;
+        }
+        div:before{
+            content: "";
+            position: absolute;
+            height: 0;
+            width: 200px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            line-height: 50px;
+            text-align: center;
+            bottom: 0;
+            transition: all 1s linear;
+            -webkit-transition: all .3s linear;/*webkit - chrome safari*/
+            -ms-transtion:all .3s linear;/*IE*/
+            -moz-transition: all .3s linear;/*firefox*/
+            -o-transition: all .3s linear;/*opera*/
+            /*1.参与过渡的属性（width/all）2.过渡的时间 s，需要加上时间单位
+            3.过渡的效果类型（分享）
+
+            过渡原理：
+            原始状态A状态-最终状态B状态*/
+        }
+        /*div:hover:before{*/
+            /*content: "我是可爱的多肉";*/
+            /*height: 50px;*/
+            /*/!*-webkit-transition: all 1s linear;*!/*/
+        /*}*/
+       div:hover:before{
+           content: attr(title);
+           height: 50px;
+           /*-webkit-transition: all 1s linear;*/
+       }
+    </style>
+</head>
+<body>
+
+<div id="" class="" title="我是可爱的多肉">
+    <img src="duorou.jpg" alt="" width="200" title="可爱米良"/>
+</div>
+<div title="我是可爱的多肉">
+    <img src="duorou.jpg" alt="" width="200"/>
+</div>
+</body>
+</html>

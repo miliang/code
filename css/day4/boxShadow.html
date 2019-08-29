@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 150px;
+            height: 60px;
+            background-color: #00c2f5;
+            /*border: none;*/
+            color: white;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 60px;
+            /*阴影
+            box-shadow:
+            1.x轴偏移-往右 2.Y轴偏移-往下 3.模糊值-数值越大越模糊 4.外延值-四边扩散 5.颜色*/
+            box-shadow: 5px 5px 5px 0 gray;
+        }
+        div:active{
+            margin-left: 1px;
+            margin-top: 8px;
+            box-shadow:  2px 2px 5px 0 gray;
+        }
+
+        #div2{
+            width: 200px;
+            height: 200px;
+            border-radius: 200px;
+            background-color: #ffed7f;
+            /*box-shadow: -5px -5px 10px 0 orange inset,*/
+                                    /*10px 10px 10px 0 orange inset,*/
+                                     /*10px 10px 10px 0 orange inset;*/
+            box-shadow: 0 0 10px 20px orange inset,
+                                     0 0 10px 30px #ffce2d inset,
+                                        0 0 10px 20px orange inset,
+            2px 2px 20px 10px orange,
+            -2px -2px 20px 10px orange;
+        }
+        span{
+            /*text-shadow: ;*/
+        }
+    </style>
+</head>
+<body>
+<div>提交</div>
+
+<div id="div2"></div>
+<span>text</span>
+<!--transform
+animation
+ -->
+</body>
+</html>

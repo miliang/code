@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background-color:blue;
+        }
+        #app{
+            width: 1200px;
+            height: 675px;
+            outline:1px solid red;
+            margin:0 auto;
+            position:relative;
+        }
+        #dowmImg{
+            background-image: url("../img/img-original.jpg");
+            width:1200px;
+            height:675px;
+        }
+        #dowmImg p{
+            position:absolute;
+            right:5px;
+            bottom:5px;
+            color:white;
+            width:100px;
+            height: 60px;
+            outline:1px solid yellow;
+            text-align: center;
+            line-height:60px;
+            visibility: hidden;
+        }
+        #upImg{
+            background-image: url("../img/img-modified.jpg");
+            background-repeat: no-repeat;
+            width:0px;
+            height: 675px;
+            position:absolute;
+            /* visibility: hidden; */
+            transition: all 2s linear;
+        } 
+        #upImg h4{
+            position:absolute;
+            left:5px;
+            bottom:5px;
+            color:white;
+            width:100px;
+            height: 60px;
+            outline:1px solid yellow;
+            text-align: center;
+            line-height:60px;
+            visibility: hidden;
+        }
+        #border{
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            cursor:move;
+            background-color: orangered;
+            text-align: center;
+            line-height: 100px;
+            font-size: 50px;
+            font-weight: 700;
+            position:absolute;
+            top:50%;
+            left:45%;
+            transition: all 2s linear;
+            visibility: hidden;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 最外层的div -->
+    <div id="app">
+<!-- 底层的图片和文字 -->
+  <div id="dowmImg">
+      <p id="p">Upadwewq</p>
+      <!-- 面上的图片和文字 -->
+        <div id="upImg">
+            <h4 id="h4">Updaadda</h4>
+        </div> 
+    </div> 
+    <div id="border" onmousedown="mouseDown(this)"> <> </div>
+</div> 
+
+<script>
+     var downImg = document.getElementById("dowmImg");
+        var upImg = document.getElementById("upImg");
+        var app = document.getElementById("app");
+    var Open;
+    function mouseDown(obj){
+        // var upH = document.getElementsTagName("h");
+        // var dowmP = document.getElementsTagName("p");
+        obj.style.backgroundColor="rgba(141, 81, 252, 0.57)";
+        var border = window.event||arguments[0];
+        Open = true;
+        document.onmousemove=function (){
+            var move = window.event||arguments[0];
+            if(Open==true){
+                obj.style.backgroundColor="rgba(141, 81, 252, 0.57)";
+                upImg.style.width=move.clientX-border.offsetX+"px";
+                obj.style.left=(move.clientX-border.offsetX-50)+"px";
+                console.log(obj.style.left);
+                // if(upImg.style.width==400){
+                    
+                // }   
+
+            
+            }
+        }
+        document.onmouseup= function (){
+            Open=false;
+            obj.style.backgroundColor="#ff4500";
+        }
+    }
+
+    window.onload=function (){
+        var myP = document.getElementById("p");
+        var myH4 = document.getElementById("h4");
+        var myBorder = document.getElementById("border");
+        upImg.style.width="600px";
+        myBorder.style.visibility="visible";
+        myBorder.style.transform="scale(1.2)"
+    }
+</script>
+</body>
+</html>

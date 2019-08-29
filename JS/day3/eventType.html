@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .main{
+            width: 150px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background-color: #00a9e3;
+            border-radius: 10px;
+            color: white;
+            font-size: 30px;
+            margin-top: 20px;
+        }
+        body{
+            height: 1600px;
+            background-color: black;
+        }
+    </style>
+    <script>
+//        window.onload=function(){ //页面加载完毕之后执行
+//            var main=document.getElementById("main");
+//            alert(main);
+//        }
+
+    </script>
+</head>
+<body>
+<div class="main" onclick="myOnclick()" onmousedown="myMouseDown()" onmouseup="myMouseUp()" >
+    按钮
+</div>
+<div class="main" onmouseover="myOv()" onmouseout="myOt()" onmousemove="myMv()">
+    按钮
+</div>
+
+<input type="text" onkeydown="myKd()" onkeypress="myKpr()" onkeyup="myKup()"/>
+
+<input type="text" onfocus="myFocus()" onblur="myBlur()"/>
+<script>
+    /*load resize scroll*/
+    /*页面加载事件*/
+        window.onload=function(){//页面加载的时候
+            console.log("111");
+        };
+
+    window.onresize=function(){
+        console.log("窗口改变事件");
+    };
+    window.onscroll=function(){
+        console.log("滚动条事件");
+    };
+    /*HTML事件*/
+    function myFocus(){
+        console.log("聚焦，获取焦点的时候");
+    }
+    function myBlur(){
+        console.log("失去焦点");
+    }
+
+    /*键盘事件*/
+    function myKd(){//keyDown先被触发
+        console.log("keyDown 键盘按下");
+    }
+    function myKpr(){//只在字符类起作用，中文无效
+        console.log("Keypress");
+    }
+    function myKup(){
+        console.log("keyUp键盘弹起");
+    }
+
+
+/*鼠标事件*/
+    function myOnclick(){
+        console.log("单击事件")
+    }
+    function myMouseDown(){
+        console.log("鼠标按下事件");
+    }
+    function myMouseUp(){
+        console.log("鼠标弹起事件")
+    }
+    function myOv(){
+        console.log("鼠标移入事件")
+    }
+    function myOt(){
+        console.log("鼠标移出事件")
+    }
+    function myMv(){
+        console.log("鼠标移动事件")
+    }
+</script>
+</body>
+</html>

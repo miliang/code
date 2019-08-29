@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            width: 100%;
+            text-align: center;
+            height: 60px;
+            line-height: 60px;
+            background-color: #4f6632;
+            color: white;
+            position: relative;
+            box-shadow: 0 3px 5px 0 gray;
+            transition: all .3s linear;
+            overflow: hidden;
+        }
+        #main img{
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            margin-top: -8px;
+        }
+        #arrow{
+            position: absolute;
+            right: 20px;
+            background-color:#4f6632 ;
+            text-align: center;
+            width: 50px;
+            height: 0;
+            box-shadow:0 3px 5px 0 gray ;
+            transition: all .3s linear;
+        }
+        #arrow img{
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+<div id="arrow" >
+    <img onclick="toggleTop()" src="down-arr-16x16.png" alt=""/>
+</div>
+<div id="main">
+    <h3>点击切换显示隐藏</h3>
+    <img onclick="toggleTop()" src="close-16x16.png" alt=""/>
+</div>
+
+<script>
+    var main=document.getElementById("main");
+    var arrow=document.getElementById("arrow");
+//    function closeTop(){
+//        main.style.height="0px";
+//        arrow.style.height="50px";
+//    }
+//
+//    function openTop(){
+//        main.style.height="60px";
+//        arrow.style.height="0px";
+//    }
+
+    function toggleTop(){
+        console.log(main.style.height);
+        if(main.style.height=="60px"||main.style.height==""){
+            main.style.height="0px";
+            arrow.style.height="50px"
+        }else{
+            main.style.height="60px";
+            arrow.style.height="0px"
+        }
+    }
+</script>
+</body>
+</html>

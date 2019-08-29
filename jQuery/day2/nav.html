@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            width: 120px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background-color:#000066 ;
+            color: white;
+            border-bottom: 1px solid white;
+            overflow: hidden;
+            cursor: pointer;
+            list-style: none;
+        }
+        ul>li>ul>li{
+            background-color: green;
+            border-bottom: none;
+            border-top:1px solid white;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li>HOME</li>
+        <li>
+            刘杰
+            <ul>
+                <li>有男票</li>
+                <li>有女票</li>
+                <li>有钞票</li>
+            </ul>
+        </li>
+        <li>
+            刘一良
+            <ul>
+                <li>有胸</li>
+                <li>有腰</li>
+                <li>有臀</li>
+            </ul>
+        </li>
+        <li>
+            廖航
+            <ul>
+                <li>有李鑫</li>
+                <li>有刘超</li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<script src="../jquery-3.1.1.js"></script>
+<script>
+    $("li").click(function(){
+        var num=$(this).children().children().length;
+        console.log(num);
+        $(this).animate({
+            "height":(num+1)*50+"px"
+        }).siblings().animate({
+            "height":"50px"
+        })
+    })
+</script>
+</body>
+</html>

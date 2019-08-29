@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            color: white;
+            font-size: 40px;
+            line-height: 200px;
+            transition: all .5s linear;
+            margin-left: 200px;
+        }
+        #div1{
+            background-color: #00c2f5;
+        }
+        #div1:hover{
+            /*transform:translate(x轴，y轴) ;*/
+            /*-webkit-transform: translate(50px,50px);*/
+            /*-webkit-transform: translateX(50px);*/
+            -webkit-transform: translateY(50px);
+        }
+        /*缩放*/
+        #div2{
+            background-color: #ffce2d;
+        }
+        #div2:hover{
+            /*scale（X，Y）*/
+            /*-webkit-transform: scale(2);*/
+            -webkit-transform: scale(2,0.9);
+            /*-webkit-transform: scale(-1.5,1);/!*负数，翻转后的N倍*!/*/
+            /*设置缩放的基点
+            1.X轴位置 left / center / right / length | %
+            1.Y轴位置  top/center/bottom/length|%*/
+            /*-webkit-transform-origin: right bottom;*/
+        }
+        /*扭曲*/
+        #div3{
+            background: #7517ff;
+        }
+        #div3:hover{
+            /*skew:(X角度，Y角度),单位是deg*/
+            /*transform: skew(30deg,30deg);*/
+            /*transform: skew(30deg);*/
+            transform: skew(-30deg);
+        }
+        /*旋转*/
+        #div4{
+            background: #ff8784;
+            /*border-radius: 200px;*/
+
+        }
+        #div4:hover{
+            /*rotate(deg)*/
+            transform: rotate(360deg);
+        }
+
+        #div5{
+            background-color: cadetblue;
+        }
+        #div5:hover{
+            -webkit-transform: rotateY(180deg);
+            -webkit-transform-origin: 90% 120px;
+        }
+        #div6{
+            background-color: #ffed7f;
+        }
+        #div6:hover{
+            /*transform: matrix(1,0,0,1,50,50);*/
+            /*transform: translate(50px,50px);*/
+            transform: translate(20px,50px) scale(1.2) skew(20deg);
+        }
+    </style>
+</head>
+<body>
+<!--平移-->
+<div id="div1">平移</div>
+<!--缩放-->
+<div id="div2">缩放</div>
+<!--扭曲-->
+<div id="div3">扭曲</div>
+<!--旋转-->
+<div id="div4">旋转</div>
+<div id="div5">旋转</div>
+<div id="div6">旋转</div>
+</body>
+</html>

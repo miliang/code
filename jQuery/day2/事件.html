@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="btn1">直接使用事件名</button>
+<button id="btn2">通过on绑定事件</button>
+<button id="btn3">通过bind绑定事件</button>
+<button id="btn4">通过on绑定多个事件</button>
+<button id="btn5">通过on绑定多个事件，每个事件有单独的处理程序</button>
+<button id="btn6">取消绑定事件</button>
+<button id="btn7">获取事件对象</button>
+
+<script src="../jquery-3.1.1.js"></script>
+<script>
+    $("#btn1").click(function(){
+        alert("刘杰太帅了！");
+    });
+    $("#btn1").click(showMsg);
+    function showMsg(){
+        alert("刘杰太挫了！");
+    }
+    //on
+    $("#btn2").on("click",function(){
+       alert("刘杰，你说你帅不帅！")
+    });
+
+    $("#btn2").on("click",showMsg);
+
+    //bind
+    $("#btn3").bind("click",function(){
+        alert("刘杰，你老实点！");
+    });
+    $("#btn3").bind("click",showMsg);
+
+    //绑定多个事件
+    $("#btn4").on("click mouseover",showMsg);
+//    $("#btn4").bind("click mouseover",showMsg);
+
+    //绑定多个事件，并且每个事件都有单独的处理程序
+
+    $("#btn5").on({//bind也可以这样用
+        "click":function(){
+            alert("刘杰，你好萌！");
+        },
+        "mouseover":showMsg
+    });
+
+    //取消事件绑定  on-off,   bind-unbind
+    $("#btn6").click(function(){
+//        $("#btn2").off();
+//        $("#btn4").off("mouseover");
+        $("#btn4").off("mouseover",showMsg);
+    });
+    $("#btn3").unbind();
+
+
+    //获取事件对象
+    $("#btn7").on("click",function(e){//依赖注入
+        console.log(e.type);
+        console.log(e.clientX);
+    })
+</script>
+</body>
+</html>

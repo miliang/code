@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //3.写一个函数，参数为一个字符，一个字符串，根据这个字符 将 传入的字符串
+    // 分割成多个字符串，并用数组返回这些分割的字符串
+    var mystring="ab,c,d,dd,a/a,bb";     /*ab,cd,dd a/ a,bb*/
+        function mysplit(a,b){
+            var newStrArray=[];
+            var temp="";
+
+            for(var i=0;i< b.length;i++){
+                if(a== b.charAt(i)){
+                    temp=a+temp;
+                    newStrArray.push(temp);
+                    temp="";
+                    newStrArray.splice(i,1);
+//
+
+                }else{
+                    temp=temp+ b.charAt(i);
+                }
+            }
+            temp=a+temp;
+            newStrArray.push(temp);
+            return newStrArray;
+        }
+        var myresult=mysplit("a",mystring);
+    console.log(myresult);
+
+//    var mystring="abc abd abd aca bb";
+//        function mysplit(a,b){
+//            var newStrArray=[];
+//            var temp="";
+//
+//            for(var i=0;i< b.length;i++){
+//                if(a== b.charAt(i)){
+//                    if(i==0){
+//                        newStrArray.push(a);
+//                    }else{
+//                        newStrArray.push(temp,a);
+//                    }
+//                    temp="";
+//    //                    newStrArray.splice(i,1,a)
+//    //
+//
+//                }else{
+//                    temp=temp+ b.charAt(i);
+//                }
+//            }
+//            newStrArray.push(temp);
+//            return newStrArray;
+//        }
+//        var myresult=mysplit("a",mystring);
+//        console.log(myresult);
+
+
+//        var mystring="abc abd abd aca bb";
+//            function mysplit(a,b){
+//                var newStrArray=[];
+//                var temp="";
+//
+//                for(var i=0;i< b.length;i++){
+//                    if(a== b.charAt(i)){
+//                        newStrArray.push(temp+"a");
+//                        temp="";
+//    //                    newStrArray.splice(i,1,a)
+//    //
+//
+//                    }else{
+//                        temp=temp+ b.charAt(i);
+//                    }
+//                }
+//                newStrArray.push(temp);
+//                return newStrArray;
+//            }
+//            var myresult=mysplit("a",mystring);
+//        console.log(myresult);
+</script>
+</body>
+</html>

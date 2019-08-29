@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #mainDiv{
+            width: 500px;
+            height: 500px;
+            background-color: red;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: lightcoral;
+            visibility: hidden;
+            /*display: none;*/
+            opacity: 0;
+            /*1.参与过渡的属性（all）2.过渡持续的时间 3.过渡效果类型
+            4.延迟执行的时间 s*/
+            /*transition: all .6s linear 2s;*/
+            transition: opacity .6s linear, background-color .3s linear 2s;
+        }
+        #mainDiv:hover #div1{
+            opacity: 1;
+            /*display: block;*/
+            width: 300px;
+            background-color: orange;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+<div id="mainDiv">
+    <div id="div1"></div>
+</div>
+</body>
+</html>

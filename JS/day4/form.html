@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="scrollTop.html" method="get" name="formName" id="formId">
+    <input type="text" name="userName" id="userId"/>
+    <span id="msg"></span>
+    <select name="selectName" id="selectId">
+        <option value="1">op1</option>
+        <option value="2">op2</option>
+        <option value="3">op3</option>
+    </select>
+    <input type="checkbox" name="ckboxName" value="a"/> Ckbox1
+    <input type="checkbox" name="ckboxName" value="b"/> Ckbox2
+    <input type="checkbox" name="ckboxName" value="c"/> Ckbox3
+    <input type="checkbox" name="ckboxName" value="d"/> Ckbox4
+
+    <!--默认type=submit-->
+    <button>Submit</button>
+</form>
+
+<script>
+    /*获取表单*/
+    var myForm=document.getElementById("formId");
+//    console.log(myForm);
+//    myForm=document.forms[0];
+//    console.log(myForm);
+//    myForm=document.forms["formName"];
+//    console.log(myForm);
+//    myForm=document.forms["formId"];
+//    console.log(myForm);
+//    myForm=document.formName;
+//    console.log(myForm);
+
+    /*获取表单组件*/
+//    var formElements=myForm.elements;//获取到所有的表单元素
+    var myInput=myForm.elements["userName"];//指定固定name值的表单元素
+//    console.log(formElements);
+    var mySelect=myForm.selectName;
+//    console.log(mySelect);
+//    var myCheckbox=myForm.ckboxName;
+//    console.log(myCheckbox);
+
+
+    /*表单事件
+    * select-文本框用户拖黑文字之后触发*/
+    myInput.onselect=function(){
+//        console.log(myInput.value);
+    };
+    /*change-值发生改变时触发*/
+    mySelect.onchange=function(){
+//        console.log(mySelect.value); //返回选中的option的value值
+//        console.log(mySelect.options); //返回所有option
+        console.log(mySelect.selectedIndex);//选中的第几个option index从0开始
+        console.log(mySelect.options[0].selected);//判断指定的index的option是否选中，选中-true
+        console.log(mySelect.options[mySelect.selectedIndex].text);//获取选中option的文本
+    }
+</script>
+</body>
+</html>

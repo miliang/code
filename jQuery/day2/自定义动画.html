@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: #00a9e3;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<button id="btn1">基本自定义动画</button>
+<button id="btn2">向右移动</button>
+<button id="btn3">列队动画</button>
+<button id="btn4">停止动画</button>
+<button id="btn5">延迟动画</button>
+
+
+<script src="../jquery-3.1.1.js"></script>
+<script>
+/*jq动画只能改变有数字值的属性*/
+
+$("#btn1").click(function(){
+    $("#box").animate({//必须以对象的形式
+        "width":"500px",
+        "height":"500px",
+        "opacity":0.5
+    },5000)
+});
+
+$("#btn2").click(function(){
+    $("#box").animate({
+        "margin-left":"+=100px"
+    })
+});
+
+    $("#btn3").click(function(){
+        $("#box").animate({
+            "width":"100%"
+        },2000).animate({
+            "height":"400px"
+        }).animate({
+            "opacity":".6"
+        },800,function(){
+            $("#box").css("background-color","orange")
+        })
+    });
+
+    $("#btn4").click(function(){
+//        $("#box").stop();//点击后停止当前执行的动画，但是队列中的其他动画仍会执行
+        /*stop（布尔值，布尔值）
+        * 1.true:代表是否清空未执行的队列动画
+        * 2.true:直接将当前动画执行完毕，没有过渡*/
+        $("#box").stop(true,false);
+    });
+
+    $("#btn5").click(function(){
+        $("#box").delay(2000).animate({
+            "width":"100%"
+        },2000).delay(2000).animate({
+            "height":"400px"
+        }).animate({
+            "opacity":".6"
+        },800,function(){
+            $("#box").css("background-color","orange")
+        })
+    });
+</script>
+</body>
+</html>

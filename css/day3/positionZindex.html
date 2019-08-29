@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*使用positon之后激活5个属性：
+        left right bottom top z-index
+        z-index: -1~9999*/
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+        #div0{
+            background-color: pink;
+            z-index: 99;
+        }
+        #div1{
+            background-color: orange;
+            left: 20px;
+        }
+        #div2{
+            background-color: #00c2f5;
+            left: 40px;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div id="div0"></div><!--粉-->
+    <div id="div1"></div><!--橙-->
+    <div id="div2"></div><!--蓝-->
+</body>
+</html>

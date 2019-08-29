@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <title>Title</title>
+
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--模态框-->
+<div class="modal fade bs-example-modal-sm" id="mymodal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+                <h4>模态框标题</h4>
+            </div>
+            <div class="modal-body">
+                内容
+                <div class="form-group">
+                    <label for="username">用户名：</label>
+                    <input type="text" id="username" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">用户名：</label>
+                    <input type="password" id="pwd" class="form-control"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                尾部
+                <input type="button" value="提交" class="btn btn-success"/>
+                <input type="button" value="关闭" class="btn btn-primary"  data-dismiss="modal"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container">
+    <!--模态框-->
+    <div class="row">
+        <h1 class="page-header">模态框</h1>
+        <button class="btn btn-warning" data-toggle="modal" data-target="#mymodal">
+            模态框
+        </button>
+    </div>
+    <!--Collapse面板-->
+    <div class="row">
+        <h1 class="page-header">可伸缩面板</h1>
+        <a href="#mypanel" class="btn btn-primary" role="button" data-toggle="collapse">
+            面板控制按钮A
+        </a>
+
+        <button class="btn btn-success" data-toggle="collapse" data-target="#mypanel2">
+            面板控制按钮B
+        </button>
+        <div class="collapse" id="mypanel"><!--需要被打开的可伸缩面板-->
+            <div class="well">
+                面板展开的内容部分1
+            </div>
+        </div>
+        <div class="collapse" id="mypanel2"><!--需要被打开的可伸缩面板-->
+            <div class="well">
+                面板展开的内容部分2
+            </div>
+        </div>
+    </div>
+
+    <!--面板组-->
+    <div class="row">
+        <h1 class="page-header">面板组</h1>
+        <div class="panel-group" id="panelParent">
+            <div class="panel panel-danger">
+                <div class="panel-heading" >
+                    <a href="#content1" data-parent="panelParent" data-toggle="collapse">
+                        标题1
+                    </a>
+                </div>
+                <div class="collapse" id="content1"  >
+                    <div class="well-lg">面板内容1</div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" >
+                    <a href="#content2" data-parent="panelParent" data-toggle="collapse">
+                        标题2
+                    </a>
+                </div>
+                <div class="collapse" id="content2"  >
+                    <div class="well-sm">面板内容2</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--工具提示-->
+    <div class="row">
+        <button class="btn btn-success" data-toggle="tooltip" title="移入右提示" data-placement="right">
+            移入右提示
+        </button>
+        <button class="btn btn-success" data-toggle="tooltip" title="移入右提示" data-placement="bottom">
+            移入下提示
+        </button>
+
+        <button class="btn btn-warning" data-toggle="popover" title="popover标题" data-content="弹出框的内容" data-placement="bottom">
+            点击下提示
+        </button>
+    </div>
+</div>
+
+<div class="jumbotron"><!--巨幕，通常和轮播一起使用-->
+    <div class="carousel slide" id="mycarousel" data-ride="carousel" data-interval="3000">
+        <!--圆点控制-->
+        <ol class="carousel-indicators">
+            <li data-target="#mycarousel" data-slide-to="0" class="active" ></li>
+            <li data-target="#mycarousel" data-slide-to="1"></li>
+            <li data-target="#mycarousel" data-slide-to="2"></li>
+        </ol>
+        <!--主体内容-->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="images/1.jpg" alt="...">
+                <div class="carousel-caption">
+                   文字描述1
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/2.jpg" alt="...">
+                <div class="carousel-caption">
+                    文字描述2
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/3.jpg" alt="...">
+                <div class="carousel-caption">
+                    文字描述3
+                </div>
+            </div>
+        </div>
+        <!--左右控制按钮-->
+        <a href="#mycarousel" class="left carousel-control" data-slide="prev" role="button">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </a>
+
+    </div>
+</div>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        $("[data-toggle='popover']").popover();
+    })
+</script>
+</body>
+</html>

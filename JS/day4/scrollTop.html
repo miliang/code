@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            height: 1600px;
+            background-color: #323232;
+        }
+        input{
+            width:50px;
+            height: 50px;
+            background-color: #00a9e3;
+            color: white;
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+            border: 0
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="Back" onclick="setTop()"/>
+<script>
+//    function backTop(){
+//        console.log(window.scrollY);
+//        console.log(document.body.scrollTop);
+////        window.scrollY=0;  //错误！只读
+////        window.scrollTo(0,0);
+//        document.body.scrollTop=0;
+//    }
+
+    /*缓慢滑动到顶部*/
+
+//function backTop(){
+//
+//    if(window.scrollY<=0){
+//        clearInterval(scrollnter);
+//    }else{
+//        window.scrollTo(0,window.scrollY-10);
+//    }
+//}
+
+var scrollnter;
+var beforeScroll;
+    function backTop(){
+
+        if(document.body.scrollTop<=0||document.body.scrollTop>beforeScroll){
+            clearInterval(scrollnter);
+        }else{
+            document.body.scrollTop=document.body.scrollTop-10;
+            beforeScroll=document.body.scrollTop;
+        }
+    }
+//
+
+
+    function setTop(){
+        beforeScroll=document.body.scrollTop;
+         scrollnter=setInterval(backTop,100);
+    }
+</script>
+</body>
+</html>

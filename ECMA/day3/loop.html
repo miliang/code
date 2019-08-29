@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--<ul>-->
+    <!--<li>1</li>-->
+    <!--<li>2</li>-->
+    <!--<li>3</li>-->
+    <!--<li>4</li>-->
+    <!--<li>5</li>-->
+<!--</ul>-->
+
+<!--<select name="" id="">]-->
+    <!--<option value="1">1</option>-->
+    <!--<option value="1">1</option>-->
+    <!--<option value="1">1</option>-->
+    <!--<option value="1">1</option>-->
+<!--</select>-->
+
+<script>
+/*三大结构
+* 顺序结构--从上到下依次执行
+* 选择结构--单分支 if /双分支 if else /多分支 if..else if /嵌套选择
+* 循环结构--1.先循环后验证 do..while 2.先验证后循环 while for*/
+
+    /*while循环：先验证后循环
+    *while(表达式true/false){
+    *   循环体（循环执行的内容）
+    * }
+    *
+    *
+    * 刷我的卡
+    * 100次刷卡的机会
+    * if(次数<100){
+    *   刷得(｡･∀･)ﾉﾞ嗨
+    * }else{
+    *   不能再刷了！
+    * }*/
+//    var i=1;
+//    while(i<=100){
+//        console.log("第"+i+"次，刷卡");
+//        i++;
+//    }
+//    document.write("不能再刷我的卡了！");
+
+    /*do...while 先循环后验证  :至少执行1次
+    * do{
+    *   循环体
+    * }while(表达式 条件判断 true/false)*/
+//    a=2;
+//    do{
+//        document.write("我错了！");
+//        a++;
+//    }while(a<5);
+
+    /*for循环，先验证后循环
+    * for(表达式1，表达式2，表达式3){
+    *       循环体
+    * }
+    * 表达式1：定义并且初始化一个循环变量
+    * 表达式2：条件判断-条件成立 执行循环体
+//    * 表达式3：循环变量的改变*/
+//    for(var i=1;i<=10000;i++){
+//        document.write("第"+i+"次，说我爱你"+"<br/>");
+//        //i++;
+//    }
+
+
+//    for(var i=1;true;i++){
+//        if(i>50){
+//            break;
+//        }
+//        document.write("第"+i+"次，说我爱你"+"<br/>");
+//        //i++;
+//    }
+    /*
+    * 1.var i=1;申明以个循环变量
+    * 2.i<=10000，条件判断，如果满足条件==》3
+    * 3.执行循环体
+    * 4.i++，循环变量的改变
+    * 5. i<=10000，再次进入条件判断==》2-5循环，直到不满足条件跳出循环
+    * */
+
+
+    /*跳出循环
+    * break
+    * continue*/
+//for(var i=1;i<=10000;i++){
+//    document.write("第"+i+"次，说我爱你"+"<br/>");
+//    if(i==3){
+////        break;//直接跳出循环
+//        continue;//跳出本次循环，写在continue后面的代码不执行
+//    }
+//
+//    document.write("！！！！测试测试！！！");
+//
+//    //i++;
+//}
+
+//document.write(" <ul>");
+//    for(var i=1;i<10;i++){
+//        document.write(" <li>"+i+"</li>");
+//    }
+//document.write(" </ul>");
+
+
+//var a="";
+//for(var i=1;i<10;i++){
+//    a=a+" <li>"+i+"</li>";//a=a+" <li>"+i+"</li>"
+//    /*分析a+=
+//    * 1. a=" <li>"+1+"</li>"
+//    * 2. a=" <li>"+1+"</li>"+" <li>"+2+"</li>*/
+//}
+//document.write(" <ul>"+a+"</ul>");
+
+</script>
+</body>
+</html>

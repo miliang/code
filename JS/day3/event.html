@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body onclick="showMsg3()">
+<div onclick="showMsg2()">
+    <button onclick="showMsg()">按钮</button>
+</div>
+
+<script>
+    /*==事件源=======================================指派事件处理程序
+    * 网页上的元素              event 对象：保存跟这次事件有关的信息
+     * 按钮-鼠标事件            type(事件类型)keyCode（用户按键）clientX(鼠标点击的坐标)
+     * 文本框-键盘
+    * 滚动条-HTML事件*/
+
+    /*事件冒泡*/
+    function showMsg(){
+        alert("button");
+    }
+    function showMsg2(){
+        alert("div");
+    }
+    function showMsg3(){
+        alert("body");
+    }
+</script>
+</body>
+</html>

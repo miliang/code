@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <div id="div1" class="red">
+        <div id="myText" class="red">div1里面的测试文本</div>
+    </div>
+    body里面的测试文本
+    <div id="div2" class="red"></div>
+    <h1>我是标题</h1>
+    测试文本
+    <form action="#">
+        <input type="radio" name="liujie" id="myinput"/>
+        <input type="radio" name="liujie"/>
+    </form>
+
+
+<script>
+/*查询是否有子节点,返回true/false*/
+    var hasChildNodes=document.body.hasChildNodes();
+//    console.log(hasChildNodes);//true
+
+//查询所有子节点
+    var myChildNodes=document.body.childNodes;
+//    console.log(myChildNodes);
+
+
+//    for(var i=0;i<myChildNodes.length;i++){
+////        console.log(myChildNodes[i]);
+//        console.log("第"+i+"个子节点的nodeName----"+myChildNodes[i].nodeName);//节点名字
+//        console.log("第"+i+"个子节点的nodeType----"+myChildNodes[i].nodeType);//节点类型
+//        console.log("第"+i+"个子节点的nodeValue----"+myChildNodes[i].nodeValue);//节点值
+//    }
+
+    /*nodeName 节点名称
+    * 元素-元素的标签名
+    * 文本节点-#text
+    *
+    * nodeType 节点类型
+    * 1--元素
+    * 2--属性
+    * 3--文本节点
+    *
+    * nodeValue节点值
+    * 元素--null
+    * 属性--属性值
+    * 文本--文本本身*/
+
+    /*获取节点*/
+//    var elements=myChildNodes[1];
+    var elements=myChildNodes[0].nextSibling;//获取下一个兄弟节点
+
+    elements=myChildNodes[2].previousSibling;//获取上一个兄弟节点
+
+
+    /*获取div1里面的子节点*/
+    elements=myChildNodes[1].firstChild;//获取第一个子节点
+    elements=myChildNodes[1].lastChild;//获取最后个子节点
+    elements=myChildNodes[1].childNodes[1];
+//    console.log(elements);
+
+    /*==============获取节点的方法=============*/
+    //1.通过ID获取节点-只会获取一个
+    var div1=document.getElementById("div1");
+//    console.log(div1);
+
+    /*2.通过className获取节点*/
+    var divClass=document.getElementsByClassName("red");
+//    console.log(divClass);
+
+//    for(var i=0;i<divClass.length;i++){
+//        console.log(divClass[i]);
+//    }
+//    console.log(divClass[2]);
+
+    /*3.通过元素标签名TagName获取节点*/
+    var myH1=document.getElementsByTagName("h1");
+//    console.log(myH1[0]);
+
+    /*4.通过Name获取节点*/
+    var byName=document.getElementsByName("liujie");
+    console.log(byName[0]);
+</script>
+</body>
+</html>

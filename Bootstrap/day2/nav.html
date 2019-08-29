@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <title>Title</title>
+
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        /*设置边框包裹logo*/
+        .navbar{
+            min-height: 90px;
+        }
+        /*调整菜单位置*/
+        .myNav{
+            padding-top: 2%;
+        }
+        /*设置在满足条件情况下LOGO居中*/
+        @media (min-width: 768px) and (max-width: 992px) {
+            .navbar-brand,.navbar-header{
+                width: 100%;
+            }
+        }
+        /*下拉菜单打开后没有边框*/
+        .navbar-collapse{
+            border:none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!--navbar:导航条
+    navbar-default：导航条样式 -->
+    <nav class="navbar navbar-default">
+        <div class="navbar-header"><!--导航条头-->
+            <a class="navbar-brand" href="#"><!--导航条LOGO-->
+                <img src="images/logo.png" alt="" class="center-block"/><!--center-block：图片居中-->
+            </a>
+            <!--导航条缩小后控制按钮-->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mycollapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+
+        <!--导航菜单
+        collapse：折叠菜单-基础类
+        navbar-collapse：导航条折叠菜单
+        text-center：文本居中-->
+        <div class="collapse navbar-collapse text-center" id="mycollapse">
+            <ul class="nav navbar-nav myNav">
+                <li><a href="#">画艺保真</a></li>
+                <li><a href="#">画艺保真</a></li>
+                <li><a href="#">画艺保真</a></li>
+                <li><a href="#">画艺保真</a></li>
+                <li><a href="#">画艺保真</a></li>
+                <li><a href="#">画艺保真</a></li>
+                <li><a href="#">画艺保真</a></li>
+            </ul>
+
+        </div>
+    </nav>
+</div>
+
+
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--<style>-->
+        <!--/*=====字符串匹配属性选择器=====-->
+        <!--1.全匹配-->
+        <!--元素名[属性=“值”]*/-->
+        <!--input[class="myIp"]{-->
+            <!--background-color: red;-->
+        <!--}-->
+        <!--/*2.匹配开头为某个值的元素-->
+        <!--元素名[属性值^=“值”]*/-->
+        <!--input[type^="p"]{-->
+            <!--background-color: yellowgreen;-->
+        <!--}-->
+        <!--div[class^="h"]{-->
+            <!--font-size: 30px;-->
+        <!--}-->
+        <!--/*3.匹配结尾为某个值的元素-->
+        <!--元素名[属性值$=“值”]*/-->
+        <!--div[class$="e"]{-->
+            <!--color: #7517ff;-->
+        <!--}-->
+        <!--/*4.匹配包含某个值的元素-->
+        <!--元素名[属性*=“值”]*/-->
+        <!--div[class*="a"]{-->
+            <!--background-color: yellow;-->
+        <!--}-->
+        <!--/*===========结构性伪类选择器==========-->
+        <!--1.nth-child(1)-->
+        <!--2.nth-of-type(
+        )-->
+
+        <!--nth-child：-->
+        <!--1.以“每一个父类为单位” ，满足以下2个条件-->
+           <!--a.必须是指定元素-->
+           <!--b.必须是该父类下的第N个元素，会考虑所有元素的排位*/-->
+        <!--/*p:nth-child(1){*/-->
+            <!--/*color:red;*/-->
+        <!--/*}*/-->
+        <!--/*p:first-child{*/-->
+           <!--/*color: #7517ff;*/-->
+        <!--/*}*/-->
+        <!--/*p:last-child{*/-->
+            <!--/*color: #00c2f5;*/-->
+        <!--/*}*/-->
+        <!--/*p:only-child{*/-->
+            <!--/*color: orange;*/-->
+        <!--/*}*/-->
+
+        <!--/* 2.nth-of-type(2)-->
+        <!--1.以每一个父类为单位，满足以下2个条件-->
+           <!--a.必须是指定元素-->
+           <!--b.是该父类下指定的第N个元素，只考虑同类型的元素，不考虑其他元素的排位*/-->
+        <!--p:nth-of-type(2){-->
+            <!--color: red;-->
+        <!--}-->
+    <!--</style>-->
+</head>
+<body>
+<!--<input type="text" class="myIp"/>-->
+<!--<input type="password"/>-->
+
+<!--<div class="header_titile">header_titile</div>-->
+<!--<div class="header_titile">header_titile</div>-->
+<!--<div class="header_titile">header_titile</div>-->
+<!--<div class="header_content">header_content</div>-->
+<!--<div class="footer">footer</div>-->
+
+<!--<hr/>-->
+<!--&lt;!&ndash;字符串匹配属性选择器&ndash;&gt;-->
+<!--<p>外面的P元素1</p>-->
+<!--<p>外面的P元素2</p>-->
+
+<!--<div id="div1">-->
+    <!--<p>DIV里面的P1</p>-->
+    <!--<div id="div1Baby">-->
+        <!--<p>div1Baby里面的P1</p>-->
+    <!--</div>-->
+    <!--<p>DIV里面的P2</p>-->
+<!--</div>-->
+
+<!--<div id="div2">-->
+    <!--<span>div2里面的Span1</span>-->
+    <!--<span>div2里面的Span2</span>-->
+    <!--<p>div2里面的P1</p>-->
+    <!--<p>div2里面的P2</p>-->
+<!--</div>-->
+<!--<style>-->
+    <!--input:nth-of-type(3)-->
+    <!--input:nth-child(3)-->
+<!--</style>-->
+<!--<div id="div3">-->
+    <!--<input type="checkbox"/>-->
+    <!--<input type="checkbox"/>-->
+    <!--<div>12313</div>-->
+    <!--<span>12385</span>-->
+    <!--<input type="checkbox"/>&lt;!&ndash;选中&ndash;&gt;-->
+    <!--<input type="checkbox"/>-->
+    <!--<input type="checkbox"/>-->
+    <!--<input type="checkbox"/>-->
+<!--</div>-->
+<!--目标伪类选择器
+一般用在表单组件上-->
+<!--<style>-->
+    <!--/*目标伪类选择器*/-->
+    <!--input[type="checkbox"]:checked{-->
+        <!--width: 50px;-->
+        <!--height: 50px;-->
+    <!--}-->
+    <!--input[type="text"]:disabled{-->
+        <!--background-color: gold;-->
+    <!--}-->
+    <!--/*改变高光*/-->
+    <!--::selection{-->
+        <!--color: #00c2f5;-->
+        <!--background-color: #ccc;-->
+    <!--}-->
+    <!--/*not伪类选择器*/-->
+    <!--#div2 :not(p){-->
+        <!--color: green;-->
+    <!--}-->
+
+    <!--/*============子元素选择器=========*/-->
+    <!--#div2 p{}/*后代选择器*/-->
+    <!--#div2>div>p{-->
+        <!--color: #7517ff;-->
+    <!--}-->
+<!--</style>-->
+<div id="myForm">
+    <input type="checkbox"/>
+    <input type="checkbox"/>
+    <input type="checkbox"/>
+    <input type="checkbox"/>
+    <input type="checkbox"/>
+    <input type="checkbox"/>
+</div>
+<input type="text" disabled="disabled"/>
+<input type="text" />
+<p>这是一个P标签</p>
+
+<div id="div2">
+    <span>Div2的span1</span>
+    <span>Div2的span2</span>
+    <p>DIV2的P1</p>
+    <p>DIV2的P2</p>
+    <div id="div2Baby">
+        <p>div2Baby里面的P元素</p>
+    </div>
+</div>
+<hr/>
+<!--兄弟选择器-->
+<style>
+    #myDivfirstP~p{/*本元素之后的所有相同标签的弟弟元素被选中*/
+        color:blueviolet;
+    }
+    /*相邻选择器 +
+    */
+    #myDivfirstP:hover+p{
+        color: #00c2f5;
+    }
+    /*鼠标移入myDiv，子元素myDivthirdP改变*/
+    /*#myDiv:hover>#myDivthirdP{*/
+        /*color: red;*/
+    /*}*/
+    #myDiv:hover #myDivthirdP{
+        color: red;
+    }
+</style>
+<div id="myDiv">
+    <p id="myDivfirstP">P1</p>
+    <p>p3</p>
+    <p id="myDivthirdP">P3</p>
+    <span>span1</span>
+    <span>span2</span>
+    <span>span3</span>
+    <p>P4</p>
+    <p>P5</p>
+    <p>P6</p>
+    <p>P7</p>
+</div>
+<!---->
+<style>
+    nav li{
+
+    }
+    nav>ul>li>ul>li
+</style>
+<nav>
+    <ul>
+        <li>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</nav>
+</body>
+</html>

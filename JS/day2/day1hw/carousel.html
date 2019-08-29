@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("images/background.jpg");
+
+        }
+        .imgBox{
+            margin: 0 auto;
+            width: 980px;
+            height: 330px;
+            overflow: hidden;
+            position: relative;
+            top: 100px;
+        }
+        #img{
+            width: 2940px;
+            font-size: 0;
+            transition: all .5s linear;
+        }
+        .button{
+            position: absolute;
+            height: 150px;
+            width: 60px;
+            text-align: center;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            font-size: 60px;
+            line-height: 150px;
+            top:90px;
+            /*font-family: "宋体“;*/
+        }
+        .img-right{
+            right: 0;
+            border-radius: 150px 0 0 150px;
+        }
+        .img-left{
+            border-radius: 0 150px 150px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="imgBox"><!--溢出隐藏-->
+    <div id="img">
+        <img src="images/1.jpg" alt=""/>
+        <img src="images/2.jpg" alt=""/>
+        <img src="images/3.jpg" alt=""/>
+    </div>
+    <div class="button img-left" onclick="left()"><</div>
+    <div class="button img-right" onclick="right()">></div>
+</div>
+<script>
+    var img=document.getElementById("img");
+    setInterval(left,2000);
+    function left(){
+        console.log("111");
+        if(img.style.marginLeft==""){
+            img.style.marginLeft="-0px";
+        }
+        img.style.marginLeft=(parseInt(img.style.marginLeft)-980)+"px";
+        if(img.style.marginLeft=="-2940px"){
+            img.style.marginLeft="0px";
+        }
+
+    }
+
+</script>
+</body>
+</html>

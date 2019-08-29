@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+        }
+        #div1{
+            /*background-color: red;*/
+            /*1.渐变方向 top right bottom left/角度（deg）-从left开始逆时针旋转
+            2.起始颜色
+            3.终止颜色*/
+            /*background-image: -webkit-linear-gradient(left,orange,red);*/
+            /*background-image: -webkit-linear-gradient(45deg,orange,red);*/
+            /*background-image: -webkit-linear-gradient(45deg,black,orange,red);*/
+            /*百分比：后一个比前一个值大。
+            1.百分比第一个是终止的位置，第二个是起始的位置+前一个的终止位置（中间渐变过渡区域）*/
+            background-image: -webkit-linear-gradient(45deg,black 40%,orange 50%,red 90%);
+
+        }
+        #div2{
+            border-radius: 500px;
+            /*background-color: red;*/
+            background-image: -webkit-radial-gradient(left,red,yellow,orange);
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+</html>

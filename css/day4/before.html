@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            font-size: 20px;
+            margin-top: 200px;
+            position: relative;
+        }
+        #div1:before{
+            /*content: "这是before的内容";*/
+            content: "\25E5";
+            color: pink;
+            font-size: 40px;
+            position: absolute;
+            top:180px;
+            left: 50px;
+            /*background-color: #343434;*/
+            width: 100px;
+            height: 100px;
+        }
+        #div1:after{
+            /*content: "这是before的内容";*/
+            content: "这是after";
+            color: yellowgreen;
+            font-size: 40px;
+            /*position: absolute;*/
+            /*top:180px;*/
+            /*left: 50px;*/
+            /*background-color: #343434;*/
+            /*width: 100px;*/
+            /*height: 100px;*/
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    DIV1本身的内容
+</div>
+</body>
+</html>

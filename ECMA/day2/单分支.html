@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*1.单分支
+    * if(条件（表达式）返回true/false-如果前面的表达式成立，就执行花括号中的所有语句){
+    *   执行语句
+    * }*/
+//    var a=-10;
+////    console.log(a>0);
+//    if(a>0){
+//        console.log("11111");
+//    }
+//    console.log("程序结束");
+
+    /*2.双分支 二选一  如果......否则......*/
+//    var a=10;
+//    if(a>0){
+//        alert("a大于0")
+//    }else{
+//        alert("a小于0")
+//    }
+
+    /*3.多分支*/
+//    var grade="呵呵";//分数
+//    if(grade>=60&&grade<=70){
+//        alert("d");
+//    }else if(grade>70&&grade<=80){
+//        alert("c")
+//    }else if(grade>80&&grade<=90){
+//        alert("b")
+//    }else if(grade>90&&grade<=100){
+//        alert("a")
+//    }else{
+//        alert("你没参加考试吧！");
+//    }
+//
+//    alert("程序结束");
+
+    /*多个if*/
+//    var a=50;
+//    if(a<100){
+//        alert("a小于100");
+//    }
+//    if(a>0){
+//        alert("a大于0");
+//    }
+
+
+    /*switch case
+    * switch (变量){
+    * case "1":执行语句1；break;
+    * case "2":执行语句2;break;
+    * ……
+    * default
+    * }*/
+    var day=window.prompt("请输入星期几？");
+    switch (day){
+        case "1":alert("星期一");break;
+        case "2":alert("星期二");break;
+        case "3":alert("星期三");break;
+        case "4":alert("星期四");break;
+        case "5":alert("星期五");break;
+        case "6":alert("星期六");break;
+        default :alert("世界末日");//默认语句，前面case全部不匹配的时候 才会执行
+    }
+
+    if(day==1){
+        alert("星期一")
+    }else if(day==2){
+        alert("星期二")
+    }else{
+        alert("世界末日");
+    }
+</script>
+</body>
+</html>

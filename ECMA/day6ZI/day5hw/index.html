@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*1.写一个函数，参数为一个字符，一个字符串，
+     返回这个字符出现在这个字符串的第几个位置，如果没有该字符，则返回-1*/
+//    var str="come on";
+//    function myindexof(str,str2){
+//        var result=-1;
+//        if(str.length==1){
+//            for(var i=0;i<str2.length;i++){
+//                /*charAt()返回指定位置的字符*/
+//                if(str2.charAt(i)==str){
+//                    result=i;
+//                    break;
+//                }
+//            }
+//        }
+//
+//        return result;
+//    }
+//    var number=myindexof("o",str);
+//    console.log(number);
+
+    /*2.写一个函数，参数为截取字符串的起始位置，截取字符串的结束位置
+     要截取的字符串，最后根据函数参数返回对应截取的字符串*/
+
+//    var str="abcdefg";
+//    function mysubstring(start,end,str){
+//        var result="";
+//        for(var i=start;i<end;i++){
+//            result+=str.charAt(i);//
+//        }
+//
+//        return result;
+//    }
+//    var myrezult=mysubstring(3,6,str);
+//    console.log(myrezult);
+
+    //3.写一个函数，参数为一个字符，一个字符串，根据这个字符 将 传入的字符串
+    // 分割成多个字符串，并用数组返回这些分割的字符串
+
+    var mystring="ab,c,d,dd,a/a,bb";//"a" ,"bcddda",""
+    function mysplit(a,b){
+        var newStrArray=[];
+        var temp="";
+
+        for(var i=0;i< b.length;i++){//
+            if(a== b.charAt(i)){
+                newStrArray.push(temp);
+                /*["a"]
+                * ["a","ab,c,d,dd"]*/
+                temp="";
+            }else{
+                temp=temp+ b.charAt(i);
+                /*“b,c,d,dd,”*/
+            }
+        }
+        newStrArray.push(temp);
+        return newStrArray;
+    }
+    var myresult=mysplit("a",mystring);
+    console.log(myresult);
+
+    //4.写一个函数，参数为一个字符串，返回这个字符串的反向字符串。
+//    var str="abcde";
+//    function test(str){
+//        var mynewStr="";
+//        for(var i=str.length-1;i>=0;i--){
+//            mynewStr+=str[i];
+//        }
+//        return mynewStr;
+//    }
+//    var mytest=test(str);
+//    console.log(mytest);
+
+    var str="abcde";
+    function test2(str){
+       var newString=str.split("");//把一个字符串分割成字符串数组
+//        console.log(newString);
+        var myArr=newString.reverse();//数组降序排列
+        console.log(myArr);
+        var mynewStr=myArr.join("");//把所有元素放入一个字符串
+        console.log(mynewStr);
+        return mynewStr;
+    }
+        var mytest=test2(str);
+//        console.log(mytest);
+</script>
+</body>
+</html>

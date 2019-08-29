@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var accounts=[11,22,33];
+    var passwords=[111,222,333];
+    var money=[100,200,300];
+
+    /*对象Object*/
+    var fengxiaolong={
+        accounts:"666",//键值对
+        passwords:"123",
+        money:1,
+        inquiry:function(){
+            console.log("冯小龙的余额是："+fengxiaolong.money);
+        }
+    };
+    console.log(fengxiaolong.accounts);
+    fengxiaolong.inquiry();
+    /*对象的属性-特征（名词）-明确指向同一个对象
+    *对象的行为-动作（动词）-函数来表达
+    *
+    * 对象语法：
+    * 1.*通过字面量{}创建对象
+    * 属性+行为-键值对，键名(key):值（value）
+    * 属性和属性之间用都好区分，最后一个属性没有逗号或者分号
+    * 行为：以匿名函数的方式去代表*/
+
+    var obj1={
+        stuName:"龙超",
+        stuId:"s2222",
+        takeExam:function(){
+            console.log("我爱考试，爱学习！");
+        }
+    };
+
+    console.log(typeof obj1);
+    console.log(obj1.stuName);//获取对象属性的值
+    obj1.takeExam();//调用对象方法
+
+    var obj2={
+        stuName:"小丁丁",
+        stuId:"sb6666",
+        takeExam:function(){
+            console.log("我爱考试，爱学习！");
+        }
+    };
+
+
+    /*function 定立一个模板，构造函数
+    * */
+    function Student(stuname,stuid){
+        /*this-实例化对象（通过new 方法创建出来的对象）*/
+        console.log(this);
+        this.stuName=stuname;
+        this.stuId=stuid;
+        this.takeExam=function(){
+            console.log("我爱考试，爱学习！");
+        }
+    }
+
+    var obj3=new Student("小姚姚","sb202222");
+    var obj4=new Student("小小豪","sb20022");
+    console.log(typeof obj4);
+    console.log(obj4.stuName);
+    obj4.takeExam();
+
+
+    var arr=new Array();
+</script>
+</body>
+</html>

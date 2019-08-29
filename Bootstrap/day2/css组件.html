@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/prettify.css"/>
+    <title>Title</title>
+
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h1 class="page-header">导航标签</h1>
+        <ul class="nav nav-tabs">
+            <li role="presentation"><a href="#">Home</a></li>
+            <li role="presentation"  class="active"><a href="#">Profile</a></li>
+            <li role="presentation"><a href="#">Messages</a></li>
+        </ul>
+    </div>
+
+`   <div class="row">
+         <h1 class="page-header">胶囊式标签</h1>
+        <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Profile</a></li>
+            <li role="presentation"><a href="#">Messages</a></li>
+        </ul>
+    </div>
+
+
+    `<div class="row">
+        <h1 class="page-header">胶囊式标签</h1>
+        <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Profile</a></li>
+            <li role="presentation"><a href="#">Messages</a></li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <h1 class="page-header">导航标签页（含下拉菜单）</h1>
+        <ul class="nav nav-pills">
+            <li role="presentation" class="active">
+                <a href="#">HOME1</a>
+            </li>
+            <li role="presentation">
+                 <a href="#">HOME1</a>
+            </li>
+            <li role="presentation">
+                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                    HOME1
+                    <span class="caret"></span>
+                </a>
+                <ul  class="dropdown-menu">
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-road"></span>
+                            子菜单
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-road"></span>
+                            子菜单
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-road"></span>
+                            子菜单
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+
+    </div>
+
+</div>
+
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $(".nav li").click(function(){
+        console.log("111");
+//        $(this).attr("class","active").siblings().removeAttr("class","active");
+
+        $(this).tab("show");
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*关系比较运算符，得到的是布尔值 true false
+    > < >= <= == != === !==*/
+    console.log(5>3);
+    var number1=10;//number
+    var number2="10";//string
+    console.log(number1==number2);//true
+
+    console.log(number1===number2);//恒等false
+    /*==和===区别：
+    * ==和！=只比较值===》会自动转换Number
+    * ===和！== 比较值和数据类型*/
+    console.log(number1!==number2);//true
+    //NULL和undefined
+    console.log(undefined==null);//true,空
+    console.log(undefined===null);//false
+
+    console.log(typeof null);//Object
+
+    var number3="10a";
+    var number4="10a";
+    console.log(Number(number3));//NaN
+    console.log(Number(number3)==NaN);//
+    number3=Number(number3);
+    console.log(NaN==NaN);
+    /*专门判断一个值是否是NaN*/
+    console.log(isNaN(number3));//true
+
+    console.log(1==true);//true
+    console.log(11==true);//false
+
+    /*数值和布尔值比较的时候，是把布尔值转化为Number之后比较*/
+    console.log(Number(true));//1
+    console.log(Number(false));//0
+
+    console.log(0==false);
+
+
+    /*字符串和布尔值进行比较的时候
+    * */
+    var string="1adujieni";
+
+
+//    console.log(Boolean(string));//true
+
+    console.log(string==true);//false
+
+    var string2="";
+//    console.log(Boolean(string2));//false
+    console.log(string2==false);//true
+//任何数据类型都能换成布尔值
+    console.log(Boolean("dde5222f"));
+</script>
+</body>
+</html>

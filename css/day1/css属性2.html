@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            text-align: center;/*left right center*/
+        }
+        div span{
+            line-height: 200px;/*行高与容器高度一致的时候，单排文字垂直居中*/
+        }
+        .myText{
+            width: 100%;
+            height: 200px;
+            border: 1px solid green;
+            display: table-cell;/*当成单元格处理*/
+            vertical-align: middle;
+        }
+
+        td{
+            vertical-align: middle;
+            width: 100px;
+            height: 50px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <span>HELLO WORLD！！</span>
+</div>
+<div class="myText">
+    <p>
+        不敢扶老人之后，人们又不敢劝阻老人吸烟了。hello world!
+        媒体报道，河南郑州的一位医生在小区电梯里劝阻一位抽烟的老人，引发了争执。
+        事后，老人情绪激动，心脏病发作离世。
+        不敢扶老人之后，人们又不敢劝阻老人吸烟了。hello world!
+        媒体报道，河南郑州的一位医生在小区电梯里劝阻一位抽烟的老人，引发了争执。
+        事后，老人情绪激动，心脏病发作离世。
+    </p>
+</div>
+<table border="1" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+</table>
+</body>
+</html>

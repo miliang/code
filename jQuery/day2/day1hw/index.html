@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #msg{
+            height: 200px;
+            border: 3px solid palevioletred;
+        }
+    </style>
+</head>
+<body>
+<div id="msg"></div>
+<textarea cols="30" rows="5"></textarea>
+<button>回复</button>
+
+<textarea cols="30" rows="5"></textarea>
+<button>回复</button>
+
+<script src="../../jquery-3.1.1.js"></script>
+<script>
+    //获取光标
+    $("textarea").focus(function(){
+    //    console.log("11111");
+        $(this).attr("rows","10");
+    });
+    //失去焦点
+    $("textarea").blur(function(e){
+//        console.log("click")
+//        $(this).attr("rows","5");
+//        console.log(e.relatedTarget);
+        var btn=$(this).next().get(0);
+//        console.log(btn);
+
+        if(e.relatedTarget==btn){
+            return false;
+        }else{
+            $(this).attr("rows","5");
+        }
+    });
+    $("button").click(function(){
+//        console.log(this);
+        var tValue=$(this).prev().val();
+//        console.log(tValue);
+        $("#msg").append(tValue);
+        //trigger()触发被选元素的指定事件类型
+        $(this).prev().trigger("blur");
+    })
+</script>
+</body>
+</html>

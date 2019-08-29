@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var accounts=[11,22,33];//账号
+    var passwords=[11,22,33];//密码
+    var money=[100,200,300];//金额
+
+    var login;//记录当前登录的用户是谁，便于存取款使用对应的账户
+
+
+    checkLogin();
+    function checkLogin(){
+        for(var i=0;i<3;i++){
+            var logInput=prompt("请输入账号");
+            var passInput=prompt("请输入密码");
+            for(var j=0;j<accounts.length;j++){
+                if(accounts[j]==logInput&&passwords[j]==passInput){
+                    login=j;
+                    mainDisplay();
+                }
+            }
+        }
+    }
+    //主界面
+    function mainDisplay(){
+        console.log("进入主界面！");
+        var chooseInput=prompt("输入操作 1. 存款 2.转账");
+        if(chooseInput==1){
+            console.log("存款");
+            saveMoney();
+        }else if(chooseInput==2){
+            console.log("转账");
+            transfer();
+        }
+    }
+
+    //存款
+    function saveMoney(){
+        var moneyInput=parseInt(prompt("输入存款金额"));
+        money[login]+=moneyInput;
+        mainDisplay();
+
+    }
+    //转账
+    function transfer(){
+        var transferAcc=prompt("转账账号");
+        var transferMoney=parseInt(prompt("转账金额"));
+        //转账金额》已有金额
+        if(transferMoney>money[login]){
+            alert("转账超支,请重新输入");
+            transfer();
+        }else{
+            for(var i=0;i<accounts.length;i++){
+                if(transferAcc==accounts[i]&&transferAcc!=accounts[login]){
+                    money[i]+=transferMoney;
+                    money[login]-=transferMoney;
+                    alert("转账成功");
+                    break;
+                }else if(transferAcc==accounts[login]){
+                    alert("不能给自己转账");
+                    break;
+                }else if(i==accounts.length-1){
+                    alert("账号不存在，请重新输入");
+                    transfer();
+                }
+            }
+            mainDisplay();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

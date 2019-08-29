@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button onclick="myLocation()">窗口跳转</button>
+<button onclick="myHistoryn()">历史记录</button>
+<button onclick="myOpen()">打开新窗口</button>
+<button onclick="myClose()">关闭窗口</button>
+<script>
+    function myLocation(){
+//        window.location
+        location.href="eventObj.html";
+//        location.href="http://www.baidu.com";//打开外部地址，必须加上Http
+    }
+    function myHistoryn(){
+//        history.back();  //后退一页
+//        history.forward(); //前进一页
+        history.go(1);//负数 后退N页，正数前进N页
+    }
+
+    /*Navigator对象
+    * userAgent属性用于浏览器识别，系统版本 浏览器 浏览器内核等*/
+//    alert("浏览器信息----"+navigator.userAgent);
+
+    function myOpen(){
+        /*1.窗口地址
+        * 2.新窗口的名称
+        * 3.窗口特征（宽、高、工具栏、菜单栏、窗口位置）*/
+//        window.open("http://www.baidu.com","新窗口","width=300,height=300");
+        window.open("eventObj.html","新窗口","width=300,height=300");
+    }
+    /*只能关闭被open的窗口*/
+    function myClose(){
+        console.log(111);
+        window.close();
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        h1{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<button onclick="myReplace()">替换内容</button>
+<button onclick="myInsertBefore()">节点插入</button>
+<button onclick="myClone()">节点复制</button>
+<button onclick="getNode()">获取其他节点</button>
+<button onclick="textModify()">文本节点的操作</button>
+<div id="div1">
+    <div id="replace1">我是邓康</div>
+    小康康
+    <div id="replace2">我是姚斐</div>
+    <div id="replace3">我是小丁丁</div>
+    <div id="replace4">我是小豪豪</div>
+</div>
+<div id="div2"></div>
+<h1 id="myTitle">小丁丁爱小豪豪</h1>
+
+<script>
+    var div1=document.getElementById("div1");
+    var myTitle=document.getElementById("myTitle");
+//    节点替换
+    function myReplace(){
+        /*父节点.repalceChild（新节点，要替换的旧节点）*/
+        var replace1=document.getElementById("replace1");
+        /*创建一个新节点去替换旧节点*/
+//        var newDiv=document.createElement("div");
+//        var textNode=document.createTextNode("石佳文");
+//        newDiv.appendChild(textNode);
+//
+//        div1.replaceChild(newDiv,replace1);
+
+
+
+        /*直接把节点自身替换掉旧节点*/
+        div1.replaceChild(myTitle,replace1)
+
+
+    }
+    /*节点插入*/
+    function myInsertBefore(){
+        /*父节点.insertBefore(新节点，插入到哪个节点的前方)*/
+        var newDiv=document.createElement("div");
+        var textNode=document.createTextNode("石佳文");
+        newDiv.appendChild(textNode);
+        var replace2=document.getElementById("replace2");
+
+        div1.insertBefore(myTitle,replace2);
+    }
+
+    function myClone(){
+        /*要复制的节点.cloneNode(布尔值)
+        * true:复制自己+所有子节点
+        * false:只复制自己，不包含子节点内容*/
+        var newClone=myTitle.cloneNode(true);
+        console.log(newClone);
+        div1.appendChild(newClone);
+    }
+    function getNode(){
+        var replace3=document.getElementById("replace3");
+        var next=replace3.nextElementSibling;
+        console.log(next);
+        var prev=replace3.previousElementSibling.previousElementSibling;
+        console.log(prev);
+    }
+    //文本节点
+    function textModify(){
+        console.log(myTitle.firstChild);
+        /*1.新添加文本内容，添加到文本节点的最后方
+        * 文本节点.appendData("文本内容")*/
+//        myTitle.firstChild.appendData(",才怪！");
+
+        /*2.指定位置添加内容，添加到指定下标位置的前方，下标从0开始
+        * 文本节点.insertData(下标，”新添加的文本内容“)*/
+//        myTitle.firstChild.insertData(3,"不");
+
+
+        /*3.删除文本内容 从下表位置开始 删除多少个字符
+        * 文本节点.deleteData（下标，删除的字符数）*/
+//        myTitle.firstChild.deleteData(3,4);
+
+        /*4.文本内容替换
+        * 文本节点.replaceData(下标，替换的字符数目，替换的内容)*/
+        myTitle.firstChild.replaceData(0,3,"石佳文");
+
+    }
+</script>
+</body>
+</html>

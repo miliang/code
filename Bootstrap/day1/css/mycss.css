@@ -1,0 +1,6 @@
+@media  (max-width:768px ) and (min-width: 350px){
+    h1{
+        font-size: 16px;
+        color: red;
+    }
+}

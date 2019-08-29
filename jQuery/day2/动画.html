@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: #00a9e3;
+            display: none;
+        }
+        .test{
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+            color: green;
+            text-align: center;
+            line-height: 50px;
+            margin-top: 2px;
+            display: none;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<button id="btn1">隐藏box</button>
+<button id="btn2">显示box</button>
+<button id="btn3">显示/隐藏box</button>
+<button id="btn4">滑动隐藏box</button>
+<button id="btn5">滑动显示box</button>
+<button id="btn6">滑动显示/隐藏box</button>
+<button id="btn7">淡入淡出box</button>
+
+
+<!--队列显示-->
+<button id="btn8">刘杰的表演</button>
+<div style="height: 100px">
+    <div class="test">刘</div>
+    <div class="test">杰</div>
+    <div class="test">！</div>
+    <div class="test">你</div>
+    <div class="test">帅</div>
+    <div class="test">炸</div>
+    <div class="test">了</div>
+    <div class="test">！</div>
+    <div class="test">爆</div>
+    <div class="test">了</div>
+    <div class="test">！</div>
+</div>
+
+
+<script src="../jquery-3.1.1.js"></script>
+<script>
+$("#btn1").click(function(){
+    $("#box").hide(800);
+});
+
+$("#btn2").click(function(){
+    $("#box").show(800);
+});
+    $("#btn3").click(function(){
+        $("#box").toggle(500);
+    });
+
+
+//滑动
+
+    $("#btn4").click(function(){
+        $("#box").slideUp();
+    });
+    $("#btn5").click(function(){
+        $("#box").slideDown();
+    });
+    $("#btn6").click(function(){
+        $("#box").slideToggle(1000,function(){
+            alert("刘杰，你帅到爆！")
+        });
+    });
+
+    //淡入淡出
+$("#btn7").click(function(){
+//    $("#box").fadeIn();
+//    $("#box").fadeOut();
+    $("#box").fadeToggle();
+//    $("#box").fadeTo("fast",.6);
+});
+    /*所有动画方法调用都可以传参数 1.时间 2.回调函数*/
+
+
+    //队列显示
+//    $("#btn8").click(function(){
+//        $(".test").eq(0).show(200,function(){
+//            $(".test").eq(1).show(200,function(){
+//                $(".test").eq(2).show(200,function(){
+//                    $(".test").eq(3).show(200,function(){
+//                        $(".test").eq(4).show(200,function(){
+//                            $(".test").eq(5).show(200,function(){
+//                                $(".test").eq(6).show(200,function(){
+//                                    $(".test").eq(7).show(200,function(){
+//                                        $(".test").eq(8).show(200,function(){
+//                                            $(".test").eq(9).show(200,function(){
+//                                                $(".test").eq(10).show(200)
+//                                            })
+//                                        })
+//                                    })
+//                                })
+//                            })
+//                        })
+//                    })
+//                })
+//            })
+//        });
+//    });
+
+$("#btn8").click(function(){
+    $(".test").first().show(500,function myShow(){
+        $(this).next().show(500,myShow);
+    } )
+})
+</script>
+</body>
+</html>

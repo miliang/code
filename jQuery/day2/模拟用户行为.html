@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <button id="btn1">按钮1</button>
+    <button id="btn2">按钮2</button>
+    <button id="btn3">模拟用户行为</button>
+    <button id="btn4">自定义行为</button>
+    <button id="btn5">触发自定义事件</button>
+
+
+<script src="../jquery-3.1.1.js"></script>
+<script>
+    $("#btn1").on("click",function(){
+        alert("刘杰被点了！");
+    });
+    $("#btn2").on("click",function(){
+        alert("刘杰又被点了！");
+    });
+
+    $("#btn3").on("click",function(){
+        //btn3模拟btn2的行为
+//        $("#btn2").click();
+
+        $("#btn2").trigger("click");
+    });
+
+    $("#btn4").on("myTest",function(){
+        alert("刘杰，想和太阳肩并肩！");
+    });
+
+    $("#btn4").on("click",function(){
+        $("#btn4").trigger("myTest");
+    })
+</script>
+</body>
+</html>

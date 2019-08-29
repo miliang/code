@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<select  id="sheng" onchange="changeCity()">
+    <option value="0">--请选择--</option>
+    <option value="1">四川省</option>
+    <option value="2">广东省</option>
+    <option value="3">湖北省</option>
+</select>
+
+<select  id="shi">
+    <!--<option value="0">&#45;&#45;请选择&#45;&#45;</option>-->
+    <!--<option value="1">成都</option>-->
+    <!--<option value="2">乐山</option>-->
+    <!--<option value="3">绵阳</option>-->
+</select>
+
+<input type="radio" onchange="myCheck()"/>
+<script>
+    function myCheck(){
+        var mysta=true;
+        if(mysta==true){
+            console.log("111");
+            mysta=false;
+        }
+
+    }
+function changeCity(){
+//    console.log(111);
+    var shengId=document.getElementById("sheng");
+    var shi=document.getElementById("shi");
+
+    console.log(typeof shengId.value);
+    if(shengId.value=="1"){
+      shi.innerHTML="<option value='1'>成都</option>"+
+                "<option value='2'>乐山</option>"+
+                "<option value='3'>绵阳</option>"
+    }else if(shengId.value=="2"){
+        shi.innerHTML="<option value='1'>广州</option>"+
+        "<option value='2'>深圳</option>"+
+        "<option value='3'>东莞</option>"
+    }
+
+}
+</script>
+</body>
+</html>

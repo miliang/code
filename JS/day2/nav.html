@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li{
+            width: 200px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            background-color: #00a9e3;
+            color: white;
+            overflow: hidden;
+            border-bottom: 1px solid white;
+            transition: all .3s linear;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        li>ul>li{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li onclick="openMenu(this)" class="menu">
+            <a href="#">首页</a>
+            <ul>
+                <li>子菜单1</li>
+                <li>子菜单2</li>
+            </ul>
+        </li>
+        <li onclick="openMenu(this)" class="menu">
+            <a href="#">新闻</a>
+            <ul>
+                <li>子菜单1</li>
+                <li>子菜单2</li>
+                <li>子菜单3</li>
+            </ul>
+        </li>
+        <li onclick="openMenu(this)" class="menu">
+            <a href="#">技术支持</a>
+            <ul>
+                <li>子菜单1</li>
+                <li>子菜单2</li>
+                <li>子菜单3</li>
+                <li>子菜单4</li>
+            </ul>
+        </li>
+        <li onclick="openMenu(this)" class="menu">
+            <a href="#">关于我们</a>
+            <ul>
+                <li>子菜单1</li>
+            </ul>
+        </li>
+        <li onclick="openMenu(this)" class="menu">
+            <a href="#">帮助</a>
+        </li>
+    </ul>
+</nav>
+
+
+<script>
+//    function openMenu(obj){
+//        var subMenu=obj.getElementsByTagName("li");
+//        obj.style.height=(subMenu.length+1)*45+"px";
+//    }
+function openMenu(obj){
+    var ul=obj.parentNode;
+//    console.log(ul);
+//    var li=ul.childNodes;
+    var li=document.getElementsByClassName("menu");
+    console.log(li);
+    for(var i=0;i<li.length;i++){
+        li[i].style.height="45px";
+    }
+    var subMenu=obj.getElementsByTagName("li");
+    obj.style.height=(subMenu.length+1)*45+"px";
+}
+</script>
+</body>
+</html>

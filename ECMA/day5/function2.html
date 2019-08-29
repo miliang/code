@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //加法函数
+//    function jia(a,b){
+//        return a+b;
+//    }
+//    var result=jia(5,50);
+//    console.log(result);
+//    result=jia(4445,50);
+//    console.log(result);
+//    //减法函数
+//    function jian(a,b){
+//        var c=a-b;
+//
+//        return c;
+//    }
+//    result=jian(98,56);
+//    console.log(result);
+//
+////一个函数返回多个结果
+//    function myMath(a,b){
+//        var mysum=a+b;
+//        var mysub=a-b;
+//        var myArray=[mysum,mysub];
+//        return myArray;
+//    }
+//    result=myMath(10,5);
+//    console.log(result[0]);
+
+
+    function test(a,b,c,d){
+//        var sum=a+b+c+d;
+        console.log(arguments);//通过arguments获取用户传进函数的所有参数；
+        var sum=0;
+        for(var i=0;i<arguments.length;i++){
+//            sum=sum+arguments[i];
+            sum+=arguments[i];
+        }
+        return sum;
+    }
+
+    var mySum=test(1,2,3,4);
+    console.log(mySum)
+</script>
+</body>
+</html>
